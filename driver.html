@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Driver · TRL Driver Hub</title>
+  <meta name="description" content="Driver profile, season results, penalties and career statistics.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="driver">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <a class="text-muted" id="back" href="drivers.html">← All drivers</a>
+      <div class="profile mt-3" id="profile"></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="sidebar-layout">
+        <div class="stack">
+          <div class="card">
+            <div class="card__title">Season results <span class="text-muted" id="season-label" style="font-family:var(--font-body);font-size:.85rem;text-transform:none;letter-spacing:0"></span></div>
+            <div id="chart"></div>
+            <div class="table-wrap mt-2" id="results"></div>
+          </div>
+          <div class="card">
+            <div class="card__title">Career</div>
+            <div class="stat-tiles mb-2" id="career-tiles"></div>
+            <div class="table-wrap" id="career"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card" id="h2h"></div>
+          <div class="card" id="licence"></div>
+          <div class="card" id="penalties"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/driver.js"></script>
+</body>
+</html>

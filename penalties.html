@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penalties &amp; stewarding · TRL Driver Hub</title>
+  <meta name="description" content="Stewards' decisions, penalty log, licence points and incident reporting.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="penalties">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="kicker">Stewarding</div>
+      <h1>Penalties</h1>
+      <p class="lead">Every decision from the stewards' panel, licence points for each driver, and the incident report form.</p>
+      <div class="toolbar mt-3">
+        <label class="sr-only" for="season-select">Season</label>
+        <select class="select" id="season-select"></select>
+        <label class="sr-only" for="round-filter">Round</label>
+        <select class="select" id="round-filter"></select>
+        <label class="sr-only" for="driver-filter">Driver</label>
+        <select class="select" id="driver-filter"></select>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="tabs" id="tier-tabs"></div>
+      <div class="sidebar-layout">
+        <div>
+          <div class="section__head"><h2>Penalty log</h2><span class="text-muted" id="log-count"></span></div>
+          <div class="table-wrap" id="log"></div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <div class="card__title">Licence points</div>
+            <p class="text-muted" id="licence-note" style="font-size:.88rem"></p>
+            <div id="licence"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="report">
+    <div class="container container--narrow">
+      <div class="section__head"><div><h2>Report an incident</h2><p class="section__sub">Reports must be submitted within 48 hours of the race. Include a clip or a timestamp from the broadcast.</p></div></div>
+      <form class="form card" id="incident-form" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="i-name">Your driver name <span class="req">*</span></label><input id="i-name" name="reporter" required autocomplete="name"><span class="error">Required.</span></div>
+          <div class="field"><label for="i-discord">Discord handle <span class="req">*</span></label><input id="i-discord" name="discord" required placeholder="username"><span class="error">Required.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="i-tier">Tier <span class="req">*</span></label><select id="i-tier" name="tier" required></select><span class="error">Choose a tier.</span></div>
+          <div class="field"><label for="i-round">Round <span class="req">*</span></label><select id="i-round" name="round" required></select><span class="error">Choose a round.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="i-lap">Lap <span class="req">*</span></label><input id="i-lap" name="lap" type="number" min="1" max="200" required><span class="error">Enter the lap number.</span></div>
+          <div class="field"><label for="i-against">Driver(s) involved <span class="req">*</span></label><input id="i-against" name="against" required placeholder="Names or car numbers"><span class="error">Required.</span></div>
+        </div>
+        <div class="field"><label for="i-desc">What happened? <span class="req">*</span></label><textarea id="i-desc" name="description" required minlength="20" placeholder="Describe the incident, the corner and what you believe the outcome was."></textarea><span class="error">Please describe the incident (at least 20 characters).</span></div>
+        <div class="field"><label for="i-clip">Clip / broadcast link</label><input id="i-clip" name="clip" type="url" placeholder="https://"><span class="hint">A YouTube, Twitch clip or Medal link with the timestamp helps the stewards enormously.</span><span class="error">Enter a valid URL.</span></div>
+        <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__actions"><button class="btn btn--primary" type="submit">Submit report</button><span class="text-muted" style="font-size:.85rem">Reports are private to the stewards' panel.</span></div>
+        <div id="incident-status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/penalties.js"></script>
+</body>
+</html>

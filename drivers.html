@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drivers · TRL Driver Hub</title>
+  <meta name="description" content="Every driver on the grid, with profiles and stats.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="drivers">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="kicker">The grid</div>
+      <h1>Drivers</h1>
+      <p class="lead">Full-time drivers and reserves across every tier. Click a driver for their profile, results and career.</p>
+      <div class="toolbar mt-3">
+        <label class="sr-only" for="season-select">Season</label>
+        <select class="select" id="season-select"></select>
+        <label class="sr-only" for="team-filter">Team</label>
+        <select class="select" id="team-filter"></select>
+        <label class="sr-only" for="role-filter">Role</label>
+        <select class="select" id="role-filter"><option value="">Drivers &amp; reserves</option><option value="driver">Full-time drivers</option><option value="reserve">Reserves</option></select>
+        <span class="spacer"></span>
+        <label class="sr-only" for="search">Search</label>
+        <input class="input" id="search" type="search" placeholder="Search name, tag or number…">
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="tabs" id="tier-tabs"></div>
+      <p class="text-muted" id="count"></p>
+      <div class="grid grid--4" id="grid"></div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/drivers.js"></script>
+</body>
+</html>

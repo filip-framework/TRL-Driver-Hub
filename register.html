@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register · TRL Driver Hub</title>
+  <meta name="description" content="Sign up as a full-time or reserve driver.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="register">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="kicker">Join the grid</div>
+      <h1>Driver registration</h1>
+      <p class="lead">Tell us who you are and when you can race. An admin will confirm your tier and team on Discord, usually within 48 hours.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="sidebar-layout">
+        <form class="form card" id="reg-form" novalidate>
+          <h3 class="mb-0">Your details</h3>
+          <div class="form__row">
+            <div class="field"><label for="r-name">Driver name <span class="req">*</span></label><input id="r-name" name="name" required autocomplete="name" placeholder="The name shown on the timing screens"><span class="error">Required.</span></div>
+            <div class="field"><label for="r-tag">Gamertag / PSN / EA ID <span class="req">*</span></label><input id="r-tag" name="tag" required><span class="error">Required.</span></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="r-discord">Discord handle <span class="req">*</span></label><input id="r-discord" name="discord" required placeholder="username"><span class="error">Required.</span></div>
+            <div class="field"><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email"><span class="hint">Only used to contact you about your seat.</span><span class="error">Enter a valid email.</span></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="r-nation">Nationality</label><input id="r-nation" name="nationality" maxlength="2" placeholder="Two-letter code, e.g. GB"><span class="hint">Shown as a flag next to your name.</span></div>
+            <div class="field"><label for="r-number">Preferred race number</label><input id="r-number" name="number" type="number" min="2" max="99"><span class="hint">2–99. Taken numbers are shown on the drivers page.</span><span class="error">Choose a number from 2 to 99.</span></div>
+          </div>
+          <h3 class="mb-0 mt-2">Setup</h3>
+          <div class="form__row">
+            <div class="field"><label for="r-platform">Platform <span class="req">*</span></label><select id="r-platform" name="platform" required><option value="">Select…</option><option>PC</option><option>PlayStation</option><option>Xbox</option></select><span class="error">Choose your platform.</span></div>
+            <div class="field"><label for="r-input">Input <span class="req">*</span></label><select id="r-input" name="input" required><option value="">Select…</option><option>Wheel</option><option>Pad</option></select><span class="error">Choose your input.</span></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="r-tz">Timezone</label><input id="r-tz" name="timezone" placeholder="Europe/London"><span class="hint">Pre-filled from your browser.</span></div>
+            <div class="field"><label for="r-exp">League experience <span class="req">*</span></label><select id="r-exp" name="experience" required><option value="">Select…</option><option>New to leagues</option><option>1–2 seasons</option><option>3+ seasons</option><option>Esports / pro level</option></select><span class="error">Choose one.</span></div>
+          </div>
+          <h3 class="mb-0 mt-2">Racing</h3>
+          <div class="form__row">
+            <div class="field"><label for="r-tier">Preferred tier <span class="req">*</span></label><select id="r-tier" name="tier" required></select><span class="error">Choose a tier.</span></div>
+            <div class="field"><label for="r-role">Seat type <span class="req">*</span></label><select id="r-role" name="role" required><option value="">Select…</option><option>Full-time driver</option><option>Reserve driver</option><option>Either</option></select><span class="error">Choose a seat type.</span></div>
+          </div>
+          <div class="field"><label>Availability</label><div class="row" id="r-days"></div><span class="hint">Tick every race night you can regularly make.</span></div>
+          <div class="field"><label for="r-team">Team preferences</label><input id="r-team" name="teams" placeholder="e.g. McLaren, Williams, no preference"></div>
+          <div class="field"><label for="r-about">Anything else?</label><textarea id="r-about" name="about" placeholder="Previous leagues, time trial pace, a link to your onboards…"></textarea></div>
+          <div class="field"><label class="checkbox"><input type="checkbox" id="r-rules" name="agree" required> I have read the <a href="rules.html" target="_blank">rules and regulations</a> and agree to race cleanly and respectfully. <span class="req">*</span></label><span class="error">You need to accept the rules to register.</span></div>
+          <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form__actions"><button class="btn btn--primary" type="submit">Submit registration</button><a class="btn btn--discord" data-discord-link href="#" target="_blank" rel="noopener">Join Discord first</a></div>
+          <div id="reg-status"></div>
+        </form>
+        <div class="stack">
+          <div class="card card--accent">
+            <div class="card__title">How it works</div>
+            <ol class="prose" style="padding-left:1.2em;margin:0;color:var(--muted)"><li>Submit the form and join the Discord.</li><li>An admin reviews your experience and availability.</li><li>You get a seat or a reserve place and access to your tier's channels.</li><li>Lights out on your first race night.</li></ol>
+          </div>
+          <div class="card">
+            <div class="card__title">Race nights</div>
+            <div id="race-nights"></div>
+          </div>
+          <div class="card">
+            <div class="card__title">Taken numbers</div>
+            <div class="text-muted" id="taken-numbers" style="font-size:.9rem;line-height:1.9"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/register.js"></script>
+</body>
+</html>

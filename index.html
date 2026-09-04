@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRL Driver Hub · Competitive F1 league</title>
+  <meta name="description" content="Standings, results, calendar and driver profiles for the TRL F1 league.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+<main id="main">
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <div class="kicker hero__kicker" id="hero-kicker">Season</div>
+        <h1 id="hero-title">Where the grid <em>comes to race.</em></h1>
+        <p class="hero__lead" id="hero-desc"></p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="register.html">Join the grid</a>
+          <a class="btn btn--ghost" href="standings.html">View standings</a>
+          <a class="btn btn--discord" data-discord-link href="#" target="_blank" rel="noopener">Discord</a>
+        </div>
+        <div class="hero__stats" id="hero-stats"></div>
+      </div>
+      <div class="hero__art" id="hero-art"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="card card--accent next-race" id="next-race"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div><h2>Latest results</h2><p class="section__sub">The most recent podium in every tier.</p></div>
+        <a class="btn btn--ghost btn--sm" id="all-results" href="results.html">All results</a>
+      </div>
+      <div class="grid grid--3" id="latest-results"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <div><h2>Championship standings</h2><p class="section__sub">Live tables, updated after every round.</p></div>
+        <a class="btn btn--ghost btn--sm" id="full-standings" href="standings.html">Full standings</a>
+      </div>
+      <div class="tabs" id="home-tiers"></div>
+      <div class="grid grid--2" id="home-standings"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div><h2>Upcoming rounds</h2><p class="section__sub">Race times are shown in your local timezone.</p></div>
+        <a class="btn btn--ghost btn--sm" id="full-calendar" href="calendar.html">Full calendar</a>
+      </div>
+      <div class="round-list" id="upcoming"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="watch">
+    <div class="container">
+      <div class="section__head">
+        <div><h2>Watch live</h2><p class="section__sub">Every race night broadcast with commentary.</p></div>
+      </div>
+      <div class="two-col">
+        <div class="stream" id="stream"></div>
+        <div id="watch-info"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div><h2>News</h2><p class="section__sub">Race reports, announcements and features.</p></div>
+        <a class="btn btn--ghost btn--sm" href="news.html">All news</a>
+      </div>
+      <div class="grid grid--3" id="home-news"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section__head"><h2>Partners</h2></div>
+      <div class="partners" id="partners"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div><h2>Ready to race?</h2><p>Seats and reserve places are open in every tier. Registration takes two minutes.</p></div>
+        <div class="row"><a class="btn btn--primary" href="register.html">Register now</a><a class="btn btn--ghost" data-discord-link href="#" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.5);color:#fff">Join Discord</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/home.js"></script>
+</body>
+</html>

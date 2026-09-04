@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Standings · TRL Driver Hub</title>
+  <meta name="description" content="Drivers' and constructors' championship standings for every tier.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="standings">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="kicker">Championship</div>
+      <h1>Standings</h1>
+      <p class="lead" id="tier-desc"></p>
+      <div class="toolbar mt-3">
+        <label class="sr-only" for="season-select">Season</label>
+        <select class="select" id="season-select"></select>
+        <div class="seg" id="view-seg"><button data-view="drivers" aria-pressed="true">Drivers</button><button data-view="teams" aria-pressed="false">Constructors</button></div>
+        <div class="seg" id="mode-seg"><button data-mode="summary" aria-pressed="true">Summary</button><button data-mode="rounds" aria-pressed="false">Round by round</button></div>
+        <span class="spacer"></span>
+        <label class="sr-only" for="me">Highlight a driver</label>
+        <input class="input" id="me" type="search" placeholder="Highlight a driver…">
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="tabs" id="tier-tabs"></div>
+      <div class="stat-tiles mb-3" id="highlights"></div>
+      <div class="table-wrap" id="table"></div>
+      <p class="text-muted mt-2" style="font-size:.88rem" id="points-note"></p>
+      <div class="legend mt-2"><span><span class="pos pos--1" style="min-width:22px;height:22px;font-size:.8rem">1</span> Win</span><span><span class="pos pos--2" style="min-width:22px;height:22px;font-size:.8rem">2</span> Podium</span><span><span class="fl-dot">FL</span> Fastest lap</span><span><span class="badge">R</span> Reserve driver</span><span><span class="delta delta--up">▲</span> Position change since last round</span></div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/standings.js"></script>
+</body>
+</html>

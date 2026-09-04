@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teams · TRL Driver Hub</title>
+  <meta name="description" content="Constructors, liveries and driver line-ups for every tier.">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="teams">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="kicker">Constructors</div>
+      <h1>Teams</h1>
+      <p class="lead">Ten teams per tier, two drivers each. Constructors' points combine both drivers, including reserves who stand in.</p>
+      <div class="toolbar mt-3"><label class="sr-only" for="season-select">Season</label><select class="select" id="season-select"></select></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="tabs" id="tier-tabs"></div>
+      <div class="grid grid--3" id="grid"></div>
+    </div>
+  </section>
+</main>
+<script src="data/config.js"></script>
+<script src="data/seasons/2025.js"></script>
+<script src="data/seasons/2026.js"></script>
+<script src="data/news.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages/teams.js"></script>
+</body>
+</html>
