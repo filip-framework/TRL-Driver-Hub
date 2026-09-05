@@ -1,11 +1,11 @@
-# Deploys the static site to GitHub Pages on every push to the listed branches.
-# First run enables Pages automatically (needs the repository to allow GitHub Actions deployments to the
-# github-pages environment; see README "Deploying" if the deploy step is blocked by environment rules).
+# Deploys the static site to GitHub Pages on every push to main (or on demand).
+# Pages must be enabled once under Settings -> Pages with Source = GitHub Actions. The github-pages
+# environment only accepts deployments from the default branch unless you add other branches to it.
 name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/f1-league-site-replica-l2cp2q]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
