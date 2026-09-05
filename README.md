@@ -8,7 +8,11 @@ A complete website for a sim-racing club with a flagship F1 league and an endura
 python3 -m http.server 8080      # or: npx serve .
 ```
 
-Open <http://localhost:8080>. Deploy anywhere static files are served (GitHub Pages, Netlify, Vercel, any web host). A `.nojekyll` file is included for GitHub Pages.
+Open <http://localhost:8080>. Deploy anywhere static files are served (GitHub Pages, Netlify, Vercel, any web host).
+
+## Deploying to GitHub Pages
+
+`.github/workflows/pages.yml` publishes the site with GitHub Actions on every push to `main` (and the development branch). The first run enables Pages automatically. If the deploy step reports that the branch is not allowed to deploy to the `github-pages` environment, either merge to `main` or add the branch under **Settings → Environments → github-pages → Deployment branches**. If Pages is not enabled at all, set **Settings → Pages → Source** to **GitHub Actions** and re-run the workflow. The site is then served at `https://<owner>.github.io/<repo>/`.
 
 ## Site map
 
