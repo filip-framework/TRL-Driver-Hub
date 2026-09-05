@@ -1,0 +1,1 @@
+{ "name": "TRL Driver Hub", "short_name": "TRL", "start_url": "./index.html", "display": "standalone", "background_color": "#08090b", "theme_color": "#08090b", "icons": [{ "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }] }

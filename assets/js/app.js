@@ -1,354 +1,275 @@
 /* =============================================================
    TRL Driver Hub — shared runtime
-   Header/footer, navigation, helpers, placeholders, forms.
-   Pages register themselves with TRL.page("name", fn) and are
-   run on DOMContentLoaded when <body data-page="name">.
+   Section-aware header/footer, dev banner, Discord sign-in,
+   shared renderers (race rows, driver tiles, leader cards, marks),
+   forecast, forms and helpers. Pages call TRL.page(name, fn).
+   Set window.TRL_ROOT = "../" on pages inside a sub-folder.
    ============================================================= */
 window.TRL = (function () {
   "use strict";
+  const ROOT = window.TRL_ROOT || "";
   const pages = {};
-  const cfg = () => window.TRL_CONFIG || { league: {} };
+  const cfg = () => window.TRL_CONFIG || {};
   const E = () => window.TRL_ENGINE;
 
-  // ---------- tiny DOM helpers ----------
+  // ---------- DOM & string helpers ----------
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const qs = (k) => new URLSearchParams(location.search).get(k);
-  const html = (el, markup) => { el.innerHTML = markup; return el; };
-  const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem("trl." + k); localStorage.setItem("trl." + k, v); } catch (e) { return null; } };
-
-  // ---------- season / tier selection ----------
-  function season() { const id = qs("season"); return id ? E().getSeason(id) : E().currentSeason(); }
-  function tierId(seasonObj) {
-    const list = E().tiers(seasonObj);
-    const wanted = qs("tier") || pref("tier");
-    return (list.find((t) => t.id === wanted) || list[0] || {}).id || null;
-  }
-  function link(pageName, params) {
-    const p = new URLSearchParams();
-    const s = qs("season"); if (s) p.set("season", s);
-    Object.entries(params || {}).forEach(([k, v]) => { if (v != null && v !== "") p.set(k, v); });
-    const q = p.toString();
-    return pageName + (q ? "?" + q : "");
-  }
-  function setParam(k, v) {
-    const url = new URL(location.href);
-    if (v == null || v === "") url.searchParams.delete(k); else url.searchParams.set(k, v);
-    history.replaceState(null, "", url.toString());
-  }
+  const href = (path) => ROOT + path;
+  const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem("trl." + k); if (v === null) localStorage.removeItem("trl." + k); else localStorage.setItem("trl." + k, v); } catch (e) { return null; } };
+  function setParam(k, v) { const u = new URL(location.href); if (v == null || v === "") u.searchParams.delete(k); else u.searchParams.set(k, v); history.replaceState(null, "", u.toString()); }
+  const season = () => { const id = qs("season"); return id ? E().getSeason(id) : E().currentSeason(); };
+  const initials = (name) => String(name || "?").replace(/[^A-Za-z0-9 _]/g, "").split(/[\s_]+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("") || "?";
 
   // ---------- formatting ----------
-  const DATE_OPTS = { weekday: "short", day: "numeric", month: "short", year: "numeric" };
-  function fmtDate(d, opts) { d = d instanceof Date ? d : new Date(d); return isNaN(d) ? "TBC" : d.toLocaleDateString(undefined, opts || DATE_OPTS); }
-  function fmtTime(d) { d = d instanceof Date ? d : new Date(d); return isNaN(d) ? "TBC" : d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", timeZoneName: "short" }); }
-  function fmtDateTime(d) { return `${fmtDate(d)} · ${fmtTime(d)}`; }
-  function tz() { try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) { return "local time"; } }
-  function flag(cc) {
-    if (!cc || cc.length !== 2) return "";
-    const base = 0x1f1e6;
-    return String.fromCodePoint(base + cc.toUpperCase().charCodeAt(0) - 65, base + cc.toUpperCase().charCodeAt(1) - 65);
-  }
-  const ordinal = (n) => n + (["th", "st", "nd", "rd"][((n % 100) - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
-  const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+  const dateObj = (d) => (d instanceof Date ? d : new Date(d));
+  const fmtDate = (d, o) => { d = dateObj(d); return isNaN(d) ? "TBC" : d.toLocaleDateString(undefined, o || { weekday: "short", month: "short", day: "numeric", year: "numeric" }); };
+  const fmtTime = (d) => { d = dateObj(d); return isNaN(d) ? "" : d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" }); };
+  const fmtDateTime = (d) => `${fmtDate(d)} · ${fmtTime(d)}`;
+  const monthShort = (d) => { d = dateObj(d); return isNaN(d) ? "—" : d.toLocaleDateString(undefined, { month: "short" }); };
+  const dayNum = (d) => { d = dateObj(d); return isNaN(d) ? "—" : d.getDate(); };
+  const tz = () => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) { return "local time"; } };
+  const money = (n) => E().money(n);
 
-  // ---------- placeholder art ----------
-  function placeholderSrc(label, w, h, color, accent) {
-    w = w || 600; h = h || 400; color = color || "#1c2030";
-    const stripe = "#232839";
-    const size = Math.max(12, Math.min(Math.min(w, h) / 11, (w * 0.86) / (Math.max(6, String(label).length) * 0.64)));
-    const band = accent ? `<rect x="0" y="${h - Math.round(h * 0.12)}" width="${w}" height="${Math.round(h * 0.12)}" fill="${accent}"/>` : "";
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><defs><pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="14" height="28" fill="${color}"/><rect x="14" width="14" height="28" fill="${stripe}"/></pattern></defs><rect width="100%" height="100%" fill="url(#p)"/>${band}<rect x="1.5" y="1.5" width="${w - 3}" height="${h - 3}" fill="none" stroke="#353b52" stroke-width="2" stroke-dasharray="7 7"/><text x="50%" y="50%" fill="#7a819c" font-family="Arial Narrow, Arial, Helvetica, sans-serif" font-size="${size}" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">${esc(label).toUpperCase()}</text></svg>`;
-    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  // ---------- flags, marks, avatars ----------
+  function flagEmoji(cc) { if (!cc || cc.length !== 2) return ""; const b = 0x1f1e6; return String.fromCodePoint(b + cc.toUpperCase().charCodeAt(0) - 65, b + cc.toUpperCase().charCodeAt(1) - 65); }
+  function flag(cc, name, size) {
+    if (!cc) return "";
+    const cls = size === "sm" ? "flag flag-sm" : size === "lg" ? "flag flag-lg" : "flag";
+    const w = size === "lg" ? "w160" : "w80";
+    return `<img class="${cls}" src="https://flagcdn.com/${w}/${esc(cc.toLowerCase())}.png" alt="${esc(name || cc)}" title="${esc(name || cc)}" loading="lazy" data-emoji="${esc(flagEmoji(cc.slice(0, 2)))}">`;
   }
-  /** <img> that shows the real image when one is set, otherwise a labelled placeholder. */
-  function img(src, label, opts) {
+  // Flags fall back to an emoji when the flag CDN is unreachable (error events do not bubble, so capture them)
+  document.addEventListener("error", (e) => { const img = e.target; if (!img || img.tagName !== "IMG" || !img.classList || !img.classList.contains("flag")) return; const span = document.createElement("span"); span.className = "flag-emoji"; span.textContent = img.dataset.emoji || ""; span.title = img.title || ""; img.replaceWith(span); }, true);
+  const teamStyle = (t) => `style="--team:${esc((t && t.color) || "#6b7280")}"`;
+  function ctorMark(t, size) {
+    size = size || "sm";
+    if (!t) return `<span class="ctor-mark ${size}" style="--team:#6b7280"><span class="ctor-mono">FRE</span></span>`;
+    if (t.logo) return `<span class="ctor-mark ${size}" ${teamStyle(t)}><img src="${esc(ROOT + t.logo)}" alt="${esc(t.name)}" loading="lazy"></span>`;
+    return `<span class="ctor-mark ${size}" ${teamStyle(t)}><span class="ctor-mono">${esc(t.short || initials(t.name))}</span></span>`;
+  }
+  function avatar(d, size, t) {
+    size = size || "md";
+    const color = (t && t.color) || "#6b7280";
+    const src = d && d.discord && d.discord.avatar ? d.discord.avatar : d && d.photo ? ROOT + d.photo : null;
+    return `<span class="avatar ${size}" style="--team:${esc(color)}">${src ? `<img src="${esc(src)}" alt="" loading="lazy">` : esc(initials(d && d.name))}</span>`;
+  }
+  const divBadge = (dv) => (dv ? `<span class="div-badge">${esc(dv.short || dv.name)}</span>` : "");
+  const medal = (pos) => (pos === 1 ? '<span class="medal gold">1</span>' : pos === 2 ? '<span class="medal silver">2</span>' : pos === 3 ? '<span class="medal bronze">3</span>' : `<span class="pos-num">${esc(pos == null ? "—" : pos)}</span>`);
+  const rowTone = (pos) => (pos === 1 ? "row-gold" : pos === 2 ? "row-silver" : pos === 3 ? "row-bronze" : "");
+  const driverUrl = (id) => href(`f1/driver.html?id=${encodeURIComponent(id)}`);
+  const teamUrl = (id) => href(`f1/teams.html?c=${encodeURIComponent(id)}`);
+  const resultsUrl = (roundId, divId) => href(`f1/results.html?round=${encodeURIComponent(roundId)}&div=${encodeURIComponent(divId || "d1")}`);
+  const driverLink = (s, id, extra) => { const d = E().driver(s, id); return `<a href="${driverUrl(id)}">${esc(d ? d.name : id)}</a>${extra || ""}`; };
+  function teamCell(s, teamId, opts) {
     opts = opts || {};
-    const s = src || placeholderSrc(label, opts.w, opts.h, opts.color, opts.accent);
-    return `<img src="${esc(s)}" alt="${esc(opts.alt || label)}" loading="lazy" ${opts.className ? `class="${esc(opts.className)}"` : ""}>`;
+    const t = teamId ? E().team(s, teamId) : null;
+    if (!t) return '<span class="team-cell free">Free agent</span>';
+    const inner = `${ctorMark(t, opts.size || "sm")}${opts.short ? esc(t.short) : esc(t.name)}`;
+    return opts.link === false ? `<span class="team-cell" ${teamStyle(t)}>${inner}</span>` : `<a class="team-cell" ${teamStyle(t)} href="${teamUrl(t.id)}">${inner}</a>`;
   }
+  const nationCell = (d) => (d && d.cc ? `${flag(d.cc, d.nation, "sm")} ${esc(d.nation || "")}` : "");
+  const reserveMark = (row) => (row && row.reserve ? '<span class="reserve-mark" title="Reserve driver">R</span>' : "");
 
-  // ---------- entity rendering ----------
-  function teamOf(seasonObj, teamId) { return E().team(seasonObj, teamId); }
-  function teamColor(seasonObj, teamId) { const t = teamOf(seasonObj, teamId); return (t && t.color) || "#6b7290"; }
-  function teamDot(seasonObj, teamId) { return `<span class="team-dot" style="background:${esc(teamColor(seasonObj, teamId))}"></span>`; }
-  function driverName(seasonObj, driverId, opts) {
+  // ---------- shared renderers ----------
+  function forecastBox(r, opts) {
     opts = opts || {};
-    const d = E().driver(seasonObj, driverId) || (E().driverAnySeason(driverId) || {}).driver;
-    const name = d ? d.name : driverId;
-    const parts = [];
-    if (opts.flag !== false && d) parts.push(`<span class="flag" aria-hidden="true">${flag(d.nationality)}</span>`);
-    parts.push(`<a href="${esc(link("driver.html", { id: driverId }))}">${esc(name)}</a>`);
-    if (opts.number && d) parts.push(` <span class="num">#${d.number}</span>`);
-    if (opts.reserve && d && d.role === "reserve") parts.push(` <span class="badge" title="Reserve driver">R</span>`);
-    return parts.join("");
+    const id = `forecast-${esc(r.id)}-${Math.random().toString(36).slice(2, 7)}`;
+    const html = `<div class="forecast-box" id="${id}"><span class="forecast-icon">⛅</span><div><p class="kicker">Projected forecast</p><div class="forecast-label">${esc(r.forecast && r.forecast.label ? r.forecast.label : "Forecast pending")}</div><div class="forecast-meta">${r.forecast && r.forecast.tempC != null ? `${esc(r.forecast.tempC)}°C · ${esc(r.forecast.rain || 0)}% rain` : "Live weather loads when the site is online"}</div><em class="forecast-note">Updated every ${(cfg().weather || {}).refreshMinutes || 20} min</em></div></div>`;
+    setTimeout(() => loadForecast(r, document.getElementById(id)), 0);
+    return html;
   }
-  function teamName(seasonObj, teamId, opts) {
-    opts = opts || {};
-    const t = teamOf(seasonObj, teamId);
-    if (!t) return `<span class="text-dim">—</span>`;
-    return `${opts.dot !== false ? teamDot(seasonObj, teamId) : ""}<a href="${esc(link("team.html", { id: teamId }))}">${esc(opts.short ? t.shortName : t.name)}</a>`;
-  }
-  function tierPill(t) { return t ? `<span class="tier-pill" style="background:${esc(t.color || "#6b7290")}">${esc(t.shortName || t.name)}</span>` : ""; }
-  function posBadge(position, status) {
-    if (status && status !== "Finished") return `<span class="pos pos--dnf">${esc(status)}</span>`;
-    const cls = position <= 3 ? ` pos--${position}` : "";
-    return `<span class="pos${cls}">${position == null ? "—" : position}</span>`;
-  }
-  function movement(m) {
-    if (!m) return `<span class="delta delta--same" title="No change">–</span>`;
-    return m > 0 ? `<span class="delta delta--up" title="Up ${m}">▲${m}</span>` : `<span class="delta delta--down" title="Down ${-m}">▼${-m}</span>`;
-  }
-  function statusBadge(status) {
-    const map = { completed: ["Completed", ""], live: ["Live now", "badge--accent"], next: ["Next race", "badge--gold"], upcoming: ["Upcoming", "badge--blue"], pending: ["Results pending", "badge--yellow"] };
-    const m = map[status] || [status, ""];
-    return `<span class="badge ${m[1]}">${esc(m[0])}</span>`;
-  }
-
-  // ---------- season selector ----------
-  function seasonSelect(el) {
-    if (!el) return;
-    const cur = season();
-    el.innerHTML = E().seasons().map((s) => `<option value="${esc(s.id)}" ${s.id === cur.id ? "selected" : ""}>${esc(s.name)} · ${esc(s.year)}</option>`).join("");
-    el.addEventListener("change", () => {
-      const url = new URL(location.href);
-      const isCurrent = E().currentSeason() && E().currentSeason().id === el.value;
-      if (isCurrent) url.searchParams.delete("season"); else url.searchParams.set("season", el.value);
-      location.href = url.toString();
-    });
-  }
-  /** Tier tabs: calls onChange(tierId) and keeps ?tier= in sync. */
-  function tierTabs(el, seasonObj, onChange, opts) {
-    opts = opts || {};
-    const list = E().tiers(seasonObj);
-    let active = opts.allOption ? (qs("tier") || "") : tierId(seasonObj);
-    const render = () => {
-      el.innerHTML = (opts.allOption ? [{ id: "", name: "All tiers", shortName: "All" }] : []).concat(list).map((t) => `<button class="tab" role="tab" aria-selected="${(t.id || "") === (active || "") ? "true" : "false"}" data-tier="${esc(t.id)}">${esc(t.name)}</button>`).join("");
-    };
-    render();
-    el.setAttribute("role", "tablist");
-    el.addEventListener("click", (ev) => {
-      const b = ev.target.closest("[data-tier]"); if (!b) return;
-      active = b.dataset.tier;
-      if (active) pref("tier", active);
-      setParam("tier", active);
-      render(); onChange(active);
-    });
-    onChange(active);
-    return { get: () => active };
-  }
-
-  // ---------- countdown ----------
-  function countdown(target, el, onDone) {
-    const t = target instanceof Date ? target.getTime() : new Date(target).getTime();
-    const units = { d: $('[data-unit="d"]', el), h: $('[data-unit="h"]', el), m: $('[data-unit="m"]', el), s: $('[data-unit="s"]', el) };
-    let timer = null;
-    const tick = () => {
-      let diff = Math.max(0, t - Date.now());
-      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-      const h = Math.floor(diff / 3600000); diff -= h * 3600000;
-      const m = Math.floor(diff / 60000); diff -= m * 60000;
-      const s = Math.floor(diff / 1000);
-      if (units.d) units.d.textContent = String(d);
-      if (units.h) units.h.textContent = String(h).padStart(2, "0");
-      if (units.m) units.m.textContent = String(m).padStart(2, "0");
-      if (units.s) units.s.textContent = String(s).padStart(2, "0");
-      if (t - Date.now() <= 0) { clearInterval(timer); if (onDone) onDone(); }
-    };
-    tick(); timer = setInterval(tick, 1000);
-    return () => clearInterval(timer);
-  }
-  const countdownMarkup = () => ["d", "h", "m", "s"].map((u) => `<div class="countdown__unit"><b data-unit="${u}">0</b><span>${{ d: "Days", h: "Hours", m: "Min", s: "Sec" }[u]}</span></div>`).join("");
-
-  // ---------- iCal export ----------
-  function icsForSeason(seasonObj, onlyTier, onlyRound) {
-    const L = cfg().league || {};
-    const pad = (n) => String(n).padStart(2, "0");
-    const stamp = (d) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
-    const escT = (s) => String(s || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
-    const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${escT(L.name || "League")}//Driver Hub//EN`, "CALSCALE:GREGORIAN", "METHOD:PUBLISH", `X-WR-CALNAME:${escT(L.name || "League")} ${escT(seasonObj.name)}`];
-    E().rounds(seasonObj).forEach((r) => {
-      if (onlyRound && r.id !== onlyRound) return;
-      E().tiers(seasonObj).forEach((t) => {
-        if (onlyTier && t.id !== onlyTier) return;
-        const start = E().sessionDate(seasonObj, r, t.id); if (!start) return;
-        const end = new Date(start.getTime() + 2 * 3600000);
-        lines.push("BEGIN:VEVENT", `UID:${seasonObj.id}-${r.id}-${t.id}@${(location.hostname || "trl-driver-hub").replace(/[^a-z0-9.-]/gi, "")}`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(start)}`, `DTEND:${stamp(end)}`,
-          `SUMMARY:${escT(`${L.name || "League"} ${t.name} · R${r.round} ${r.name}`)}`, `LOCATION:${escT(`${r.circuit}, ${r.location}`)}`,
-          `DESCRIPTION:${escT(`${r.format || ""} race, ${r.laps} laps${r.sprint ? " (sprint weekend)" : ""}. ${L.discordInvite ? "Discord: " + L.discordInvite : ""}`)}`, "END:VEVENT");
-      });
-    });
-    lines.push("END:VCALENDAR");
-    return lines.join("\r\n");
-  }
-  function download(filename, content, type) {
-    const blob = new Blob([content], { type: type || "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a"); a.href = url; a.download = filename; document.body.appendChild(a); a.click();
-    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 500);
-  }
-
-  // ---------- forms (Discord webhook / endpoint / mailto) ----------
-  async function submitForm(kind, title, fields) {
-    const f = ((cfg().forms || {})[kind]) || {};
-    const L = cfg().league || {};
-    const asText = fields.map((x) => `${x.name}: ${x.value}`).join("\n");
+  const WMO = [[0, "Clear sky", "☀️"], [1, "Mainly clear", "🌤️"], [2, "Light cloud", "⛅"], [3, "Overcast", "☁️"], [45, "Fog", "🌫️"], [48, "Rime fog", "🌫️"], [51, "Light drizzle", "🌦️"], [53, "Drizzle", "🌦️"], [55, "Heavy drizzle", "🌧️"], [61, "Light rain", "🌦️"], [63, "Rain", "🌧️"], [65, "Heavy rain", "🌧️"], [71, "Light snow", "🌨️"], [73, "Snow", "🌨️"], [75, "Heavy snow", "❄️"], [80, "Showers", "🌦️"], [81, "Showers", "🌧️"], [82, "Violent showers", "⛈️"], [95, "Thunderstorm", "⛈️"], [96, "Thunderstorm", "⛈️"], [99, "Thunderstorm", "⛈️"]];
+  function wmo(code) { let best = WMO[0]; WMO.forEach((w) => { if (code >= w[0]) best = w; }); return best; }
+  async function loadForecast(r, el) {
+    if (!el || !(cfg().weather || {}).enabled || !r.coords || !r.date || !window.fetch) return;
     try {
-      if (f.discordWebhook) {
-        const res = await fetch(f.discordWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ username: L.fullName || "Driver Hub", embeds: [{ title, color: 15204397, fields: fields.map((x) => ({ name: x.name, value: String(x.value || "—").slice(0, 1000), inline: String(x.value || "").length < 40 })), timestamp: new Date().toISOString() }] }) });
-        if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-        return { ok: true, via: "discord" };
+      const key = `trl.wx.${r.id}`; const ttl = ((cfg().weather || {}).refreshMinutes || 20) * 60000;
+      let data = null;
+      try { const c = JSON.parse(localStorage.getItem(key) || "null"); if (c && Date.now() - c.at < ttl) data = c.data; } catch (e) { /* ignore */ }
+      if (!data) {
+        const d = new Date(r.date); const day = d.toISOString().slice(0, 10);
+        const daysAhead = (d - Date.now()) / 86400000; if (daysAhead > 15 || daysAhead < -1) return;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${r.coords[0]}&longitude=${r.coords[1]}&hourly=temperature_2m,precipitation_probability,weather_code&timezone=UTC&start_date=${day}&end_date=${day}`;
+        const res = await fetch(url); if (!res.ok) return; const j = await res.json();
+        const hour = d.getUTCHours(); const i = (j.hourly.time || []).findIndex((t) => t.endsWith(`T${String(hour).padStart(2, "0")}:00`));
+        if (i < 0) return;
+        data = { code: j.hourly.weather_code[i], temp: Math.round(j.hourly.temperature_2m[i]), rain: j.hourly.precipitation_probability ? j.hourly.precipitation_probability[i] : 0 };
+        try { localStorage.setItem(key, JSON.stringify({ at: Date.now(), data })); } catch (e) { /* ignore */ }
       }
-      if (f.formEndpoint) {
-        const payload = { form: kind, title }; fields.forEach((x) => { payload[x.key || x.name] = x.value; });
-        const res = await fetch(f.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
-        if (!res.ok) throw new Error(`Endpoint responded ${res.status}`);
-        return { ok: true, via: "endpoint" };
-      }
-    } catch (err) {
-      return { ok: false, error: err.message, mailto: `mailto:${L.email || ""}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(asText)}` };
+      const w = wmo(data.code);
+      $(".forecast-icon", el).textContent = w[2]; $(".forecast-label", el).textContent = w[1]; $(".forecast-meta", el).textContent = `${data.temp}°C · ${data.rain || 0}% rain`;
+    } catch (e) { /* offline: keep placeholder */ }
+  }
+  function raceRow(s, r, opts) {
+    opts = opts || {};
+    const status = E().roundStatus(s, r);
+    const next = opts.next != null ? opts.next : (E().nextRound(s) || {}).id === r.id;
+    const divs = E().divisions(s);
+    const primaryDiv = opts.division || (divs[0] && divs[0].id);
+    const winners = divs.map((dv) => { const sh = E().sheet(s, r.id, dv.id); const w = sh && (sh.race || [])[0]; return w ? { dv, w } : null; }).filter(Boolean);
+    const roundLabel = r.preseason ? "Preseason" : `Round ${r.round}`;
+    const shortLabel = r.preseason ? "PRE" : `R${r.round}`;
+    let side = "";
+    if (status === "completed") {
+      const w = winners[0];
+      side = `<div class="race-winner"><small>Winner:</small> ${w ? `${esc((E().driver(s, w.w.driver) || {}).name || w.w.driver)} ${w.w.team ? ctorMark(E().team(s, w.w.team), "sm") : ""}` : "—"}</div><span class="btn btn-green btn-compact">View results →</span>`;
+    } else if (next) {
+      side = forecastBox(r);
+    } else {
+      side = `<div class="lights-out"><small>Lights out</small><b>${esc(fmtDate(r.date))}</b></div>`;
     }
-    return { ok: false, fallback: true, mailto: `mailto:${L.email || ""}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(asText)}` };
+    const cls = `race-row ${status === "completed" ? "is-done" : next ? "is-next" : "is-upcoming"} ${opts.compact ? "is-compact" : ""}`;
+    const inner = `
+      <div class="race-date"><span class="race-month">${esc(monthShort(r.date))}</span><span class="race-day">${esc(dayNum(r.date))}</span></div>
+      <div class="race-round">${esc(roundLabel)}${status === "completed" ? "<b>Published</b>" : ""}</div>
+      <div class="race-main"><div class="race-title">${flag(r.cc, r.location)}<span>${esc(r.name)}</span></div><div class="race-venue">${esc(r.circuit)} · ${esc(r.location)}</div>${next ? `<div class="race-status">Lights out ${esc(fmtDateTime(r.date))}</div>` : ""}</div>
+      <div class="race-side">${side}</div>`;
+    if (status === "completed") return `<a class="${cls}" href="${resultsUrl(r.id, primaryDiv)}" data-round="${esc(r.id)}" aria-label="${esc(r.name)} results">${inner}</a>`;
+    return `<article class="${cls}" data-round="${esc(r.id)}" title="${esc(shortLabel)}">${inner}</article>`;
   }
-  function validateForm(form) {
-    let ok = true;
-    $$(".field", form).forEach((field) => {
-      const input = $("input, select, textarea", field); if (!input) return;
-      const valid = input.checkValidity();
-      field.classList.toggle("is-invalid", !valid);
-      if (!valid) ok = false;
-    });
-    return ok;
+  function driverTile(s, d, opts) {
+    opts = opts || {};
+    const t = d.team ? E().team(s, d.team) : null;
+    const dv = d.division ? E().division(s, d.division) : null;
+    const st = E().driverStats(s, d.id);
+    const tags = [dv ? divBadge(dv) : "", d.unsigned ? '<span class="chip chip-unsigned">Unsigned</span>' : "", d.role === "reserve" ? '<span class="chip chip-reserve">Reserve</span>' : "", d.principal ? '<span class="chip chip-principal">Principal</span>' : ""].join("");
+    return `<a class="driver-tile ${d.unsigned ? "is-unsigned" : ""}" ${teamStyle(t)} href="${driverUrl(d.id)}">
+      ${d.number ? `<span class="driver-tile-num">${esc(d.number)}</span>` : ""}
+      <div class="driver-tile-top">${avatar(d, "md", t)}<div><div class="driver-tile-tags">${tags}</div><h3>${esc(d.name)}</h3>${d.cc ? `<div class="driver-tile-nation">${flag(d.cc, d.nation, "sm")}<span>${esc(d.nation || "")}</span></div>` : ""}</div></div>
+      ${opts.stats === false ? "" : `<div class="driver-tile-bottom">${t ? ctorMark(t, "md") : "<span></span>"}<div class="driver-tile-stats"><div><span>Pts</span><b>${st.points}</b></div><div><span>Wins</span><b>${st.wins}</b></div><div><span>Podiums</span><b>${st.podiums}</b></div></div></div>`}
+    </a>`;
   }
+  function leaderCard(s, e) {
+    const t = e.team; const d = e.driver || {};
+    const cls = e.position === 1 ? "is-p1" : e.position === 2 ? "is-p2" : "is-p3";
+    return `<a class="leader-card ${cls}" ${teamStyle(t)} href="${driverUrl(e.driverId)}">
+      <div class="leader-copy">
+        <div class="leader-top">${medal(e.position)}<span>${e.position === 1 ? "Leader" : `${e.gap} behind`}</span></div>
+        <div class="leader-id">${ctorMark(t, "sm")}<div><h3>${esc(e.name)}</h3><small>${esc(t ? t.name : "Free agent")}</small></div><span class="leader-num">${esc(d.number || "")}</span></div>
+        <div class="leader-stats"><div><span>Wins</span><br><b>${e.wins}</b></div><div><span>Podiums</span><br><b>${e.podiums}</b></div><div><span>Pts</span><br><b>${e.points}</b></div></div>
+      </div>
+      <div class="leader-media">${avatar(d, "lg", t)}</div>
+    </a>`;
+  }
+  const ctorTile = (t) => `<a class="ctor-tile" ${teamStyle(t)} href="${teamUrl(t.id)}">${ctorMark(t, "md")}<span>${esc(t.name)}</span></a>`;
+  const bonusChips = (bonuses) => (bonuses && bonuses.length ? `<div class="bonus-chips">${bonuses.map((b) => `<span class="bonus-chip ${b.key}">+${b.points} ${esc(b.label)}${b.detail ? ` ${esc(b.detail)}` : ""}</span>`).join("")}</div>` : "");
 
-  // ---------- icons ----------
-  const ICONS = {
-    discord: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 4.5h7l1.2 1.5h1.8A3.5 3.5 0 0 1 22 9.5v5a5 5 0 0 1-5 5h-1.6l-1-2H9.6l-1 2H7a5 5 0 0 1-5-5v-5A3.5 3.5 0 0 1 5.5 6h1.8L8.5 4.5zM9 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>',
-    twitch: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v11l-4 4h-4l-2 2H8v-2H4V3zm2 2v11h3v2l2-2h4l3-3V5H6zm5 3h2v5h-2V8zm5 0h2v5h-2V8z"/></svg>',
-    youtube: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A3.5 3.5 0 0 1 6.5 4h11A3.5 3.5 0 0 1 21 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-11A3.5 3.5 0 0 1 3 16.5v-9zM10 8.5v7l6-3.5-6-3.5z"/></svg>',
-    twitter: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.5l4 5.6L17.5 3H20l-6.3 7.3L20.5 21H16l-4.3-6-5.2 6H4l6.7-7.7L4 3zm3.2 1.6 9.6 14.8h1.5L8.8 4.6H7.2z"/></svg>',
-    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm5-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>',
-    tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3h3a4.5 4.5 0 0 0 4 4v3a7.4 7.4 0 0 1-4-1.2V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3z"/></svg>',
-    calendar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm-1 8v10h12V10H6zm2 2h3v3H8v-3z"/></svg>',
-    arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h10.2l-4.6-4.6L12 5l7 7-7 7-1.4-1.4 4.6-4.6H5v-2z"/></svg>',
-    download: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10.2l3.6-3.6L18 11l-6 6-6-6 1.4-1.4L11 13.2V3zM4 19h16v2H4v-2z"/></svg>',
-    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>'
+  // ---------- Discord sign-in (OAuth2 implicit grant, browser only) ----------
+  const auth = {
+    enabled: () => !!(cfg().discord || {}).clientId,
+    loginPage: () => new URL(href("login.html"), location.href).toString().split("#")[0],
+    signInUrl: (returnTo) => {
+      const d = cfg().discord || {};
+      const scope = d.guildId ? "identify guilds.members.read" : "identify";
+      const state = encodeURIComponent(returnTo || location.href);
+      return `https://discord.com/oauth2/authorize?client_id=${encodeURIComponent(d.clientId)}&response_type=token&redirect_uri=${encodeURIComponent(auth.loginPage())}&scope=${encodeURIComponent(scope)}&state=${state}&prompt=none`;
+    },
+    session: () => { try { const s = JSON.parse(localStorage.getItem("trl.session") || "null"); if (s && s.expires > Date.now()) return s; } catch (e) { /* ignore */ } return null; },
+    signOut: () => { try { localStorage.removeItem("trl.session"); } catch (e) { /* ignore */ } },
+    roleNames: (session) => { const names = (cfg().discord || {}).roles || {}; const ids = (cfg().discord || {}).roleIds || {}; const out = []; Object.keys(names).forEach((k) => { if (session && session.roles && ids[k] && session.roles.includes(ids[k])) out.push(names[k]); }); return out; },
+    isTeamPrincipal: (session) => auth.roleNames(session).includes(((cfg().discord || {}).roles || {}).teamPrincipal),
+    async handleCallback() {
+      const hash = new URLSearchParams(location.hash.replace(/^#/, ""));
+      const token = hash.get("access_token"); if (!token) return null;
+      const expires = Date.now() + (Number(hash.get("expires_in")) || 604800) * 1000;
+      const me = await fetch("https://discord.com/api/users/@me", { headers: { Authorization: `Bearer ${token}` } }).then((r) => (r.ok ? r.json() : null));
+      if (!me) return null;
+      let roles = [];
+      const gid = (cfg().discord || {}).guildId;
+      if (gid) { try { const m = await fetch(`https://discord.com/api/users/@me/guilds/${gid}/member`, { headers: { Authorization: `Bearer ${token}` } }); if (m.ok) roles = (await m.json()).roles || []; } catch (e) { /* ignore */ } }
+      const avatarUrl = me.avatar ? `https://cdn.discordapp.com/avatars/${me.id}/${me.avatar}.png?size=128` : null;
+      const session = { id: me.id, name: me.global_name || me.username, username: me.username, avatar: avatarUrl, roles, expires, token };
+      try { localStorage.setItem("trl.session", JSON.stringify(session)); } catch (e) { /* ignore */ }
+      history.replaceState(null, "", location.pathname + location.search);
+      return { session, returnTo: hash.get("state") ? decodeURIComponent(hash.get("state")) : null };
+    }
   };
-  const icon = (n) => ICONS[n] || "";
-  function socialsHtml() {
-    const s = (cfg().league || {}).socials || {};
-    const labels = { discord: "Discord", twitch: "Twitch", youtube: "YouTube", twitter: "X / Twitter", instagram: "Instagram", tiktok: "TikTok" };
-    return `<div class="socials">${Object.keys(labels).filter((k) => s[k]).map((k) => `<a href="${esc(s[k])}" target="_blank" rel="noopener" title="${labels[k]}" aria-label="${labels[k]}">${icon(k)}</a>`).join("")}</div>`;
+  function authSlotHtml() {
+    const s = auth.session();
+    if (s) {
+      const d = cfg().discord || {};
+      const tp = auth.isTeamPrincipal(s) || !d.guildId; // without a guild we can't verify roles: show the office link
+      return `<div class="user-menu" id="user-menu"><button class="user-menu-btn" type="button" aria-expanded="false"><span class="avatar sm" style="--team:#5865f2">${s.avatar ? `<img src="${esc(s.avatar)}" alt="">` : esc(initials(s.name))}</span><span>${esc(s.name)}</span></button><div class="user-menu-panel"><a href="${href("faq.html")}">FAQ</a>${tp ? `<a href="${href("team-principal.html")}">Team Principal</a>` : ""}<a href="${href("f1/drivers.html")}">My driver profile</a><button type="button" data-signout>Sign out</button></div></div>`;
+    }
+    return `<a class="btn btn-discord" href="${auth.enabled() ? esc(auth.signInUrl(location.href)) : href("login.html")}"><span class="auth-long">Sign in with Discord</span><span class="auth-short">Sign in</span></a>`;
   }
 
   // ---------- layout ----------
-  const NAV = [
-    ["standings.html", "Standings"], ["drivers.html", "Drivers"], ["teams.html", "Teams"], ["calendar.html", "Calendar"], ["results.html", "Results"],
-    ["penalties.html", "Penalties"], ["rules.html", "Rules"], ["news.html", "News"], ["about.html", "About"]
-  ];
-  function currentPage() { const p = location.pathname.split("/").pop() || "index.html"; return p; }
-  function renderHeader() {
-    const L = cfg().league || {};
-    const cur = currentPage();
-    const s = season();
-    const live = s ? E().liveNow(s) : null;
-    const nameParts = (L.fullName || L.name || "Driver Hub").split(" ");
-    const brandName = nameParts.length > 1 ? `${esc(nameParts[0])} <span>${esc(nameParts.slice(1).join(" "))}</span>` : esc(nameParts[0]);
-    const el = document.createElement("div");
-    el.innerHTML = `
-      <a class="skip-link" href="#main">Skip to content</a>
-      <header class="site-header">
-        <div class="container site-header__inner">
-          <a class="brand" href="index.html" aria-label="${esc(L.fullName || L.name)} home"><img class="brand__logo" src="assets/img/logo.svg" alt=""><span class="brand__name">${brandName}</span></a>
-          ${live ? `<a class="live-pill" href="${esc(link("index.html"))}#watch" title="${esc(live.tier.name)} · ${esc(live.round.name)}">Live</a>` : ""}
-          <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu"><span></span></button>
-          <nav id="site-nav" class="nav" aria-label="Main">
-            ${NAV.map(([href, label]) => `<a class="nav__link" href="${esc(link(href))}" ${cur === href ? 'aria-current="page"' : ""}>${label}</a>`).join("")}
-            <div class="nav__cta">
-              <a class="btn btn--discord btn--sm btn--icon" href="${esc(L.discordInvite || "#")}" target="_blank" rel="noopener" aria-label="Discord" title="Join our Discord">${icon("discord")}<span class="nav__cta-label">Discord</span></a>
-              <a class="btn btn--primary btn--sm" href="register.html">Register</a>
-            </div>
-          </nav>
-        </div>
-      </header>`;
-    document.body.prepend(...Array.from(el.childNodes));
-  }
-  function renderFooter() {
-    const L = cfg().league || {};
-    const s = season();
-    const next = s ? E().nextSession(s) : null;
+  const NAVS = {
+    hub: (b) => [["f1/signup.html", "Join"], ["f1/index.html", "F1 Home"], ["endurance/index.html", "Endurance", "endurance"], [b.invite, "Discord ↗", "btn btn-discord", true]],
+    f1: () => [["f1/index.html", "F1 Home"], ["f1/standings.html", "Standings"], ["f1/drivers.html", "Drivers"], ["f1/schedule.html", "Calendar"], ["f1/teams.html", "Teams"], ["f1/signup.html", "Join"], ["f1/rulebook.html", "Rulebook", "btn btn-primary"], ["faq.html", "FAQ"]],
+    endurance: (b) => [["endurance/index.html", "Endurance"], ["endurance/races.html", "Races"], ["endurance/liveries.html", "Liveries"], ["endurance/drivers.html", "Drivers"], ["endurance/signup.html", "Join"], [b.invite, "Discord ↗", "btn btn-discord", true]]
+  };
+  function currentPath() { const p = location.pathname.replace(/\/+$/, "/"); const parts = p.split("/"); const file = parts.pop() || "index.html"; const dir = ROOT ? parts.pop() + "/" : ""; return dir + file; }
+  function renderChrome() {
+    const B = cfg().brand || {}, D = cfg().discord || {}, F = cfg().f1 || {}, EN = cfg().endurance || {};
+    const section = document.body.dataset.section || "hub";
+    const invite = D.invite || "#";
+    const brand = section === "f1" ? [F.code || "F1", B.fullName || B.name] : section === "endurance" ? [B.name, B.version] : [B.line1 || B.name, B.line2 || ""];
+    const items = (NAVS[section] || NAVS.hub)({ invite }).filter((it) => !(it[2] === "endurance" && EN.enabled === false));
+    const cur = currentPath();
+    const nav = items.map(([p, label, cls, ext]) => { const isBtn = cls && cls.startsWith("btn"); const url = ext ? p : href(p); const active = !ext && p === cur; return `<a href="${esc(url)}" ${isBtn ? `class="${cls}"` : active ? 'class="is-active" aria-current="page"' : ""} ${ext ? 'target="_blank" rel="noreferrer"' : ""}>${label}</a>`; }).join("");
+    const banner = cfg().devBanner && cfg().devBanner.enabled ? `<aside class="dev-banner">${esc(cfg().devBanner.text)} <a href="${esc(invite)}" target="_blank" rel="noreferrer">${esc(cfg().devBanner.linkText || "Join Discord ↗")}</a></aside>` : "";
+    const head = document.createElement("div");
+    head.innerHTML = `<a class="skip-link" href="#main">Skip to content</a>${banner}<header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="${href("index.html")}" aria-label="${esc(B.fullName || B.name)} home"><img class="brand-mark" src="${href("assets/img/logo.svg")}" alt=""><span><span class="brand-l1">${esc(brand[0])}</span><span class="brand-l2">${esc(brand[1])}</span></span></a><nav class="topnav" id="site-nav" aria-label="Primary navigation">${nav}</nav><div class="auth-slot" id="auth-slot">${section === "hub" && !auth.session() ? "" : authSlotHtml()}</div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Navigate</span><i></i></button></div></header>`;
+    document.body.prepend(...Array.from(head.childNodes));
     const foot = document.createElement("footer");
     foot.className = "site-footer";
-    foot.innerHTML = `
-      <div class="container">
-        <div class="site-footer__inner">
-          <div>
-            <a class="brand" href="index.html"><img class="brand__logo" src="assets/img/logo.svg" alt=""><span class="brand__name">${esc(L.name)}</span></a>
-            <p class="site-footer__about mt-2">${esc(L.description || "")}</p>
-            ${socialsHtml()}
-          </div>
-          <div><h4>Championship</h4><ul>
-            <li><a href="${esc(link("standings.html"))}">Standings</a></li><li><a href="${esc(link("drivers.html"))}">Drivers</a></li><li><a href="${esc(link("teams.html"))}">Teams</a></li><li><a href="${esc(link("calendar.html"))}">Calendar</a></li><li><a href="${esc(link("results.html"))}">Results</a></li><li><a href="${esc(link("penalties.html"))}">Penalties &amp; stewarding</a></li>
-          </ul></div>
-          <div><h4>Community</h4><ul>
-            <li><a href="register.html">Register as a driver</a></li><li><a href="${esc(L.discordInvite || "#")}" target="_blank" rel="noopener">Discord server</a></li><li><a href="rules.html">Rules &amp; regulations</a></li><li><a href="news.html">News</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html">About &amp; contact</a></li>
-          </ul></div>
-          <div><h4>Next race</h4>
-            ${next ? `<div class="round__title" style="font-size:1.15rem">${esc(next.round.name)}</div><div class="text-muted" style="font-size:.9rem">${esc(next.tier.name)} · Round ${next.round.round}<br>${esc(fmtDateTime(next.date))}</div><a class="btn btn--ghost btn--sm mt-2" href="${esc(link("calendar.html"))}">${icon("calendar")} Full calendar</a>` : `<p class="text-muted">The next season is being prepared. Watch this space.</p>`}
-          </div>
-        </div>
-        <div class="site-footer__bottom">
-          <span>© ${new Date().getFullYear()} ${esc(L.fullName || L.name)}. Not affiliated with Formula 1 or EA Sports.</span>
-          <span>Times shown in your timezone (${esc(tz())}).</span>
-        </div>
-      </div>`;
+    foot.innerHTML = `<div class="wrap site-footer-inner"><a class="brand" href="${href("index.html")}"><img class="brand-mark" src="${href("assets/img/logo.svg")}" alt=""><span><span class="brand-l1">${esc(B.line1 || B.name)}</span><span class="brand-l2">${esc(B.line2 || "")}</span></span></a><div class="tagline">${esc(B.tagline || "")}</div><div class="meta"><a href="${href("faq.html")}">FAQ</a> · © ${esc(B.year || new Date().getFullYear())} ${esc(B.fullName || B.name)} · ${section === "endurance" ? "Endurance " : ""}${esc(B.version || "")}</div></div>`;
     document.body.appendChild(foot);
+    const btn = $(".nav-toggle"), navEl = $("#site-nav");
+    btn.addEventListener("click", () => { const open = navEl.classList.toggle("is-open"); btn.setAttribute("aria-expanded", open ? "true" : "false"); });
+    document.addEventListener("click", (e) => { if (!navEl.contains(e.target) && !btn.contains(e.target)) { navEl.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } const um = $("#user-menu"); if (um && !um.contains(e.target)) um.classList.remove("is-open"); });
+    const um = $("#user-menu");
+    if (um) { $(".user-menu-btn", um).addEventListener("click", () => { const o = um.classList.toggle("is-open"); $(".user-menu-btn", um).setAttribute("aria-expanded", o ? "true" : "false"); }); $("[data-signout]", um).addEventListener("click", () => { auth.signOut(); location.reload(); }); }
   }
-  function initNav() {
-    const btn = $(".nav-toggle"), nav = $("#site-nav");
-    if (!btn || !nav) return;
-    btn.addEventListener("click", () => { const open = nav.classList.toggle("is-open"); btn.setAttribute("aria-expanded", open ? "true" : "false"); });
-    document.addEventListener("click", (e) => { if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains("is-open")) { nav.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") { nav.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } });
+  const setTitle = (t) => { const B = cfg().brand || {}; document.title = t ? `${t} | ${B.fullName || B.name}` : (B.fullName || B.name); };
+  function pageHead(el, kicker, title, lede, extra) { el.innerHTML = `<section class="page-head"><p class="kicker">${esc(kicker)}</p><h1>${title}</h1>${lede ? `<p class="lede">${lede}</p>` : ""}${extra || ""}</section>`; }
+
+  // ---------- forms / stores ----------
+  async function submitForm(kind, title, fields) {
+    const f = ((cfg().forms || {})[kind]) || {};
+    const B = cfg().brand || {};
+    const text = fields.map((x) => `${x.name}: ${x.value}`).join("\n");
+    const mailto = `mailto:${(cfg().forms || {}).email || ""}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text)}`;
+    try {
+      if (f.discordWebhook) { const r = await fetch(f.discordWebhook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ username: B.fullName || "Driver Hub", embeds: [{ title, color: 16724295, fields: fields.map((x) => ({ name: x.name, value: String(x.value || "—").slice(0, 1000), inline: String(x.value || "").length < 40 })), timestamp: new Date().toISOString() }] }) }); if (!r.ok) throw new Error(`Webhook responded ${r.status}`); return { ok: true }; }
+      if (f.formEndpoint) { const payload = { form: kind, title }; fields.forEach((x) => { payload[x.key || x.name] = x.value; }); const r = await fetch(f.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) }); if (!r.ok) throw new Error(`Endpoint responded ${r.status}`); return { ok: true }; }
+    } catch (err) { return { ok: false, error: err.message, mailto }; }
+    return { ok: false, fallback: true, mailto };
   }
-  function initReveal() {
-    const items = $$(".reveal"); if (!items.length) return;
-    if (!("IntersectionObserver" in window)) { items.forEach((i) => i.classList.add("is-visible")); return; }
-    const io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); } }), { threshold: 0.08 });
-    items.forEach((i) => io.observe(i));
+  function validateForm(form) { let ok = true; $$(".field", form).forEach((f) => { const i = $("input, select, textarea", f); if (!i) return; const v = i.checkValidity(); f.classList.toggle("is-invalid", !v); if (!v) ok = false; }); return ok; }
+  const interest = {
+    set: () => { try { return new Set(JSON.parse(localStorage.getItem("trl.interest") || "[]")); } catch (e) { return new Set(); } },
+    has: (id) => interest.set().has(id),
+    toggle: (id) => { const s = interest.set(); if (s.has(id)) s.delete(id); else s.add(id); try { localStorage.setItem("trl.interest", JSON.stringify(Array.from(s))); } catch (e) { /* ignore */ } return s.has(id); }
+  };
+  function interestButton(ev) {
+    const on = interest.has(ev.id); const me = auth.session();
+    const names = (ev.interested || []).slice(); if (on && me && !names.includes(me.name)) names.push(me.name);
+    return `<div class="interest-col"><button class="btn btn-compact ${on ? "btn-green" : ""}" type="button" data-interest="${esc(ev.id)}">${on ? "✓ Interested" : "I'm interested"}</button><span class="interest-count">${names.length} interested</span></div>`;
   }
-  function setTitle(t) { const L = cfg().league || {}; document.title = t ? `${t} · ${L.fullName || L.name}` : (L.fullName || L.name); }
-  function fillBrand() {
-    const L = cfg().league || {};
-    $$("[data-league-name]").forEach((el) => { el.textContent = L.name || ""; });
-    $$("[data-league-fullname]").forEach((el) => { el.textContent = L.fullName || L.name || ""; });
-    $$("[data-league-tagline]").forEach((el) => { el.textContent = L.tagline || ""; });
-    $$("[data-league-game]").forEach((el) => { el.textContent = L.game || ""; });
-    $$("[data-league-email]").forEach((el) => { el.textContent = L.email || ""; if (el.tagName === "A") el.href = `mailto:${L.email || ""}`; });
-    $$("[data-discord-link]").forEach((el) => { el.href = L.discordInvite || "#"; });
+  function bindInterest(root, onChange) {
+    root.addEventListener("click", (e) => { const b = e.target.closest("[data-interest]"); if (!b) return; const id = b.dataset.interest; const on = interest.toggle(id); const ev = E().enduranceEvent(id); if (on && ev) submitForm("interest", `Interest · ${ev.series} — ${ev.track}`, [{ name: "Driver", value: (auth.session() || {}).name || "Anonymous (not signed in)" }, { name: "Event", value: `${ev.series} — ${ev.track} (${ev.length})` }, { name: "Date", value: fmtDateTime(ev.date) }]); if (onChange) onChange(id, on); });
   }
-  function sortableTable(table, getRows) {
-    $$("th.sortable", table).forEach((th) => th.addEventListener("click", () => {
-      const key = th.dataset.key; const dir = th.dataset.dir === "desc" ? "asc" : "desc";
-      $$("th.sortable", table).forEach((x) => x.removeAttribute("data-dir")); th.dataset.dir = dir;
-      const tbody = $("tbody", table);
-      const rows = $$("tr", tbody);
-      rows.sort((a, b) => { const av = a.dataset[key], bv = b.dataset[key]; const an = parseFloat(av), bn = parseFloat(bv); const cmp = (!isNaN(an) && !isNaN(bn)) ? an - bn : String(av).localeCompare(String(bv)); return dir === "asc" ? cmp : -cmp; });
-      rows.forEach((r) => tbody.appendChild(r));
-    }));
+  function scrollSpy(links, targets) {
+    if (!("IntersectionObserver" in window) || !targets.length) return;
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-15% 0px -75% 0px" });
+    targets.forEach((t) => io.observe(t));
   }
 
   // ---------- boot ----------
   function page(name, fn) { pages[name] = fn; }
   function init() {
     if (!window.TRL_ENGINE || !window.TRL_CONFIG) { console.error("TRL: config or engine missing"); return; }
-    renderHeader(); renderFooter(); initNav(); fillBrand();
-    const name = document.body.dataset.page;
-    const fn = pages[name];
-    try { if (fn) fn(); } catch (err) { console.error("TRL page error:", err); const main = $("#main"); if (main) main.insertAdjacentHTML("afterbegin", `<div class="container mt-3"><div class="alert alert--error">Something went wrong rendering this page: ${esc(err.message)}</div></div>`); }
-    initReveal();
+    renderChrome();
+    const fn = pages[document.body.dataset.page];
+    try { if (fn) fn(); } catch (err) { console.error("TRL page error:", err); const m = $("#main"); if (m) m.insertAdjacentHTML("afterbegin", `<div class="wrap"><div class="notice bad" style="margin-top:20px">Something went wrong rendering this page: ${esc(err.message)}</div></div>`); }
   }
   document.addEventListener("DOMContentLoaded", init);
 
-  return { page, $, $$, esc, qs, html, pref, season, tierId, link, setParam, fmtDate, fmtTime, fmtDateTime, tz, flag, ordinal, plural, placeholderSrc, img, teamColor, teamDot, driverName, teamName, tierPill, posBadge, movement, statusBadge, seasonSelect, tierTabs, countdown, countdownMarkup, icsForSeason, download, submitForm, validateForm, icon, socialsHtml, setTitle, sortableTable, cfg, E };
+  return { page, $, $$, esc, qs, href, pref, setParam, season, initials, fmtDate, fmtTime, fmtDateTime, monthShort, dayNum, tz, money, flag, flagEmoji, teamStyle, ctorMark, avatar, divBadge, medal, rowTone, driverUrl, teamUrl, resultsUrl, driverLink, teamCell, nationCell, reserveMark, forecastBox, raceRow, driverTile, leaderCard, ctorTile, bonusChips, auth, authSlotHtml, setTitle, pageHead, submitForm, validateForm, interest, interestButton, bindInterest, scrollSpy, cfg, E, ROOT };
 })();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Off track | TRL Driver Hub</title>
-  <meta name="description" content="That route does not exist.">
+  <title>Sign in | TRL Driver Hub</title>
+  <meta name="description" content="Sign in to Race Control with Discord.">
   <meta name="theme-color" content="#08090b">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -15,15 +15,22 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>window.TRL_ROOT = "";</script>
 </head>
-<body data-page="notfound" data-section="hub">
+<body data-page="login" data-section="hub">
 <main id="main">
-  <div class="state-page"><p class="kicker">404 · Off track</p><h1>That route does not exist.</h1><p class="lede" style="margin:0 auto 24px">Return to the paddock and find your way back to the grid.</p><a class="btn btn-primary" href="index.html">Return home</a></div>
+  <div class="wrap login-page">
+    <section class="login-card">
+      <img class="brand-mark" src="assets/img/logo.svg" alt="">
+      <p class="kicker">Secure league access</p>
+      <h1>Sign in to Race Control</h1>
+      <div id="login-body"><p>Checking Discord session…</p></div>
+    </section>
+  </div>
 </main>
 <script src="data/config.js"></script>
 <script src="data/seasons/2026.js"></script>
 <script src="data/endurance.js"></script>
 <script src="assets/js/engine.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/pages/notfound.js"></script>
+<script src="assets/js/pages/login.js"></script>
 </body>
 </html>

@@ -2,8677 +2,5047 @@
 window.TRL_DATA = window.TRL_DATA || {};
 window.TRL_DATA.seasons = window.TRL_DATA.seasons || [];
 window.TRL_DATA.seasons.push({
-  "id": "2026",
-  "name": "Season 3",
+  "id": "s1",
+  "name": "Season 1",
   "year": 2026,
   "game": "F1 25",
   "current": true,
-  "pointsSystem": "f1",
-  "dropRounds": 0,
-  "description": "Three tiers, twelve rounds, sprint weekends and full broadcasts every race night.",
-  "tiers": [
+  "pointsSystem": "trl",
+  "description": "Two divisions, ten rounds, one preseason showcase.",
+  "divisions": [
     {
-      "id": "t1",
-      "name": "Tier 1",
-      "shortName": "T1",
-      "raceDay": "Tuesday",
-      "raceTime": "20:00 UK",
-      "color": "#e8002d",
-      "order": 1,
-      "description": "The top split. Fastest drivers, tightest margins."
+      "id": "d1",
+      "name": "Division I",
+      "short": "DIV I",
+      "order": 1
     },
     {
-      "id": "t2",
-      "name": "Tier 2",
-      "shortName": "T2",
-      "raceDay": "Wednesday",
-      "raceTime": "20:00 UK",
-      "color": "#3b82f6",
-      "order": 2,
-      "description": "Competitive racing for drivers pushing for promotion."
-    },
-    {
-      "id": "t3",
-      "name": "Tier 3",
-      "shortName": "T3",
-      "raceDay": "Thursday",
-      "raceTime": "20:00 UK",
-      "color": "#22c55e",
-      "order": 3,
-      "description": "The development tier. Learn race craft in a clean, supportive field."
+      "id": "d2",
+      "name": "Division II",
+      "short": "DIV II",
+      "order": 2
     }
   ],
   "teams": [
     {
-      "id": "mclaren",
-      "name": "McLaren",
-      "shortName": "MCL",
-      "color": "#FF8000"
+      "id": "alpine",
+      "name": "Alpine",
+      "short": "ALP",
+      "color": "#ff6ac7",
+      "hq": {
+        "city": "Enstone",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "quali-q",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "aston-martin",
+      "name": "Aston Martin",
+      "short": "AMR",
+      "color": "#3fb489",
+      "hq": {
+        "city": "Silverstone",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "undercut-u",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "audi",
+      "name": "Audi",
+      "short": "AUD",
+      "color": "#ff3b3b",
+      "hq": {
+        "city": "Hinwil",
+        "country": "Switzerland",
+        "cc": "ch"
+      },
+      "principal": "lucky-l",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "cadillac",
+      "name": "Cadillac",
+      "short": "CAD",
+      "color": "#d8c38a",
+      "hq": {
+        "city": "Silverstone",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "brakes",
+      "logo": null,
+      "watermark": null
     },
     {
       "id": "ferrari",
       "name": "Ferrari",
-      "shortName": "FER",
-      "color": "#E80020"
-    },
-    {
-      "id": "redbull",
-      "name": "Red Bull Racing",
-      "shortName": "RBR",
-      "color": "#3671C6"
-    },
-    {
-      "id": "mercedes",
-      "name": "Mercedes",
-      "shortName": "MER",
-      "color": "#27F4D2"
-    },
-    {
-      "id": "astonmartin",
-      "name": "Aston Martin",
-      "shortName": "AMR",
-      "color": "#229971"
-    },
-    {
-      "id": "alpine",
-      "name": "Alpine",
-      "shortName": "ALP",
-      "color": "#0093CC"
-    },
-    {
-      "id": "williams",
-      "name": "Williams",
-      "shortName": "WIL",
-      "color": "#64C4FF"
-    },
-    {
-      "id": "racingbulls",
-      "name": "Racing Bulls",
-      "shortName": "VRB",
-      "color": "#6692FF"
+      "short": "FER",
+      "color": "#ff2a3c",
+      "hq": {
+        "city": "Maranello",
+        "country": "Italy",
+        "cc": "it"
+      },
+      "principal": "fenwick",
+      "logo": null,
+      "watermark": null
     },
     {
       "id": "haas",
       "name": "Haas",
-      "shortName": "HAA",
-      "color": "#B6BABD"
+      "short": "HAA",
+      "color": "#c9ccd6",
+      "hq": {
+        "city": "Kannapolis",
+        "country": "United States",
+        "cc": "us"
+      },
+      "principal": "fabio-r",
+      "logo": null,
+      "watermark": null
     },
     {
-      "id": "sauber",
-      "name": "Kick Sauber",
-      "shortName": "SAU",
-      "color": "#52E252"
+      "id": "mclaren",
+      "name": "McLaren",
+      "short": "MCL",
+      "color": "#ff8a00",
+      "hq": {
+        "city": "Woking",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "polepat",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "mercedes",
+      "name": "Mercedes",
+      "short": "MER",
+      "color": "#2ee6c5",
+      "hq": {
+        "city": "Brackley",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "silverline",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "racing-bulls",
+      "name": "Racing Bulls",
+      "short": "VRB",
+      "color": "#5c8dff",
+      "hq": {
+        "city": "Faenza",
+        "country": "Italy",
+        "cc": "it"
+      },
+      "principal": "blaze47",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "red-bull",
+      "name": "Red Bull Racing",
+      "short": "RBR",
+      "color": "#3b6fe0",
+      "hq": {
+        "city": "Milton Keynes",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "stint",
+      "logo": null,
+      "watermark": null
+    },
+    {
+      "id": "williams",
+      "name": "Williams",
+      "short": "WIL",
+      "color": "#3d9bff",
+      "hq": {
+        "city": "Grove",
+        "country": "England",
+        "cc": "gb-eng"
+      },
+      "principal": "slipstream-j",
+      "logo": null,
+      "watermark": null
     }
   ],
   "drivers": [
     {
-      "id": "luca-voss",
-      "name": "Luca Voss",
-      "tag": "LVoss27",
-      "number": 27,
-      "nationality": "US",
-      "tier": "t1",
-      "team": "haas",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "jake-castellano",
-      "name": "Jake Castellano",
-      "tag": "JCastellano29",
-      "number": 29,
-      "nationality": "AT",
-      "tier": "t1",
-      "team": "haas",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
-      "socials": {
-        "twitch": "https://twitch.tv/jakecastellano"
+      "id": "velo",
+      "name": "Velo",
+      "number": 8,
+      "cc": "ca",
+      "nation": "Canada",
+      "tz": "Pacific",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "Velo17",
+      "discord": {
+        "id": null,
+        "handle": "velo",
+        "avatar": null
       },
-      "photo": null
-    },
-    {
-      "id": "noah-ekstr-m",
-      "name": "Noah Ekström",
-      "tag": "NEkstrm58",
-      "number": 58,
-      "nationality": "NO",
-      "tier": "t1",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "kai-fischer",
-      "name": "Kai Fischer",
-      "tag": "KFischer63",
-      "number": 63,
-      "nationality": "NL",
-      "tier": "t1",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Qualifying specialist with a knack for one-lap pace.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "dylan-petrov",
-      "name": "Dylan Petrov",
-      "tag": "DPetrov50",
-      "number": 50,
-      "nationality": "GR",
-      "tier": "t1",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
       "socials": {
-        "twitch": "https://twitch.tv/dylanpetrov"
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
       },
-      "photo": null
-    },
-    {
-      "id": "zane-okafor",
-      "name": "Zane Okafor",
-      "tag": "ZOkafor22",
-      "number": 22,
-      "nationality": "NO",
-      "tier": "t1",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "kai-kowalski",
-      "name": "Kai Kowalski",
-      "tag": "KKowalski34",
-      "number": 34,
-      "nationality": "PL",
-      "tier": "t1",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/kaikowalski"
-      },
-      "photo": null
-    },
-    {
-      "id": "elias-ekstr-m",
-      "name": "Elias Ekström",
-      "tag": "EEkstrm77",
-      "number": 77,
-      "nationality": "FR",
-      "tier": "t1",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "jonas-ferreira",
-      "name": "Jonas Ferreira",
-      "tag": "JFerreira30",
-      "number": 30,
-      "nationality": "AU",
-      "tier": "t1",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {
-        "twitch": "https://twitch.tv/jonasferreira"
-      },
-      "photo": null
-    },
-    {
-      "id": "zane-voss",
-      "name": "Zane Voss",
-      "tag": "ZVoss90",
-      "number": 90,
-      "nationality": "MX",
-      "tier": "t1",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "hugo-lund",
-      "name": "Hugo Lund",
-      "tag": "HLund73",
-      "number": 73,
-      "nationality": "IN",
-      "tier": "t1",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {
-        "twitch": "https://twitch.tv/hugolund"
-      },
-      "photo": null
-    },
-    {
-      "id": "nico-sinclair",
-      "name": "Nico Sinclair",
-      "tag": "NSinclair10",
-      "number": 10,
-      "nationality": "PT",
-      "tier": "t1",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Comeback specialist: has more recovery drives than anyone on the grid.",
-      "socials": {
-        "twitch": "https://twitch.tv/nicosinclair"
-      },
-      "photo": null
-    },
-    {
-      "id": "zane-rossi",
-      "name": "Zane Rossi",
-      "tag": "ZRossi17",
-      "number": 17,
-      "nationality": "TR",
-      "tier": "t1",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/zanerossi"
-      },
-      "photo": null
-    },
-    {
-      "id": "dani-bennett",
-      "name": "Dani Bennett",
-      "tag": "DBennett32",
-      "number": 32,
-      "nationality": "GB",
-      "tier": "t1",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/danibennett"
-      },
-      "photo": null
-    },
-    {
-      "id": "arlo-weber",
-      "name": "Arlo Weber",
-      "tag": "AWeber85",
-      "number": 85,
-      "nationality": "BE",
-      "tier": "t1",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "rafael-novak",
-      "name": "Rafael Novak",
-      "tag": "RNovak5",
-      "number": 5,
-      "nationality": "CA",
-      "tier": "t1",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ivan-pryce",
-      "name": "Ivan Pryce",
-      "tag": "IPryce12",
-      "number": 12,
-      "nationality": "NO",
-      "tier": "t1",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "arlo-moreau",
-      "name": "Arlo Moreau",
-      "tag": "AMoreau88",
-      "number": 88,
-      "nationality": "PT",
-      "tier": "t1",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "noah-baros",
-      "name": "Noah Baros",
-      "tag": "NBaros78",
-      "number": 78,
-      "nationality": "JP",
-      "tier": "t1",
+      "division": "d1",
       "team": "mclaren",
       "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Known for clean racing and rarely appearing in the stewards' room.",
-      "socials": {},
-      "photo": null
+      "principal": false,
+      "contract": {
+        "position": 3,
+        "salary": 25,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
     },
     {
-      "id": "axel-sato",
-      "name": "Axel Sato",
-      "tag": "ASato36",
-      "number": 36,
-      "nationality": "GR",
-      "tier": "t1",
+      "id": "polepat",
+      "name": "PolePat",
+      "number": 42,
+      "cc": "cn",
+      "nation": "China",
+      "tz": "Mountain",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": "PolePat77",
+      "discord": {
+        "id": null,
+        "handle": "polepat",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
       "team": "mclaren",
       "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {
-        "twitch": "https://twitch.tv/axelsato"
+      "principal": true,
+      "contract": {
+        "position": 13,
+        "salary": 12,
+        "type": "full-time"
       },
-      "photo": null
+      "unsigned": false,
+      "licenceNote": ""
     },
     {
-      "id": "kenji-andersson",
-      "name": "Kenji Andersson",
-      "tag": "KAndersson9",
-      "number": 9,
-      "nationality": "SE",
-      "tier": "t2",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Qualifying specialist with a knack for one-lap pace.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "lucas-reyes",
-      "name": "Lucas Reyes",
-      "tag": "LReyes74",
-      "number": 74,
-      "nationality": "CA",
-      "tier": "t2",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "jonas-fletcher",
-      "name": "Jonas Fletcher",
-      "tag": "JFletcher65",
-      "number": 65,
-      "nationality": "PL",
-      "tier": "t2",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/jonasfletcher"
-      },
-      "photo": null
-    },
-    {
-      "id": "aiden-ochoa",
-      "name": "Aiden Ochoa",
-      "tag": "AOchoa83",
-      "number": 83,
-      "nationality": "MX",
-      "tier": "t2",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/aidenochoa"
-      },
-      "photo": null
-    },
-    {
-      "id": "rhys-quinn",
-      "name": "Rhys Quinn",
-      "tag": "RQuinn23",
-      "number": 23,
-      "nationality": "DK",
-      "tier": "t2",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ezra-jensen",
-      "name": "Ezra Jensen",
-      "tag": "EJensen16",
-      "number": 16,
-      "nationality": "DK",
-      "tier": "t2",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "lucas-fischer",
-      "name": "Lucas Fischer",
-      "tag": "LFischer64",
-      "number": 64,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": "mclaren",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/lucasfischer"
-      },
-      "photo": null
-    },
-    {
-      "id": "ryan-zimmer",
-      "name": "Ryan Zimmer",
-      "tag": "RZimmer39",
-      "number": 39,
-      "nationality": "CA",
-      "tier": "t2",
-      "team": "mclaren",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Known for clean racing and rarely appearing in the stewards' room.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "kai-dubois",
-      "name": "Kai Dubois",
-      "tag": "KDubois28",
-      "number": 28,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/kaidubois"
-      },
-      "photo": null
-    },
-    {
-      "id": "louis-castellano",
-      "name": "Louis Castellano",
-      "tag": "LCastellano79",
-      "number": 79,
-      "nationality": "AR",
-      "tier": "t2",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "axel-dubois",
-      "name": "Axel Dubois",
-      "tag": "ADubois43",
-      "number": 43,
-      "nationality": "TR",
-      "tier": "t2",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Comeback specialist: has more recovery drives than anyone on the grid.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "liam-doyle",
-      "name": "Liam Doyle",
-      "tag": "LDoyle92",
-      "number": 92,
-      "nationality": "TR",
-      "tier": "t2",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "theo-kral",
-      "name": "Theo Kral",
-      "tag": "TKral14",
-      "number": 14,
-      "nationality": "ZA",
-      "tier": "t2",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "arlo-zimmer",
-      "name": "Arlo Zimmer",
-      "tag": "AZimmer11",
-      "number": 11,
-      "nationality": "CA",
-      "tier": "t2",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "lucas-petrov",
-      "name": "Lucas Petrov",
-      "tag": "LPetrov3",
-      "number": 3,
-      "nationality": "AT",
-      "tier": "t2",
-      "team": "haas",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ryan-marin",
-      "name": "Ryan Marin",
-      "tag": "RMarin82",
-      "number": 82,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": "haas",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Pad",
-      "joined": 2026,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "owen-ekstr-m",
-      "name": "Owen Ekström",
-      "tag": "OEkstrm55",
-      "number": 55,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {
-        "twitch": "https://twitch.tv/owenekstrm"
-      },
-      "photo": null
-    },
-    {
-      "id": "cole-thornton",
-      "name": "Cole Thornton",
-      "tag": "CThornton59",
-      "number": 59,
-      "nationality": "PT",
-      "tier": "t2",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {
-        "twitch": "https://twitch.tv/colethornton"
-      },
-      "photo": null
-    },
-    {
-      "id": "alex-kral",
-      "name": "Alex Kral",
-      "tag": "AKral20",
-      "number": 20,
-      "nationality": "BR",
-      "tier": "t2",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2026,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/alexkral"
-      },
-      "photo": null
-    },
-    {
-      "id": "kenji-vance",
-      "name": "Kenji Vance",
-      "tag": "KVance33",
-      "number": 33,
-      "nationality": "NL",
-      "tier": "t2",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "finn-pryce",
-      "name": "Finn Pryce",
-      "tag": "FPryce48",
-      "number": 48,
-      "nationality": "GB",
-      "tier": "t3",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {
-        "twitch": "https://twitch.tv/finnpryce"
-      },
-      "photo": null
-    },
-    {
-      "id": "santi-whitfield",
-      "name": "Santi Whitfield",
-      "tag": "SWhitfield38",
-      "number": 38,
-      "nationality": "GB",
-      "tier": "t3",
-      "team": "ferrari",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {
-        "twitch": "https://twitch.tv/santiwhitfield"
-      },
-      "photo": null
-    },
-    {
-      "id": "rafael-sinclair",
-      "name": "Rafael Sinclair",
-      "tag": "RSinclair75",
-      "number": 75,
-      "nationality": "ES",
-      "tier": "t3",
-      "team": "mclaren",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "kenji-fletcher",
-      "name": "Kenji Fletcher",
-      "tag": "KFletcher68",
-      "number": 68,
-      "nationality": "ES",
-      "tier": "t3",
-      "team": "mclaren",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Comeback specialist: has more recovery drives than anyone on the grid.",
-      "socials": {
-        "twitch": "https://twitch.tv/kenjifletcher"
-      },
-      "photo": null
-    },
-    {
-      "id": "axel-haddad",
-      "name": "Axel Haddad",
-      "tag": "AHaddad44",
-      "number": 44,
-      "nationality": "AU",
-      "tier": "t3",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Comeback specialist: has more recovery drives than anyone on the grid.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "diego-lund",
-      "name": "Diego Lund",
-      "tag": "DLund80",
-      "number": 80,
-      "nationality": "IE",
-      "tier": "t3",
-      "team": "redbull",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "hugo-jensen",
-      "name": "Hugo Jensen",
-      "tag": "HJensen45",
-      "number": 45,
-      "nationality": "AT",
-      "tier": "t3",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Known for clean racing and rarely appearing in the stewards' room.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "cole-moreau",
-      "name": "Cole Moreau",
-      "tag": "CMoreau6",
-      "number": 6,
-      "nationality": "IN",
-      "tier": "t3",
-      "team": "sauber",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "max-carter",
-      "name": "Max Carter",
-      "tag": "MCarter94",
-      "number": 94,
-      "nationality": "GB",
-      "tier": "t3",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Strategy-minded racer who makes tyre offsets work.",
-      "socials": {
-        "twitch": "https://twitch.tv/maxcarter"
-      },
-      "photo": null
-    },
-    {
-      "id": "yusuf-vance",
-      "name": "Yusuf Vance",
-      "tag": "YVance66",
-      "number": 66,
-      "nationality": "NL",
-      "tier": "t3",
-      "team": "alpine",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/yusufvance"
-      },
-      "photo": null
-    },
-    {
-      "id": "cole-jensen",
-      "name": "Cole Jensen",
-      "tag": "CJensen26",
-      "number": 26,
-      "nationality": "TR",
-      "tier": "t3",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Pad",
-      "joined": 2026,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "tariq-brandt",
-      "name": "Tariq Brandt",
-      "tag": "TBrandt97",
-      "number": 97,
-      "nationality": "CZ",
-      "tier": "t3",
-      "team": "astonmartin",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Joined from an endurance background and adapted quickly to F1 racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "diego-laurent",
-      "name": "Diego Laurent",
-      "tag": "DLaurent35",
+      "id": "fabio-r",
+      "name": "Fabio_R",
       "number": 35,
-      "nationality": "BR",
-      "tier": "t3",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {
-        "twitch": "https://twitch.tv/diegolaurent"
+      "cc": "ar",
+      "nation": "Argentina",
+      "tz": "Mountain",
+      "bio": "Strategy-minded racer who makes tyre offsets work.",
+      "ea": "FabioR",
+      "discord": {
+        "id": null,
+        "handle": "fabio_r",
+        "avatar": null
       },
-      "photo": null
-    },
-    {
-      "id": "milo-castellano",
-      "name": "Milo Castellano",
-      "tag": "MCastellano24",
-      "number": 24,
-      "nationality": "US",
-      "tier": "t3",
-      "team": "williams",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2026,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
       "socials": {
-        "twitch": "https://twitch.tv/milocastellano"
+        "twitch": "https://twitch.tv/fabio-r",
+        "youtube": null,
+        "tiktok": null
       },
-      "photo": null
-    },
-    {
-      "id": "owen-weber",
-      "name": "Owen Weber",
-      "tag": "OWeber67",
-      "number": 67,
-      "nationality": "TR",
-      "tier": "t3",
+      "division": "d1",
       "team": "haas",
       "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Rain master. Give this driver a wet track and watch the gaps grow.",
-      "socials": {
-        "twitch": "https://twitch.tv/owenweber"
+      "principal": true,
+      "contract": {
+        "position": 5,
+        "salary": 21,
+        "type": "full-time"
       },
-      "photo": null
+      "unsigned": false,
+      "licenceNote": ""
     },
     {
-      "id": "nico-hughes",
-      "name": "Nico Hughes",
-      "tag": "NHughes93",
-      "number": 93,
-      "nationality": "GR",
-      "tier": "t3",
+      "id": "zoom",
+      "name": "Zoom",
+      "number": 4,
+      "cc": "us",
+      "nation": "United States",
+      "tz": "Eastern",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "Zoom74",
+      "discord": {
+        "id": null,
+        "handle": "zoom",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
       "team": "haas",
       "role": "driver",
-      "platform": "PlayStation",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "hiro-novak",
-      "name": "Hiro Novak",
-      "tag": "HNovak61",
-      "number": 61,
-      "nationality": "CA",
-      "tier": "t3",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Qualifying specialist with a knack for one-lap pace.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "yusuf-pryce",
-      "name": "Yusuf Pryce",
-      "tag": "YPryce91",
-      "number": 91,
-      "nationality": "DE",
-      "tier": "t3",
-      "team": "mercedes",
-      "role": "driver",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/yusufpryce"
+      "principal": false,
+      "contract": {
+        "position": 2,
+        "salary": 27,
+        "type": "full-time"
       },
-      "photo": null
+      "unsigned": false,
+      "licenceNote": ""
     },
     {
-      "id": "hugo-ochoa",
-      "name": "Hugo Ochoa",
-      "tag": "HOchoa95",
-      "number": 95,
-      "nationality": "IE",
-      "tier": "t3",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "Xbox",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "owen-mercer",
-      "name": "Owen Mercer",
-      "tag": "OMercer56",
-      "number": 56,
-      "nationality": "BE",
-      "tier": "t3",
-      "team": "racingbulls",
-      "role": "driver",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Team player with a reputation for fair, hard racing.",
-      "socials": {
-        "twitch": "https://twitch.tv/owenmercer"
-      },
-      "photo": null
-    },
-    {
-      "id": "rui-byrne",
-      "name": "Rui Byrne",
-      "tag": "RByrne57",
-      "number": 57,
-      "nationality": "GR",
-      "tier": "t1",
-      "team": null,
-      "role": "reserve",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {
-        "twitch": "https://twitch.tv/ruibyrne"
-      },
-      "photo": null
-    },
-    {
-      "id": "tom-mercer",
-      "name": "Tom Mercer",
-      "tag": "TMercer51",
-      "number": 51,
-      "nationality": "IE",
-      "tier": "t1",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {
-        "twitch": "https://twitch.tv/tommercer"
-      },
-      "photo": null
-    },
-    {
-      "id": "sam-jensen",
-      "name": "Sam Jensen",
-      "tag": "SJensen19",
-      "number": 19,
-      "nationality": "GB",
-      "tier": "t1",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "sam-ekstr-m",
-      "name": "Sam Ekström",
-      "tag": "SEkstrm52",
+      "id": "slipstream-j",
+      "name": "Slipstream_J",
       "number": 52,
-      "nationality": "GR",
-      "tier": "t1",
-      "team": null,
-      "role": "reserve",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ivan-haddad",
-      "name": "Ivan Haddad",
-      "tag": "IHaddad60",
-      "number": 60,
-      "nationality": "IN",
-      "tier": "t2",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ivan-thornton",
-      "name": "Ivan Thornton",
-      "tag": "IThornton13",
-      "number": 13,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {
-        "twitch": "https://twitch.tv/ivanthornton"
+      "cc": null,
+      "nation": null,
+      "tz": "Eastern",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "SlipstreamJ",
+      "discord": {
+        "id": null,
+        "handle": "slipstream_j",
+        "avatar": null
       },
-      "photo": null
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "williams",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 15,
+        "salary": 10,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
     },
     {
-      "id": "mateo-ferreira",
-      "name": "Mateo Ferreira",
-      "tag": "MFerreira81",
+      "id": "bruno-m",
+      "name": "Bruno_M",
+      "number": 12,
+      "cc": "gb-eng",
+      "nation": "England",
+      "tz": "Pacific",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "bruno_m",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/bruno-m",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "williams",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 11,
+        "salary": 14,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "blaze47",
+      "name": "Blaze47",
+      "number": 46,
+      "cc": "jp",
+      "nation": "Japan",
+      "tz": "GMT",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "Blaze4725",
+      "discord": {
+        "id": null,
+        "handle": "blaze47",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "racing-bulls",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 9,
+        "salary": 16,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "dusty",
+      "name": "Dusty",
+      "number": 9,
+      "cc": "mx",
+      "nation": "Mexico",
+      "tz": "Eastern",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "Dusty",
+      "discord": {
+        "id": null,
+        "handle": "dusty",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "racing-bulls",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 1,
+        "salary": 30,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "quali-q",
+      "name": "Quali_Q",
+      "number": 33,
+      "cc": "it",
+      "nation": "Italy",
+      "tz": "Mountain",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "QualiQ",
+      "discord": {
+        "id": null,
+        "handle": "quali_q",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "alpine",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 8,
+        "salary": 17,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "skidrow",
+      "name": "SkidRow",
+      "number": 51,
+      "cc": "pt",
+      "nation": "Portugal",
+      "tz": "Pacific",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "skidrow",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "alpine",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 6,
+        "salary": 19,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "brakes",
+      "name": "Brakes",
+      "number": 26,
+      "cc": "za",
+      "nation": "South Africa",
+      "tz": "GMT",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "Brakes67",
+      "discord": {
+        "id": null,
+        "handle": "brakes",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "cadillac",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "jetstream",
+      "name": "Jetstream",
+      "number": 83,
+      "cc": "in",
+      "nation": "India",
+      "tz": "Eastern",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "Jetstream",
+      "discord": {
+        "id": null,
+        "handle": "jetstream",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "cadillac",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 16,
+        "salary": 9.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "fenwick",
+      "name": "Fenwick",
+      "number": 2,
+      "cc": "fi",
+      "nation": "Finland",
+      "tz": "AEST",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": "Fenwick20",
+      "discord": {
+        "id": null,
+        "handle": "fenwick",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "ferrari",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 13,
+        "salary": 12,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "mika-v",
+      "name": "Mika_V",
+      "number": 93,
+      "cc": null,
+      "nation": null,
+      "tz": "Central",
+      "bio": "Clean racer who rarely troubles the stewards.",
+      "ea": "MikaV",
+      "discord": {
+        "id": null,
+        "handle": "mika_v",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@mika-v",
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "ferrari",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 12,
+        "salary": 13.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "undercut-u",
+      "name": "Undercut_U",
+      "number": 10,
+      "cc": "fi",
+      "nation": "Finland",
+      "tz": "Central",
+      "bio": "",
+      "ea": "UndercutU",
+      "discord": {
+        "id": null,
+        "handle": "undercut_u",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/undercut-u",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "aston-martin",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 20,
+        "salary": 5.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "chicanecal",
+      "name": "ChicaneCal",
+      "number": 91,
+      "cc": "au",
+      "nation": "Australia",
+      "tz": "Eastern",
+      "bio": "Clean racer who rarely troubles the stewards.",
+      "ea": "ChicaneCal",
+      "discord": {
+        "id": null,
+        "handle": "chicanecal",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "aston-martin",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 18,
+        "salary": 7.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "stint",
+      "name": "Stint",
+      "number": 80,
+      "cc": "nl",
+      "nation": "Netherlands",
+      "tz": "GMT",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": "Stint",
+      "discord": {
+        "id": null,
+        "handle": "stint",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/stint",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "red-bull",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 14,
+        "salary": 11.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "hairpin",
+      "name": "Hairpin",
+      "number": 98,
+      "cc": "at",
+      "nation": "Austria",
+      "tz": "Mountain",
+      "bio": "Strategy-minded racer who makes tyre offsets work.",
+      "ea": "Hairpin",
+      "discord": {
+        "id": null,
+        "handle": "hairpin",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@hairpin",
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "red-bull",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 7,
+        "salary": 18,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "silverline",
+      "name": "Silverline",
+      "number": 92,
+      "cc": "fr",
+      "nation": "France",
+      "tz": "Eastern",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "Silverline",
+      "discord": {
+        "id": null,
+        "handle": "silverline",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "mercedes",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 3,
+        "salary": 25,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "vortex-kai",
+      "name": "Vortex_Kai",
+      "number": 7,
+      "cc": "gb-sct",
+      "nation": "Scotland",
+      "tz": "Central",
+      "bio": "",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "vortex_kai",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "mercedes",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 19,
+        "salary": 6,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "lucky-l",
+      "name": "Lucky_L",
+      "number": 84,
+      "cc": "us",
+      "nation": "United States",
+      "tz": "AEST",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "LuckyL",
+      "discord": {
+        "id": null,
+        "handle": "lucky_l",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "audi",
+      "role": "driver",
+      "principal": true,
+      "contract": {
+        "position": 18,
+        "salary": 7.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "clutch-c",
+      "name": "Clutch_C",
+      "number": 28,
+      "cc": "nl",
+      "nation": "Netherlands",
+      "tz": "Pacific",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "ClutchC",
+      "discord": {
+        "id": null,
+        "handle": "clutch_c",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d1",
+      "team": "audi",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 21,
+        "salary": 4,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "rafa-l",
+      "name": "Rafa_L",
+      "number": 17,
+      "cc": null,
+      "nation": null,
+      "tz": "Eastern",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "RafaL",
+      "discord": {
+        "id": null,
+        "handle": "rafa_l",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "williams",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 13,
+        "salary": 12,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "hexley",
+      "name": "Hexley",
+      "number": 88,
+      "cc": "us",
+      "nation": "United States",
+      "tz": "Central",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "Hexley12",
+      "discord": {
+        "id": null,
+        "handle": "hexley",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@hexley",
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "williams",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 14,
+        "salary": 11.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "quinn9",
+      "name": "Quinn9",
+      "number": 68,
+      "cc": "pl",
+      "nation": "Poland",
+      "tz": "Eastern",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "Quinn9",
+      "discord": {
+        "id": null,
+        "handle": "quinn9",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "cadillac",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 16,
+        "salary": 9.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "ferris",
+      "name": "Ferris",
+      "number": 69,
+      "cc": "co",
+      "nation": "Colombia",
+      "tz": "Pacific",
+      "bio": "",
+      "ea": "Ferris",
+      "discord": {
+        "id": null,
+        "handle": "ferris",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/ferris",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "cadillac",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 15,
+        "salary": 10,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "torque-t",
+      "name": "Torque_T",
+      "number": 18,
+      "cc": "au",
+      "nation": "Australia",
+      "tz": "GMT",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "TorqueT",
+      "discord": {
+        "id": null,
+        "handle": "torque_t",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/torque-t",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "aston-martin",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 17,
+        "salary": 8,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "latebraker",
+      "name": "LateBraker",
+      "number": 41,
+      "cc": "de",
+      "nation": "Germany",
+      "tz": "CET",
+      "bio": "Strategy-minded racer who makes tyre offsets work.",
+      "ea": "LateBraker",
+      "discord": {
+        "id": null,
+        "handle": "latebraker",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@latebraker",
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "aston-martin",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 19,
+        "salary": 6,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "dirty-air",
+      "name": "Dirty_Air",
+      "number": 32,
+      "cc": "za",
+      "nation": "South Africa",
+      "tz": "AEST",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "DirtyAir",
+      "discord": {
+        "id": null,
+        "handle": "dirty_air",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@dirty-air",
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "ferrari",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 18,
+        "salary": 7.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "ballast",
+      "name": "Ballast",
+      "number": 14,
+      "cc": "ie",
+      "nation": "Ireland",
+      "tz": "CET",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": "Ballast",
+      "discord": {
+        "id": null,
+        "handle": "ballast",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@ballast",
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "ferrari",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "wetweatherw",
+      "name": "WetWeatherW",
+      "number": 95,
+      "cc": "in",
+      "nation": "India",
+      "tz": "GMT",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "wetweatherw",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "mercedes",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "titan",
+      "name": "Titan",
+      "number": 39,
+      "cc": null,
+      "nation": null,
+      "tz": "Central",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "Titan33",
+      "discord": {
+        "id": null,
+        "handle": "titan",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "mercedes",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "owenracer",
+      "name": "OwenRacer",
+      "number": 36,
+      "cc": "es",
+      "nation": "Spain",
+      "tz": "Central",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "OwenRacer",
+      "discord": {
+        "id": null,
+        "handle": "owenracer",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@owenracer",
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "audi",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 20,
+        "salary": 5.5,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "rudi-tempo",
+      "name": "Rudi_Tempo",
+      "number": 86,
+      "cc": "pt",
+      "nation": "Portugal",
+      "tz": "GMT",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "RudiTempo",
+      "discord": {
+        "id": null,
+        "handle": "rudi_tempo",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/rudi-tempo",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "audi",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "oxide",
+      "name": "Oxide",
+      "number": 67,
+      "cc": "jp",
+      "nation": "Japan",
+      "tz": "Pacific",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "Oxide",
+      "discord": {
+        "id": null,
+        "handle": "oxide",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "mclaren",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "nix-rossi",
+      "name": "Nix_Rossi",
+      "number": 24,
+      "cc": "mx",
+      "nation": "Mexico",
+      "tz": "Eastern",
+      "bio": "",
+      "ea": "NixRossi58",
+      "discord": {
+        "id": null,
+        "handle": "nix_rossi",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": "d2",
+      "team": "mclaren",
+      "role": "driver",
+      "principal": false,
+      "contract": {
+        "position": 22,
+        "salary": 3,
+        "type": "full-time"
+      },
+      "unsigned": false,
+      "licenceNote": ""
+    },
+    {
+      "id": "marlowegt",
+      "name": "MarloweGT",
+      "number": 82,
+      "cc": "nl",
+      "nation": "Netherlands",
+      "tz": "AEST",
+      "bio": "Clean racer who rarely troubles the stewards.",
+      "ea": "MarloweGT",
+      "discord": {
+        "id": null,
+        "handle": "marlowegt",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "overtake-o",
+      "name": "Overtake_O",
       "number": 81,
-      "nationality": "AT",
-      "tier": "t2",
-      "team": null,
-      "role": "reserve",
-      "platform": "Xbox",
-      "input": "Wheel",
-      "joined": 2024,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "elias-vance",
-      "name": "Elias Vance",
-      "tag": "EVance87",
-      "number": 87,
-      "nationality": "GB",
-      "tier": "t2",
-      "team": null,
-      "role": "reserve",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2025,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "callum-lund",
-      "name": "Callum Lund",
-      "tag": "CLund25",
-      "number": 25,
-      "nationality": "JP",
-      "tier": "t3",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2026,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
-    },
-    {
-      "id": "ryan-baros",
-      "name": "Ryan Baros",
-      "tag": "RBaros49",
-      "number": 49,
-      "nationality": "GB",
-      "tier": "t3",
-      "team": null,
-      "role": "reserve",
-      "platform": "PC",
-      "input": "Pad",
-      "joined": 2024,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {
-        "twitch": "https://twitch.tv/ryanbaros"
+      "cc": "de",
+      "nation": "Germany",
+      "tz": "Eastern",
+      "bio": "Clean racer who rarely troubles the stewards.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "overtake_o",
+        "avatar": null
       },
-      "photo": null
-    },
-    {
-      "id": "ezra-marin",
-      "name": "Ezra Marin",
-      "tag": "EMarin62",
-      "number": 62,
-      "nationality": "CH",
-      "tier": "t3",
-      "team": null,
-      "role": "reserve",
-      "platform": "Xbox",
-      "input": "Pad",
-      "joined": 2025,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
       "socials": {
-        "twitch": "https://twitch.tv/ezramarin"
+        "twitch": "https://twitch.tv/overtake-o",
+        "youtube": null,
+        "tiktok": null
       },
-      "photo": null
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
     },
     {
-      "id": "arlo-kral",
-      "name": "Arlo Kral",
-      "tag": "AKral71",
+      "id": "pitlanep",
+      "name": "PitLaneP",
+      "number": 16,
+      "cc": "gb-eng",
+      "nation": "England",
+      "tz": "Pacific",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "PitLaneP",
+      "discord": {
+        "id": null,
+        "handle": "pitlanep",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "drs-dan",
+      "name": "DRS_Dan",
       "number": 71,
-      "nationality": "ZA",
-      "tier": "t3",
+      "cc": "nz",
+      "nation": "New Zealand",
+      "tz": "Pacific",
+      "bio": "Strategy-minded racer who makes tyre offsets work.",
+      "ea": "DRSDan",
+      "discord": {
+        "id": null,
+        "handle": "drs_dan",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/drs-dan",
+        "youtube": "https://youtube.com/@drs-dan",
+        "tiktok": null
+      },
+      "division": null,
       "team": null,
       "role": "reserve",
-      "platform": "PlayStation",
-      "input": "Wheel",
-      "joined": 2026,
-      "bio": "Reserve driver — available to stand in for absent drivers.",
-      "socials": {},
-      "photo": null
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "boxbox",
+      "name": "Boxbox",
+      "number": 19,
+      "cc": null,
+      "nation": null,
+      "tz": "AEST",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "Boxbox",
+      "discord": {
+        "id": null,
+        "handle": "boxbox",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "purplesector",
+      "name": "PurpleSector",
+      "number": 63,
+      "cc": "gb-sct",
+      "nation": "Scotland",
+      "tz": "Pacific",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "purplesector",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "carbon",
+      "name": "Carbon",
+      "number": 1,
+      "cc": "mx",
+      "nation": "Mexico",
+      "tz": "CET",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "Carbon30",
+      "discord": {
+        "id": null,
+        "handle": "carbon",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "wingman",
+      "name": "Wingman",
+      "number": 23,
+      "cc": "rs",
+      "nation": "Serbia",
+      "tz": "Central",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "Wingman40",
+      "discord": {
+        "id": null,
+        "handle": "wingman",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "msport-mo",
+      "name": "MSport_Mo",
+      "number": 30,
+      "cc": "ca",
+      "nation": "Canada",
+      "tz": "Eastern",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "msport_mo",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@msport-mo",
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "twostop",
+      "name": "TwoStop",
+      "number": 79,
+      "cc": "in",
+      "nation": "India",
+      "tz": "Eastern",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "TwoStop",
+      "discord": {
+        "id": null,
+        "handle": "twostop",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "lockupluke",
+      "name": "LockUpLuke",
+      "number": 76,
+      "cc": "gb-sct",
+      "nation": "Scotland",
+      "tz": "GMT",
+      "bio": "",
+      "ea": "LockUpLuke4",
+      "discord": {
+        "id": null,
+        "handle": "lockupluke",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "tarmac-tom",
+      "name": "Tarmac_Tom",
+      "number": 57,
+      "cc": "in",
+      "nation": "India",
+      "tz": "CET",
+      "bio": "Rain master — hand this driver a wet track and watch the gaps grow.",
+      "ea": "TarmacTom",
+      "discord": {
+        "id": null,
+        "handle": "tarmac_tom",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "s4mmy",
+      "name": "S4MMY",
+      "number": 90,
+      "cc": "br",
+      "nation": "Brazil",
+      "tz": "Mountain",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "S4MMY6",
+      "discord": {
+        "id": null,
+        "handle": "s4mmy",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@s4mmy",
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "sector3",
+      "name": "Sector3",
+      "number": 53,
+      "cc": null,
+      "nation": null,
+      "tz": "CET",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "Sector3",
+      "discord": {
+        "id": null,
+        "handle": "sector3",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "nitro",
+      "name": "Nitro",
+      "number": 21,
+      "cc": "fi",
+      "nation": "Finland",
+      "tz": "CET",
+      "bio": "Strategy-minded racer who makes tyre offsets work.",
+      "ea": "Nitro62",
+      "discord": {
+        "id": null,
+        "handle": "nitro",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "halftank",
+      "name": "HalfTank",
+      "number": 85,
+      "cc": "cu",
+      "nation": "Cuba",
+      "tz": "Central",
+      "bio": "Aggressive on the opening lap, calm under pressure at the end.",
+      "ea": "HalfTank39",
+      "discord": {
+        "id": null,
+        "handle": "halftank",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "iverson",
+      "name": "Iverson",
+      "number": 22,
+      "cc": "cn",
+      "nation": "China",
+      "tz": "Central",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "Iverson21",
+      "discord": {
+        "id": null,
+        "handle": "iverson",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/iverson",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "nando-h",
+      "name": "Nando_H",
+      "number": 50,
+      "cc": "ca",
+      "nation": "Canada",
+      "tz": "Central",
+      "bio": "Clean racer who rarely troubles the stewards.",
+      "ea": "NandoH91",
+      "discord": {
+        "id": null,
+        "handle": "nando_h",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "leomonza",
+      "name": "LeoMonza",
+      "number": 94,
+      "cc": "be",
+      "nation": "Belgium",
+      "tz": "Mountain",
+      "bio": "",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "leomonza",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/leomonza",
+        "youtube": "https://youtube.com/@leomonza",
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "gridwalker",
+      "name": "Gridwalker",
+      "number": 40,
+      "cc": "gb-eng",
+      "nation": "England",
+      "tz": "CET",
+      "bio": "",
+      "ea": "Gridwalker25",
+      "discord": {
+        "id": null,
+        "handle": "gridwalker",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/gridwalker",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "aero-ash",
+      "name": "Aero_Ash",
+      "number": 29,
+      "cc": "cu",
+      "nation": "Cuba",
+      "tz": "CET",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "AeroAsh28",
+      "discord": {
+        "id": null,
+        "handle": "aero_ash",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "number": 64,
+      "cc": "be",
+      "nation": "Belgium",
+      "tz": "CET",
+      "bio": "Qualifying specialist with a knack for one-lap pace.",
+      "ea": "Zed98",
+      "discord": {
+        "id": null,
+        "handle": "zed",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "kimi-z",
+      "name": "Kimi_Z",
+      "number": 56,
+      "cc": null,
+      "nation": null,
+      "tz": "AEST",
+      "bio": "Comeback specialist with a habit of recovery drives.",
+      "ea": "KimiZ49",
+      "discord": {
+        "id": null,
+        "handle": "kimi_z",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": "https://youtube.com/@kimi-z",
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "yago",
+      "name": "Yago",
+      "number": 49,
+      "cc": "gb-sct",
+      "nation": "Scotland",
+      "tz": "GMT",
+      "bio": "Endurance convert who adapted quickly to sprint racing.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "yago",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": null,
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "yannick",
+      "name": "Yannick",
+      "number": 45,
+      "cc": "us",
+      "nation": "United States",
+      "tz": "AEST",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": "Yannick25",
+      "discord": {
+        "id": null,
+        "handle": "yannick",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/yannick",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "reserve",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
+    },
+    {
+      "id": "xander",
+      "name": "Xander",
+      "number": 31,
+      "cc": "tr",
+      "nation": "Türkiye",
+      "tz": "GMT",
+      "bio": "Consistent points scorer who thrives in wheel-to-wheel battles.",
+      "ea": null,
+      "discord": {
+        "id": null,
+        "handle": "xander",
+        "avatar": null
+      },
+      "socials": {
+        "twitch": "https://twitch.tv/xander",
+        "youtube": null,
+        "tiktok": null
+      },
+      "division": null,
+      "team": null,
+      "role": "driver",
+      "principal": false,
+      "contract": null,
+      "unsigned": true,
+      "licenceNote": ""
     }
   ],
   "rounds": [
     {
+      "id": "pre",
+      "round": 0,
+      "preseason": true,
+      "name": "Season 0: Driver Showcase",
+      "circuit": "Circuit of the Americas",
+      "location": "Austin, USA",
+      "cc": "us",
+      "laps": 28,
+      "fullLaps": 56,
+      "format": "50%",
+      "date": "2026-08-02T20:30:00-04:00",
+      "coords": [
+        30.1328,
+        -97.6411
+      ],
+      "published": true
+    },
+    {
       "id": "r1",
       "round": 1,
+      "preseason": false,
       "name": "Bahrain Grand Prix",
       "circuit": "Bahrain International Circuit",
-      "location": "Sakhir",
-      "country": "BH",
-      "countryName": "Bahrain",
+      "location": "Sakhir, Bahrain",
+      "cc": "bh",
       "laps": 29,
       "fullLaps": 57,
-      "length": 5.412,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-07-28T20:00:00+01:00",
-        "t2": "2026-07-29T20:00:00+01:00",
-        "t3": "2026-07-30T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-08-09T20:30:00-04:00",
+      "coords": [
+        26.0325,
+        50.5106
+      ],
+      "published": true
     },
     {
       "id": "r2",
       "round": 2,
+      "preseason": false,
       "name": "Saudi Arabian Grand Prix",
       "circuit": "Jeddah Corniche Circuit",
-      "location": "Jeddah",
-      "country": "SA",
-      "countryName": "Saudi Arabia",
+      "location": "Jeddah, Saudi Arabia",
+      "cc": "sa",
       "laps": 25,
       "fullLaps": 50,
-      "length": 6.174,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-08-04T20:00:00+01:00",
-        "t2": "2026-08-05T20:00:00+01:00",
-        "t3": "2026-08-06T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-08-16T20:30:00-04:00",
+      "coords": [
+        21.6319,
+        39.1044
+      ],
+      "published": true
     },
     {
       "id": "r3",
       "round": 3,
-      "name": "Australian Grand Prix",
-      "circuit": "Albert Park Circuit",
-      "location": "Melbourne",
-      "country": "AU",
-      "countryName": "Australia",
-      "laps": 29,
-      "fullLaps": 58,
-      "length": 5.278,
+      "preseason": false,
+      "name": "Gran Premio de Barcelona-Catalunya",
+      "circuit": "Circuit de Barcelona-Catalunya",
+      "location": "Barcelona, Spain",
+      "cc": "es",
+      "laps": 33,
+      "fullLaps": 66,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-08-11T20:00:00+01:00",
-        "t2": "2026-08-12T20:00:00+01:00",
-        "t3": "2026-08-13T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-08-23T20:30:00-04:00",
+      "coords": [
+        41.57,
+        2.2611
+      ],
+      "published": true
     },
     {
       "id": "r4",
       "round": 4,
-      "name": "Japanese Grand Prix",
-      "circuit": "Suzuka International Racing Course",
-      "location": "Suzuka",
-      "country": "JP",
-      "countryName": "Japan",
-      "laps": 27,
-      "fullLaps": 53,
-      "length": 5.807,
+      "preseason": false,
+      "name": "Austrian Grand Prix",
+      "circuit": "Red Bull Ring",
+      "location": "Spielberg, Austria",
+      "cc": "at",
+      "laps": 36,
+      "fullLaps": 71,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-08-18T20:00:00+01:00",
-        "t2": "2026-08-19T20:00:00+01:00",
-        "t3": "2026-08-20T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-08-30T20:30:00-04:00",
+      "coords": [
+        47.2197,
+        14.7647
+      ],
+      "published": true
     },
     {
       "id": "r5",
       "round": 5,
-      "name": "Miami Grand Prix",
-      "circuit": "Miami International Autodrome",
-      "location": "Miami",
-      "country": "US",
-      "countryName": "United States",
-      "laps": 29,
-      "fullLaps": 57,
-      "length": 5.412,
+      "preseason": false,
+      "name": "British Grand Prix",
+      "circuit": "Silverstone Circuit",
+      "location": "Silverstone, Northamptonshire, United Kingdom",
+      "cc": "gb-eng",
+      "laps": 26,
+      "fullLaps": 52,
       "format": "50%",
-      "sprint": true,
-      "sessions": {
-        "t1": "2026-08-25T20:00:00+01:00",
-        "t2": "2026-08-26T20:00:00+01:00",
-        "t3": "2026-08-27T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": "Sprint weekend: 8-lap sprint on Saturday + 50% Grand Prix."
+      "date": "2026-09-06T20:30:00-04:00",
+      "coords": [
+        52.0786,
+        -1.0169
+      ],
+      "published": false
     },
     {
       "id": "r6",
       "round": 6,
-      "name": "Emilia Romagna Grand Prix",
-      "circuit": "Autodromo Enzo e Dino Ferrari",
-      "location": "Imola",
-      "country": "IT",
-      "countryName": "Italy",
-      "laps": 32,
-      "fullLaps": 63,
-      "length": 4.909,
+      "preseason": false,
+      "name": "Belgian Grand Prix",
+      "circuit": "Circuit de Spa-Francorchamps",
+      "location": "Stavelot, Belgium",
+      "cc": "be",
+      "laps": 22,
+      "fullLaps": 44,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-09-01T20:00:00+01:00",
-        "t2": "2026-09-02T20:00:00+01:00",
-        "t3": "2026-09-03T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-09-13T20:30:00-04:00",
+      "coords": [
+        50.4372,
+        5.9714
+      ],
+      "published": false
     },
     {
       "id": "r7",
       "round": 7,
-      "name": "Monaco Grand Prix",
-      "circuit": "Circuit de Monaco",
-      "location": "Monte Carlo",
-      "country": "MC",
-      "countryName": "Monaco",
-      "laps": 39,
-      "fullLaps": 78,
-      "length": 3.337,
-      "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-09-08T20:00:00+01:00",
-        "t2": "2026-09-09T20:00:00+01:00",
-        "t3": "2026-09-10T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "preseason": false,
+      "name": "Miami Grand Prix",
+      "circuit": "Miami International Autodrome",
+      "location": "Miami Gardens, Florida, USA",
+      "cc": "us",
+      "laps": 29,
+      "fullLaps": 57,
+      "format": "100%",
+      "date": "2026-09-20T20:30:00-04:00",
+      "coords": [
+        25.9581,
+        -80.2389
+      ],
+      "published": false
     },
     {
       "id": "r8",
       "round": 8,
-      "name": "Spanish Grand Prix",
-      "circuit": "Circuit de Barcelona-Catalunya",
-      "location": "Barcelona",
-      "country": "ES",
-      "countryName": "Spain",
-      "laps": 33,
-      "fullLaps": 66,
-      "length": 4.657,
+      "preseason": false,
+      "name": "Grande Prêmio de São Paulo",
+      "circuit": "Autódromo José Carlos Pace",
+      "location": "São Paulo, Brazil",
+      "cc": "br",
+      "laps": 36,
+      "fullLaps": 71,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-09-15T20:00:00+01:00",
-        "t2": "2026-09-16T20:00:00+01:00",
-        "t3": "2026-09-17T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-09-27T20:30:00-04:00",
+      "coords": [
+        -23.7036,
+        -46.6997
+      ],
+      "published": false
     },
     {
       "id": "r9",
       "round": 9,
-      "name": "British Grand Prix",
-      "circuit": "Silverstone Circuit",
-      "location": "Silverstone",
-      "country": "GB",
-      "countryName": "United Kingdom",
-      "laps": 26,
-      "fullLaps": 52,
-      "length": 5.891,
+      "preseason": false,
+      "name": "Qatar Grand Prix",
+      "circuit": "Lusail International Circuit",
+      "location": "Lusail, Qatar",
+      "cc": "qa",
+      "laps": 29,
+      "fullLaps": 57,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-09-22T20:00:00+01:00",
-        "t2": "2026-09-23T20:00:00+01:00",
-        "t3": "2026-09-24T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-10-04T20:30:00-04:00",
+      "coords": [
+        25.49,
+        51.4542
+      ],
+      "published": false
     },
     {
       "id": "r10",
       "round": 10,
-      "name": "Belgian Grand Prix",
-      "circuit": "Circuit de Spa-Francorchamps",
-      "location": "Stavelot",
-      "country": "BE",
-      "countryName": "Belgium",
-      "laps": 22,
-      "fullLaps": 44,
-      "length": 7.004,
-      "format": "50%",
-      "sprint": true,
-      "sessions": {
-        "t1": "2026-09-29T20:00:00+01:00",
-        "t2": "2026-09-30T20:00:00+01:00",
-        "t3": "2026-10-01T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": "Sprint weekend: 8-lap sprint on Saturday + 50% Grand Prix."
-    },
-    {
-      "id": "r11",
-      "round": 11,
-      "name": "Italian Grand Prix",
-      "circuit": "Autodromo Nazionale Monza",
-      "location": "Monza",
-      "country": "IT",
-      "countryName": "Italy",
-      "laps": 27,
-      "fullLaps": 53,
-      "length": 5.793,
-      "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-10-06T20:00:00+01:00",
-        "t2": "2026-10-07T20:00:00+01:00",
-        "t3": "2026-10-08T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
-    },
-    {
-      "id": "r12",
-      "round": 12,
+      "preseason": false,
       "name": "Abu Dhabi Grand Prix",
       "circuit": "Yas Marina Circuit",
-      "location": "Abu Dhabi",
-      "country": "AE",
-      "countryName": "United Arab Emirates",
+      "location": "Yas Island, Abu Dhabi, United Arab Emirates",
+      "cc": "ae",
       "laps": 29,
       "fullLaps": 58,
-      "length": 5.281,
       "format": "50%",
-      "sprint": false,
-      "sessions": {
-        "t1": "2026-10-13T20:00:00+01:00",
-        "t2": "2026-10-14T20:00:00+01:00",
-        "t3": "2026-10-15T20:00:00+01:00"
-      },
-      "map": null,
-      "notes": ""
+      "date": "2026-10-11T20:30:00-04:00",
+      "coords": [
+        24.4672,
+        54.6031
+      ],
+      "published": false
     }
   ],
   "results": [
     {
-      "round": "r1",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:32.680"
-        },
-        {
-          "position": 2,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:32.819"
-        },
-        {
-          "position": 3,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:33.183"
-        },
-        {
-          "position": 4,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:33.363"
-        },
-        {
-          "position": 5,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "time": "1:33.213"
-        },
-        {
-          "position": 6,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:33.309"
-        },
-        {
-          "position": 7,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:34.241"
-        },
-        {
-          "position": 8,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:33.684"
-        },
-        {
-          "position": 9,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:34.219"
-        },
-        {
-          "position": 10,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:35.218"
-        },
-        {
-          "position": 11,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:35.254"
-        },
-        {
-          "position": 12,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:35.979"
-        },
-        {
-          "position": 13,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:36.112"
-        },
-        {
-          "position": 14,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:36.125"
-        },
-        {
-          "position": 15,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:34.790"
-        },
-        {
-          "position": 16,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:37.142"
-        },
-        {
-          "position": 17,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:37.377"
-        },
-        {
-          "position": 18,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:36.529"
-        },
-        {
-          "position": 19,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:37.497"
-        },
-        {
-          "position": 20,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:37.145"
-        }
-      ],
-      "sprint": null,
+      "round": "pre",
+      "division": "d1",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "grid": 1,
-          "laps": 29,
+          "driver": "dusty",
+          "team": "racing-bulls",
+          "grid": 7,
+          "quali": "1:38.867",
+          "time": "46:30.440",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "45:32.816",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 13,
-          "laps": 29,
+          "driver": "zoom",
+          "team": "haas",
+          "grid": 1,
+          "quali": "1:38.172",
+          "time": "+3.610",
+          "gapSeconds": 3.609628603301016,
           "status": "Finished",
-          "time": "+2.820",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 3,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 3,
-          "laps": 29,
+          "driver": "velo",
+          "team": "mclaren",
+          "grid": 11,
+          "quali": "1:40.773",
+          "time": "+4.976",
+          "gapSeconds": 4.97626645600714,
           "status": "Finished",
-          "time": "+5.532",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "elias-ekstr-m",
+          "driver": "silverline",
           "team": "mercedes",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+8.536",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:33.538"
-        },
-        {
-          "position": 5,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+11.122",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+16.151",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+18.098",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+22.664",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "grid": 5,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+27.334",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+32.209",
-          "fastestLap": false,
-          "penaltySeconds": 5
-        },
-        {
-          "position": 11,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+37.931",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+44.015",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+45.643",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 12,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+49.718",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 17,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+50.828",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+56.903",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+62.849",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "axel-sato",
-          "team": "mclaren",
           "grid": 15,
-          "laps": 29,
+          "quali": "1:40.871",
+          "time": "+6.073",
+          "gapSeconds": 6.073106999160668,
           "status": "Finished",
-          "time": "+66.079",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+67.086",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 9,
-          "laps": 8,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "kai-fischer",
-      "report": "Dani Bennett converted P1 on the grid into victory at Bahrain International Circuit, finishing +2.820 clear of Noah Ekström. Luca Voss completed the podium, while Elias Ekström took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r1",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:32.959"
-        },
-        {
-          "position": 2,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:33.255"
-        },
-        {
-          "position": 3,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "time": "1:33.206"
-        },
-        {
-          "position": 4,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:33.621"
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "lucas-petrov",
+          "driver": "fabio-r",
           "team": "haas",
-          "time": "1:33.979"
-        },
-        {
-          "position": 6,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "time": "1:34.193"
-        },
-        {
-          "position": 7,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:33.816"
-        },
-        {
-          "position": 8,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:34.953"
-        },
-        {
-          "position": 9,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:35.179"
-        },
-        {
-          "position": 10,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:34.206"
-        },
-        {
-          "position": 11,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:35.790"
-        },
-        {
-          "position": 12,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:36.235"
-        },
-        {
-          "position": 13,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:34.513"
-        },
-        {
-          "position": 14,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "time": "1:35.969"
-        },
-        {
-          "position": 15,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:35.103"
-        },
-        {
-          "position": 16,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:36.715"
-        },
-        {
-          "position": 17,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:37.287"
-        },
-        {
-          "position": 18,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:37.256"
-        },
-        {
-          "position": 19,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:36.540"
-        },
-        {
-          "position": 20,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:38.132"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "grid": 3,
-          "laps": 29,
+          "grid": 21,
+          "quali": "1:41.723",
+          "time": "+8.189",
+          "gapSeconds": 8.188699322135998,
           "status": "Finished",
-          "time": "45:39.137",
+          "laps": 28,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:34.037"
-        },
-        {
-          "position": 2,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+1.839",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+3.684",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+5.114",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+6.994",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false,
+          "fastestLapTime": "1:38.516"
         },
         {
           "position": 6,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+11.340",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+14.864",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 5,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+19.891",
-          "fastestLap": false,
-          "penaltySeconds": 10
-        },
-        {
-          "position": 9,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 13,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+22.335",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "grid": 12,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+23.476",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+28.954",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+32.048",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+37.456",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+42.470",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+44.606",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+47.190",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+53.473",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+57.618",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 1,
-          "laps": 25,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 17,
-          "laps": 18,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "ezra-jensen",
-      "report": "Rhys Quinn converted P3 on the grid into victory at Bahrain International Circuit, finishing +1.839 clear of Ryan Zimmer. Ezra Jensen completed the podium, while Rhys Quinn took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r1",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:32.800"
-        },
-        {
-          "position": 2,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:33.054"
-        },
-        {
-          "position": 3,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:33.321"
-        },
-        {
-          "position": 4,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:33.318"
-        },
-        {
-          "position": 5,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:33.570"
-        },
-        {
-          "position": 6,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:33.645"
-        },
-        {
-          "position": 7,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:34.071"
-        },
-        {
-          "position": 8,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "time": "1:33.757"
-        },
-        {
-          "position": 9,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:34.937"
-        },
-        {
-          "position": 10,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:34.619"
-        },
-        {
-          "position": 11,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:34.689"
-        },
-        {
-          "position": 12,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:35.924"
-        },
-        {
-          "position": 13,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:34.526"
-        },
-        {
-          "position": 14,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:34.447"
-        },
-        {
-          "position": 15,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:36.593"
-        },
-        {
-          "position": 16,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:37.006"
-        },
-        {
-          "position": 17,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "time": "1:36.477"
-        },
-        {
-          "position": 18,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:36.425"
-        },
-        {
-          "position": 19,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:37.272"
-        },
-        {
-          "position": 20,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:36.226"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "grid": 1,
-          "laps": 29,
-          "status": "Finished",
-          "time": "45:29.415",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+2.833",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+5.479",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+7.241",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 3,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+8.526",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "max-carter",
-          "team": "alpine",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+10.785",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:33.462"
-        },
-        {
-          "position": 7,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+16.708",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+20.385",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "owen-weber",
-          "team": "haas",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+24.747",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+26.463",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+32.570",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+37.921",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+43.043",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+48.678",
-          "fastestLap": false,
-          "penaltySeconds": 10
-        },
-        {
-          "position": 15,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+54.474",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 12,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+57.033",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 17,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+61.545",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "grid": 5,
-          "laps": 11,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 20,
-          "laps": 11,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 13,
-          "laps": 8,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "kenji-fletcher",
-      "report": "Finn Pryce converted P1 on the grid into victory at Bahrain International Circuit, finishing +2.833 clear of Diego Lund. Axel Haddad completed the podium, while Max Carter took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r2",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:30.901"
-        },
-        {
-          "position": 2,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "time": "1:31.148"
-        },
-        {
-          "position": 3,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:31.358"
-        },
-        {
-          "position": 4,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:31.295"
-        },
-        {
-          "position": 5,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:32.086"
-        },
-        {
-          "position": 6,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:31.808"
-        },
-        {
-          "position": 7,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:32.163"
-        },
-        {
-          "position": 8,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:32.501"
-        },
-        {
-          "position": 9,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:32.286"
-        },
-        {
-          "position": 10,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:33.566"
-        },
-        {
-          "position": 11,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:33.633"
-        },
-        {
-          "position": 12,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:33.554"
-        },
-        {
-          "position": 13,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:33.619"
-        },
-        {
-          "position": 14,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:32.890"
-        },
-        {
-          "position": 15,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:34.404"
-        },
-        {
-          "position": 16,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:33.625"
-        },
-        {
-          "position": 17,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:34.046"
-        },
-        {
-          "position": 18,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:36.061"
-        },
-        {
-          "position": 19,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:35.746"
-        },
-        {
-          "position": 20,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:35.626"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 8,
-          "laps": 25,
-          "status": "Finished",
-          "time": "38:29.993",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 1,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+3.039",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "grid": 2,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+4.561",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.523"
-        },
-        {
-          "position": 4,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 4,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+6.041",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 3,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+9.011",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "grid": 14,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+14.964",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 15,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+20.989",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 11,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+27.015",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 6,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+32.474",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 12,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+38.219",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "grid": 5,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+42.210",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 7,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+47.109",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 9,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+51.301",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "grid": 19,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+52.326",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 17,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+57.834",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 13,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+60.295",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "grid": 16,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+64.243",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "grid": 20,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+69.126",
-          "fastestLap": false,
-          "penaltySeconds": 10
-        },
-        {
-          "position": 19,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 18,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+74.141",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "grid": 10,
-          "laps": 3,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "jake-castellano",
-      "report": "Zane Voss converted P8 on the grid into victory at Jeddah Corniche Circuit, finishing +3.039 clear of Luca Voss. Jake Castellano completed the podium, while Jake Castellano took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r2",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:31.208"
-        },
-        {
-          "position": 2,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "time": "1:31.382"
-        },
-        {
-          "position": 3,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:31.683"
-        },
-        {
-          "position": 4,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:32.034"
-        },
-        {
-          "position": 5,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:31.915"
-        },
-        {
-          "position": 6,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "time": "1:32.327"
-        },
-        {
-          "position": 7,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:32.226"
-        },
-        {
-          "position": 8,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:32.755"
-        },
-        {
-          "position": 9,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:33.333"
-        },
-        {
-          "position": 10,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:33.660"
-        },
-        {
-          "position": 11,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:32.772"
-        },
-        {
-          "position": 12,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:32.790"
-        },
-        {
-          "position": 13,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "time": "1:34.742"
-        },
-        {
-          "position": 14,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "time": "1:32.951"
-        },
-        {
-          "position": 15,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:33.529"
-        },
-        {
-          "position": 16,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:35.018"
-        },
-        {
-          "position": 17,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:36.296"
-        },
-        {
-          "position": 18,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:34.738"
-        },
-        {
-          "position": 19,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:36.990"
-        },
-        {
-          "position": 20,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:36.172"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 3,
-          "laps": 25,
-          "status": "Finished",
-          "time": "38:39.659",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 4,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+2.593",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 1,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+5.583",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.999"
-        },
-        {
-          "position": 4,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "grid": 6,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+7.224",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "grid": 12,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+7.991",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "grid": 9,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+8.726",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "grid": 2,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+13.413",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 10,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+18.830",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 8,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+24.420",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "kai-dubois",
+          "driver": "skidrow",
           "team": "alpine",
           "grid": 13,
-          "laps": 25,
+          "quali": "1:41.760",
+          "time": "+12.424",
+          "gapSeconds": 12.424374222090561,
           "status": "Finished",
-          "time": "+28.224",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 11,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+30.462",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 17,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+35.624",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 5,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+40.959",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 15,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+46.571",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 16,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+50.282",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "grid": 19,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+56.398",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "grid": 20,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+60.978",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 14,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+66.644",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 18,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+72.501",
-          "fastestLap": false,
-          "penaltySeconds": 5
-        },
-        {
-          "position": 20,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "grid": 7,
-          "laps": 22,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "rhys-quinn",
-      "report": "Jonas Fletcher converted P3 on the grid into victory at Jeddah Corniche Circuit, finishing +2.593 clear of Lucas Fischer. Lucas Reyes completed the podium, while Lucas Reyes took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r2",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:30.915"
-        },
-        {
-          "position": 2,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:31.161"
-        },
-        {
-          "position": 3,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:31.433"
-        },
-        {
-          "position": 4,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:31.430"
-        },
-        {
-          "position": 5,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:31.724"
-        },
-        {
-          "position": 6,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:32.364"
+          "reserve": false
         },
         {
           "position": 7,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:32.008"
-        },
-        {
-          "position": 8,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "time": "1:32.173"
-        },
-        {
-          "position": 9,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:32.967"
-        },
-        {
-          "position": 10,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:33.024"
-        },
-        {
-          "position": 11,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:33.201"
-        },
-        {
-          "position": 12,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:34.175"
-        },
-        {
-          "position": 13,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:32.824"
-        },
-        {
-          "position": 14,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:33.326"
-        },
-        {
-          "position": 15,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "time": "1:34.298"
-        },
-        {
-          "position": 16,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:34.292"
-        },
-        {
-          "position": 17,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:35.282"
-        },
-        {
-          "position": 18,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:35.214"
-        },
-        {
-          "position": 19,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:35.729"
-        },
-        {
-          "position": 20,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:36.809"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 1,
-          "laps": 25,
-          "status": "Finished",
-          "time": "38:35.072",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "owen-weber",
-          "team": "haas",
-          "grid": 7,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+3.057",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "diego-lund",
-          "team": "redbull",
+          "driver": "hairpin",
+          "team": "red-bull",
           "grid": 4,
-          "laps": 25,
+          "quali": "1:38.477",
+          "time": "+15.936",
+          "gapSeconds": 15.935562561303527,
           "status": "Finished",
-          "time": "+6.010",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "grid": 3,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+8.901",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "grid": 5,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+11.774",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.676"
-        },
-        {
-          "position": 6,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 10,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+13.107",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 9,
-          "laps": 25,
-          "status": "Finished",
-          "time": "+15.873",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 8,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 6,
-          "laps": 25,
+          "driver": "quali-q",
+          "team": "alpine",
+          "grid": 3,
+          "quali": "1:38.535",
+          "time": "+23.923",
+          "gapSeconds": 23.922966177291677,
           "status": "Finished",
-          "time": "+21.408",
+          "laps": 28,
+          "trackLimits": 9,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 9,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 17,
-          "laps": 25,
+          "driver": "blaze47",
+          "team": "racing-bulls",
+          "grid": 2,
+          "quali": "1:38.294",
+          "time": "+28.412",
+          "gapSeconds": 28.411886802805284,
           "status": "Finished",
-          "time": "+25.628",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 12,
-          "laps": 25,
+          "driver": "bruno-m",
+          "team": "williams",
+          "grid": 5,
+          "quali": "1:38.810",
+          "time": "+31.729",
+          "gapSeconds": 31.728530545412,
           "status": "Finished",
-          "time": "+28.395",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 11,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 20,
-          "laps": 25,
+          "driver": "mika-v",
+          "team": "ferrari",
+          "grid": 17,
+          "quali": "1:41.080",
+          "time": "+38.457",
+          "gapSeconds": 38.456909142720185,
           "status": "Finished",
-          "time": "+30.711",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "grid": 16,
-          "laps": 25,
+          "driver": "polepat",
+          "team": "mclaren",
+          "grid": 6,
+          "quali": "1:39.252",
+          "time": "+44.729",
+          "gapSeconds": 44.728991374028865,
           "status": "Finished",
-          "time": "+32.961",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 13,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "grid": 14,
-          "laps": 25,
+          "driver": "fenwick",
+          "team": "ferrari",
+          "grid": 8,
+          "quali": "1:39.300",
+          "time": "+52.546",
+          "gapSeconds": 52.54631550970861,
           "status": "Finished",
-          "time": "+38.200",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 14,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 8,
-          "laps": 25,
+          "driver": "drs-dan",
+          "team": null,
+          "grid": 12,
+          "quali": "1:39.918",
+          "time": "+58.614",
+          "gapSeconds": 58.61405365800521,
           "status": "Finished",
-          "time": "+43.398",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 15,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 11,
-          "laps": 25,
+          "driver": "stint",
+          "team": "red-bull",
+          "grid": 19,
+          "quali": "1:43.082",
+          "time": "+62.195",
+          "gapSeconds": 62.19483157021012,
           "status": "Finished",
-          "time": "+49.031",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 16,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 19,
-          "laps": 25,
+          "driver": "slipstream-j",
+          "team": "williams",
+          "grid": 10,
+          "quali": "1:40.065",
+          "time": "+66.232",
+          "gapSeconds": 66.2323412634704,
           "status": "Finished",
-          "time": "+52.153",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 17,
-          "driver": "max-carter",
-          "team": "alpine",
+          "driver": "jetstream",
+          "team": "cadillac",
           "grid": 18,
-          "laps": 25,
+          "quali": "1:42.711",
+          "time": "+74.487",
+          "gapSeconds": 74.48717518355585,
           "status": "Finished",
-          "time": "+56.673",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 18,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 2,
-          "laps": 23,
-          "status": "DSQ",
-          "time": "DSQ",
+          "driver": "lucky-l",
+          "team": "audi",
+          "grid": 16,
+          "quali": "1:40.433",
+          "time": "+82.090",
+          "gapSeconds": 82.0902216748097,
+          "status": "Finished",
+          "laps": 28,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 19,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 13,
+          "driver": "chicanecal",
+          "team": "aston-martin",
+          "grid": 24,
+          "quali": "1:43.127",
+          "time": "+86.797",
+          "gapSeconds": 86.79719340140794,
+          "status": "Finished",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 20,
+          "driver": "vortex-kai",
+          "team": "mercedes",
+          "grid": 23,
+          "quali": "1:44.608",
+          "time": "+89.376",
+          "gapSeconds": 89.37559378206869,
+          "status": "Finished",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 21,
+          "driver": "overtake-o",
+          "team": null,
+          "grid": 20,
+          "quali": "1:42.857",
+          "time": "+95.178",
+          "gapSeconds": 95.17838726262273,
+          "status": "Finished",
+          "laps": 28,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 22,
+          "driver": "undercut-u",
+          "team": "aston-martin",
+          "grid": 14,
+          "quali": "1:39.583",
+          "time": "+1 lap",
+          "gapSeconds": 103.23375915586223,
+          "status": "Finished",
+          "laps": 27,
+          "trackLimits": 12,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 23,
+          "driver": "pitlanep",
+          "team": null,
+          "grid": 26,
+          "quali": "1:41.116",
+          "time": "+1 lap",
+          "gapSeconds": 105.38756838427682,
+          "status": "Finished",
+          "laps": 27,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 24,
+          "driver": "clutch-c",
+          "team": "audi",
+          "grid": 25,
+          "quali": "1:41.455",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
           "laps": 20,
-          "status": "DNF",
-          "time": "DNF",
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
-          "position": 20,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "grid": 15,
-          "laps": 6,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "santi-whitfield",
-      "report": "Kenji Fletcher converted P1 on the grid into victory at Jeddah Corniche Circuit, finishing +3.057 clear of Owen Weber. Diego Lund completed the podium, while Finn Pryce took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r3",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:21.478"
-        },
-        {
-          "position": 2,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:21.657"
-        },
-        {
-          "position": 3,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:21.952"
-        },
-        {
-          "position": 4,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:22.082"
-        },
-        {
-          "position": 5,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:22.674"
-        },
-        {
-          "position": 6,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "time": "1:22.706"
-        },
-        {
-          "position": 7,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:22.365"
-        },
-        {
-          "position": 8,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:23.402"
-        },
-        {
-          "position": 9,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:22.771"
-        },
-        {
-          "position": 10,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:24.041"
-        },
-        {
-          "position": 11,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:24.126"
-        },
-        {
-          "position": 12,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:24.303"
-        },
-        {
-          "position": 13,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:23.344"
-        },
-        {
-          "position": 14,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:25.294"
-        },
-        {
-          "position": 15,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:23.923"
-        },
-        {
-          "position": 16,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:26.224"
-        },
-        {
-          "position": 17,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:24.164"
-        },
-        {
-          "position": 18,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:24.869"
-        },
-        {
-          "position": 19,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:24.198"
-        },
-        {
-          "position": 20,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:24.966"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "39:58.069",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "zane-okafor",
-          "team": "alpine",
+          "position": 25,
+          "driver": "brakes",
+          "team": "cadillac",
           "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+2.160",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:21.731"
-        },
-        {
-          "position": 3,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 1,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+3.516",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+6.462",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+9.461",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+14.909",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+18.544",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+24.789",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+30.729",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 13,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+36.370",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+41.833",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+43.077",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "grid": 17,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+48.420",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+52.911",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+56.039",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "grid": 12,
-          "laps": 25,
+          "quali": "1:39.356",
+          "time": null,
+          "gapSeconds": null,
           "status": "DNF",
-          "time": "DNF",
+          "laps": 12,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
-          "position": 17,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 18,
-          "laps": 22,
+          "position": 26,
+          "driver": "marlowegt",
+          "team": null,
+          "grid": 22,
+          "quali": "1:40.282",
+          "time": null,
+          "gapSeconds": null,
           "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "grid": 5,
-          "laps": 14,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 3,
-          "laps": 11,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "grid": 16,
           "laps": 1,
-          "status": "DNF",
-          "time": "DNF",
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         }
       ],
-      "dotd": "dylan-petrov",
-      "report": "Luca Voss converted P4 on the grid into victory at Albert Park Circuit, finishing +2.160 clear of Zane Okafor. Kai Fischer completed the podium, while Zane Okafor took the fastest lap.",
+      "dotd": "fabio-r",
       "stream": null
     },
     {
-      "round": "r3",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:21.101"
-        },
-        {
-          "position": 2,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:21.309"
-        },
-        {
-          "position": 3,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:21.558"
-        },
-        {
-          "position": 4,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:21.531"
-        },
-        {
-          "position": 5,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:22.057"
-        },
-        {
-          "position": 6,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "time": "1:22.242"
-        },
-        {
-          "position": 7,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:22.294"
-        },
-        {
-          "position": 8,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:23.088"
-        },
-        {
-          "position": 9,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "time": "1:22.170"
-        },
-        {
-          "position": 10,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:23.482"
-        },
-        {
-          "position": 11,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:23.223"
-        },
-        {
-          "position": 12,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "time": "1:23.482"
-        },
-        {
-          "position": 13,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:23.381"
-        },
-        {
-          "position": 14,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:24.648"
-        },
-        {
-          "position": 15,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:23.339"
-        },
-        {
-          "position": 16,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:25.510"
-        },
-        {
-          "position": 17,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:25.935"
-        },
-        {
-          "position": 18,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:26.077"
-        },
-        {
-          "position": 19,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:26.365"
-        },
-        {
-          "position": 20,
-          "driver": "ivan-thornton",
-          "team": "astonmartin",
-          "time": "1:26.535"
-        }
-      ],
-      "sprint": null,
+      "round": "r1",
+      "division": "d1",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 3,
-          "laps": 29,
+          "driver": "velo",
+          "team": "mclaren",
+          "grid": 4,
+          "quali": "1:33.857",
+          "time": "45:41.265",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "39:56.327",
+          "laps": 29,
+          "trackLimits": 9,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 7,
-          "laps": 29,
+          "driver": "polepat",
+          "team": "mclaren",
+          "grid": 1,
+          "quali": "1:33.292",
+          "time": "+0.879",
+          "gapSeconds": 0.8786841335214539,
           "status": "Finished",
-          "time": "+3.201",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 3,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 1,
-          "laps": 29,
+          "driver": "fabio-r",
+          "team": "haas",
+          "grid": 2,
+          "quali": "1:33.431",
+          "time": "+1.902",
+          "gapSeconds": 1.9018809837026478,
           "status": "Finished",
-          "time": "+6.010",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 4,
-          "laps": 29,
+          "driver": "dusty",
+          "team": "racing-bulls",
+          "grid": 5,
+          "quali": "1:34.231",
+          "time": "+4.426",
+          "gapSeconds": 4.426177899549197,
           "status": "Finished",
-          "time": "+8.868",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "grid": 8,
-          "laps": 29,
+          "driver": "bruno-m",
+          "team": "williams",
+          "grid": 3,
+          "quali": "1:33.842",
+          "time": "+5.126",
+          "gapSeconds": 5.125506576605603,
           "status": "Finished",
-          "time": "+11.441",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 6,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 2,
-          "laps": 29,
+          "driver": "skidrow",
+          "team": "alpine",
+          "grid": 15,
+          "quali": "1:34.820",
+          "time": "+6.326",
+          "gapSeconds": 6.3257012562464086,
           "status": "Finished",
-          "time": "+17.693",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:33.931"
         },
         {
           "position": 7,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 10,
-          "laps": 29,
+          "driver": "jetstream",
+          "team": "cadillac",
+          "grid": 12,
+          "quali": "1:35.567",
+          "time": "+8.611",
+          "gapSeconds": 8.611317972915138,
           "status": "Finished",
-          "time": "+20.873",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 8,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 13,
-          "laps": 29,
+          "driver": "blaze47",
+          "team": "racing-bulls",
+          "grid": 11,
+          "quali": "1:35.175",
+          "time": "+10.089",
+          "gapSeconds": 10.088621999224182,
           "status": "Finished",
-          "time": "+24.549",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:22.115"
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         },
         {
           "position": 9,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "grid": 9,
-          "laps": 29,
+          "driver": "hairpin",
+          "team": "red-bull",
+          "grid": 19,
+          "quali": "1:37.860",
+          "time": "+14.498",
+          "gapSeconds": 14.498214374297081,
           "status": "Finished",
-          "time": "+28.875",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "grid": 6,
-          "laps": 29,
+          "driver": "slipstream-j",
+          "team": "williams",
+          "grid": 8,
+          "quali": "1:34.080",
+          "time": "+22.358",
+          "gapSeconds": 22.35843112641445,
           "status": "Finished",
-          "time": "+31.773",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 11,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "grid": 5,
-          "laps": 29,
+          "driver": "quali-q",
+          "team": "alpine",
+          "grid": 7,
+          "quali": "1:34.151",
+          "time": "+30.115",
+          "gapSeconds": 30.114536809796956,
           "status": "Finished",
-          "time": "+35.466",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "grid": 14,
-          "laps": 29,
+          "driver": "brakes",
+          "team": "cadillac",
+          "grid": 9,
+          "quali": "1:35.292",
+          "time": "+32.776",
+          "gapSeconds": 32.77577536558233,
           "status": "Finished",
-          "time": "+39.954",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 13,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 12,
-          "laps": 29,
+          "driver": "stint",
+          "team": "red-bull",
+          "grid": 16,
+          "quali": "1:35.575",
+          "time": "+38.915",
+          "gapSeconds": 38.91455823633097,
           "status": "Finished",
-          "time": "+43.004",
+          "laps": 29,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 14,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 19,
-          "laps": 29,
+          "driver": "silverline",
+          "team": "mercedes",
+          "grid": 17,
+          "quali": "1:36.196",
+          "time": "+41.778",
+          "gapSeconds": 41.777886588806325,
           "status": "Finished",
-          "time": "+47.317",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 15,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 11,
-          "laps": 29,
+          "driver": "fenwick",
+          "team": "ferrari",
+          "grid": 13,
+          "quali": "1:35.984",
+          "time": "+49.631",
+          "gapSeconds": 49.63137606175843,
           "status": "Finished",
-          "time": "+51.237",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 16,
-          "driver": "cole-thornton",
+          "driver": "mika-v",
           "team": "ferrari",
-          "grid": 18,
-          "laps": 29,
+          "grid": 14,
+          "quali": "1:36.892",
+          "time": "+55.333",
+          "gapSeconds": 55.333466403037434,
           "status": "Finished",
-          "time": "+55.253",
+          "laps": 29,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 17,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 29,
+          "driver": "lucky-l",
+          "team": "audi",
+          "grid": 22,
+          "quali": "1:37.167",
+          "time": "+62.543",
+          "gapSeconds": 62.54256487176783,
           "status": "Finished",
-          "time": "+60.458",
+          "laps": 29,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 18,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 15,
-          "laps": 29,
+          "driver": "undercut-u",
+          "team": "aston-martin",
+          "grid": 20,
+          "quali": "1:35.310",
+          "time": "+70.784",
+          "gapSeconds": 70.78363168861344,
           "status": "Finished",
-          "time": "+62.960",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 19,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "grid": 17,
-          "laps": 29,
+          "driver": "vortex-kai",
+          "team": "mercedes",
+          "grid": 21,
+          "quali": "1:36.302",
+          "time": "+78.804",
+          "gapSeconds": 78.80360853772554,
           "status": "Finished",
-          "time": "+68.293",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 20,
-          "driver": "ivan-thornton",
-          "team": "astonmartin",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+72.185",
+          "driver": "chicanecal",
+          "team": "aston-martin",
+          "grid": 10,
+          "quali": "1:34.665",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 15,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
+        },
+        {
+          "position": 21,
+          "driver": "clutch-c",
+          "team": "audi",
+          "grid": 18,
+          "quali": "1:37.663",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 15,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 22,
+          "driver": "zoom",
+          "team": "haas",
+          "grid": 6,
+          "quali": null,
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 8,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         }
       ],
-      "dotd": "lucas-fischer",
-      "report": "Ezra Jensen converted P3 on the grid into victory at Albert Park Circuit, finishing +3.201 clear of Lucas Reyes. Lucas Fischer completed the podium, while Liam Doyle took the fastest lap.",
+      "dotd": "bruno-m",
       "stream": null
     },
     {
-      "round": "r3",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:21.559"
-        },
-        {
-          "position": 2,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:21.789"
-        },
-        {
-          "position": 3,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:21.925"
-        },
-        {
-          "position": 4,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:22.305"
-        },
-        {
-          "position": 5,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:22.639"
-        },
-        {
-          "position": 6,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:22.786"
-        },
-        {
-          "position": 7,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:22.512"
-        },
-        {
-          "position": 8,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:23.323"
-        },
-        {
-          "position": 9,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:22.770"
-        },
-        {
-          "position": 10,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "time": "1:23.093"
-        },
-        {
-          "position": 11,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:22.888"
-        },
-        {
-          "position": 12,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:23.281"
-        },
-        {
-          "position": 13,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:25.098"
-        },
-        {
-          "position": 14,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:24.055"
-        },
-        {
-          "position": 15,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:23.618"
-        },
-        {
-          "position": 16,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:23.930"
-        },
-        {
-          "position": 17,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:25.716"
-        },
-        {
-          "position": 18,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "time": "1:26.690"
-        },
-        {
-          "position": 19,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:25.844"
-        },
-        {
-          "position": 20,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:26.426"
-        }
-      ],
-      "sprint": null,
+      "round": "r1",
+      "division": "d2",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 3,
-          "laps": 29,
+          "driver": "hexley",
+          "team": "williams",
+          "grid": 1,
+          "quali": "1:33.317",
+          "time": "45:41.695",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "40:03.127",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 5,
-          "laps": 29,
+          "driver": "torque-t",
+          "team": "aston-martin",
+          "grid": 3,
+          "quali": "1:33.588",
+          "time": "+3.953",
+          "gapSeconds": 3.95293641237427,
           "status": "Finished",
-          "time": "+1.771",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 3,
-          "driver": "santi-whitfield",
+          "driver": "dirty-air",
           "team": "ferrari",
-          "grid": 1,
-          "laps": 29,
+          "grid": 4,
+          "quali": "1:34.022",
+          "time": "+5.681",
+          "gapSeconds": 5.680862796989979,
           "status": "Finished",
-          "time": "+3.956",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "max-carter",
-          "team": "alpine",
-          "grid": 4,
-          "laps": 29,
+          "driver": "ballast",
+          "team": "ferrari",
+          "grid": 5,
+          "quali": "1:34.357",
+          "time": "+6.393",
+          "gapSeconds": 6.39259353554599,
           "status": "Finished",
-          "time": "+7.084",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 7,
-          "laps": 29,
+          "driver": "latebraker",
+          "team": "aston-martin",
+          "grid": 10,
+          "quali": "1:35.147",
+          "time": "+9.030",
+          "gapSeconds": 9.030155987215698,
           "status": "Finished",
-          "time": "+8.360",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 6,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 9,
-          "laps": 29,
+          "driver": "rafa-l",
+          "team": "williams",
+          "grid": 2,
+          "quali": "1:33.575",
+          "time": "+11.409",
+          "gapSeconds": 11.408557961736888,
           "status": "Finished",
-          "time": "+9.031",
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 7,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "grid": 6,
-          "laps": 29,
+          "driver": "quinn9",
+          "team": "cadillac",
+          "grid": 13,
+          "quali": "1:35.714",
+          "time": "+13.230",
+          "gapSeconds": 13.229613753790815,
           "status": "Finished",
-          "time": "+14.309",
+          "laps": 29,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 8,
-          "driver": "rafael-sinclair",
+          "driver": "nix-rossi",
           "team": "mclaren",
-          "grid": 15,
-          "laps": 29,
+          "grid": 7,
+          "quali": "1:35.043",
+          "time": "+18.435",
+          "gapSeconds": 18.434504112593288,
           "status": "Finished",
-          "time": "+19.442",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:33.958"
         },
         {
           "position": 9,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 2,
-          "laps": 29,
+          "driver": "titan",
+          "team": "mercedes",
+          "grid": 8,
+          "quali": "1:34.121",
+          "time": "+21.388",
+          "gapSeconds": 21.387875004904604,
           "status": "Finished",
-          "time": "+24.786",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 8,
-          "laps": 29,
+          "driver": "ferris",
+          "team": "cadillac",
+          "grid": 6,
+          "quali": "1:34.355",
+          "time": "+25.407",
+          "gapSeconds": 25.40708305351875,
           "status": "Finished",
-          "time": "+30.522",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:21.631"
+          "laps": 29,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         },
         {
           "position": 11,
-          "driver": "owen-weber",
-          "team": "haas",
-          "grid": 13,
-          "laps": 29,
+          "driver": "oxide",
+          "team": "mclaren",
+          "grid": 9,
+          "quali": "1:34.815",
+          "time": "+29.069",
+          "gapSeconds": 29.06895815607605,
           "status": "Finished",
-          "time": "+36.434",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "grid": 10,
-          "laps": 29,
+          "driver": "leomonza",
+          "team": "audi",
+          "grid": 12,
+          "quali": "1:34.593",
+          "time": "+29.570",
+          "gapSeconds": 29.569944167551498,
           "status": "Finished",
-          "time": "+40.431",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": true
         },
         {
           "position": 13,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 19,
-          "laps": 29,
+          "driver": "rudi-tempo",
+          "team": "audi",
+          "grid": 14,
+          "quali": "1:36.466",
+          "time": "+36.644",
+          "gapSeconds": 36.64387367947275,
           "status": "Finished",
-          "time": "+44.754",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 14,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+50.866",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+53.483",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+57.483",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "hiro-novak",
+          "driver": "wetweatherw",
           "team": "mercedes",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+59.003",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 17,
-          "laps": 24,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 12,
-          "laps": 21,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "finn-pryce",
-          "team": "ferrari",
           "grid": 11,
-          "laps": 20,
-          "status": "DSQ",
-          "time": "DSQ",
+          "quali": "1:34.694",
+          "time": "+44.190",
+          "gapSeconds": 44.190349367750756,
+          "status": "Finished",
+          "laps": 29,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         }
       ],
-      "dotd": "cole-moreau",
-      "report": "Cole Moreau converted P3 on the grid into victory at Albert Park Circuit, finishing +1.771 clear of Axel Haddad. Santi Whitfield completed the podium, while Hugo Ochoa took the fastest lap.",
+      "dotd": "quinn9",
       "stream": null
     },
     {
-      "round": "r4",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "time": "1:32.387"
-        },
-        {
-          "position": 2,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:32.518"
-        },
-        {
-          "position": 3,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:32.856"
-        },
-        {
-          "position": 4,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:33.196"
-        },
-        {
-          "position": 5,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:33.213"
-        },
-        {
-          "position": 6,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:33.600"
-        },
-        {
-          "position": 7,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:33.147"
-        },
-        {
-          "position": 8,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:34.035"
-        },
-        {
-          "position": 9,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:33.483"
-        },
-        {
-          "position": 10,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:33.937"
-        },
-        {
-          "position": 11,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:34.300"
-        },
-        {
-          "position": 12,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:34.897"
-        },
-        {
-          "position": 13,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:34.257"
-        },
-        {
-          "position": 14,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:36.155"
-        },
-        {
-          "position": 15,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:35.011"
-        },
-        {
-          "position": 16,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:36.058"
-        },
-        {
-          "position": 17,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:36.428"
-        },
-        {
-          "position": 18,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:37.495"
-        },
-        {
-          "position": 19,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:35.407"
-        },
-        {
-          "position": 20,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:38.213"
-        }
-      ],
-      "sprint": null,
+      "round": "r2",
+      "division": "d1",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "grid": 1,
-          "laps": 27,
+          "driver": "blaze47",
+          "team": "racing-bulls",
+          "grid": 6,
+          "quali": "1:32.704",
+          "time": "38:49.308",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "42:05.789",
+          "laps": 25,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 4,
-          "laps": 27,
+          "driver": "fabio-r",
+          "team": "haas",
+          "grid": 3,
+          "quali": "1:31.886",
+          "time": "+3.916",
+          "gapSeconds": 3.915575371238283,
           "status": "Finished",
-          "time": "+2.546",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:32.311"
         },
         {
           "position": 3,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 7,
-          "laps": 27,
+          "driver": "bruno-m",
+          "team": "williams",
+          "grid": 2,
+          "quali": "1:31.848",
+          "time": "+5.522",
+          "gapSeconds": 5.5215267647471284,
           "status": "Finished",
-          "time": "+4.813",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:32.868"
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 2,
-          "laps": 27,
+          "driver": "skidrow",
+          "team": "alpine",
+          "grid": 15,
+          "quali": "1:33.051",
+          "time": "+9.439",
+          "gapSeconds": 9.439312811172522,
           "status": "Finished",
-          "time": "+7.441",
+          "laps": 25,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 12,
-          "laps": 27,
+          "driver": "quali-q",
+          "team": "alpine",
+          "grid": 4,
+          "quali": "1:32.200",
+          "time": "+12.850",
+          "gapSeconds": 12.849971557092982,
           "status": "Finished",
-          "time": "+10.478",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 6,
-          "driver": "hugo-lund",
-          "team": "sauber",
+          "driver": "fenwick",
+          "team": "ferrari",
           "grid": 8,
-          "laps": 27,
+          "quali": "1:32.295",
+          "time": "+13.747",
+          "gapSeconds": 13.746731809429047,
           "status": "Finished",
-          "time": "+14.757",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 7,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 5,
-          "laps": 27,
+          "driver": "velo",
+          "team": "mclaren",
+          "grid": 9,
+          "quali": "1:33.262",
+          "time": "+21.899",
+          "gapSeconds": 21.898815425719956,
           "status": "Finished",
-          "time": "+18.888",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 8,
-          "driver": "zane-okafor",
-          "team": "alpine",
+          "driver": "zoom",
+          "team": "haas",
           "grid": 10,
-          "laps": 27,
+          "quali": "1:33.940",
+          "time": "+23.030",
+          "gapSeconds": 23.03041406932127,
           "status": "Finished",
-          "time": "+24.571",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 9,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 9,
-          "laps": 27,
+          "driver": "brakes",
+          "team": "cadillac",
+          "grid": 17,
+          "quali": "1:33.499",
+          "time": "+28.281",
+          "gapSeconds": 28.280968739718773,
           "status": "Finished",
-          "time": "+26.813",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 6,
-          "laps": 27,
+          "driver": "polepat",
+          "team": "mclaren",
+          "grid": 7,
+          "quali": "1:32.255",
+          "time": "+29.189",
+          "gapSeconds": 29.189227626170837,
           "status": "Finished",
-          "time": "+30.758",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 11,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 14,
-          "laps": 27,
+          "driver": "undercut-u",
+          "team": "aston-martin",
+          "grid": 11,
+          "quali": "1:33.127",
+          "time": "+33.888",
+          "gapSeconds": 33.887519587644654,
           "status": "Finished",
-          "time": "+35.663",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 15,
-          "laps": 27,
+          "driver": "hairpin",
+          "team": "red-bull",
+          "grid": 19,
+          "quali": "1:33.723",
+          "time": "+41.817",
+          "gapSeconds": 41.81696880765119,
           "status": "Finished",
-          "time": "+41.539",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 13,
-          "driver": "dani-bennett",
-          "team": "redbull",
+          "driver": "vortex-kai",
+          "team": "mercedes",
           "grid": 16,
-          "laps": 27,
+          "quali": "1:33.931",
+          "time": "+42.795",
+          "gapSeconds": 42.79474237066295,
           "status": "Finished",
-          "time": "+44.747",
+          "laps": 25,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 14,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 17,
-          "laps": 27,
+          "driver": "silverline",
+          "team": "mercedes",
+          "grid": 18,
+          "quali": "1:35.024",
+          "time": "+44.805",
+          "gapSeconds": 44.80532473307521,
           "status": "Finished",
-          "time": "+50.056",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 15,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 11,
-          "laps": 27,
+          "driver": "jetstream",
+          "team": "cadillac",
+          "grid": 13,
+          "quali": "1:35.076",
+          "time": "+52.761",
+          "gapSeconds": 52.76079272240867,
           "status": "Finished",
-          "time": "+55.377",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 16,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "grid": 19,
-          "laps": 27,
+          "driver": "clutch-c",
+          "team": "audi",
+          "grid": 20,
+          "quali": "1:35.080",
+          "time": "+59.400",
+          "gapSeconds": 59.39978994186809,
           "status": "Finished",
-          "time": "+57.980",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 17,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "grid": 20,
-          "laps": 27,
+          "driver": "mika-v",
+          "team": "ferrari",
+          "grid": 5,
+          "quali": "1:32.000",
+          "time": "+65.023",
+          "gapSeconds": 65.02270839463888,
           "status": "Finished",
-          "time": "+62.567",
+          "laps": 25,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 18,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 18,
-          "laps": 27,
+          "driver": "stint",
+          "team": "red-bull",
+          "grid": 21,
+          "quali": "1:36.969",
+          "time": "+67.817",
+          "gapSeconds": 67.8171144131514,
           "status": "Finished",
-          "time": "+66.944",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 19,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 13,
-          "laps": 23,
-          "status": "DSQ",
-          "time": "DSQ",
+          "driver": "chicanecal",
+          "team": "aston-martin",
+          "grid": 14,
+          "quali": "1:33.609",
+          "time": "+72.620",
+          "gapSeconds": 72.6203150002001,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 20,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "grid": 3,
+          "driver": "lucky-l",
+          "team": "audi",
+          "grid": 22,
+          "quali": "1:37.026",
+          "time": "+79.044",
+          "gapSeconds": 79.04422370419391,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 21,
+          "driver": "slipstream-j",
+          "team": "williams",
+          "grid": 1,
+          "quali": "1:31.568",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
           "laps": 16,
-          "status": "DSQ",
-          "time": "DSQ",
+          "trackLimits": 6,
+          "penalties": [
+            {
+              "seconds": 3,
+              "reason": "Weaving on the straight"
+            }
+          ],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
+        },
+        {
+          "position": 22,
+          "driver": "dusty",
+          "team": "racing-bulls",
+          "grid": 12,
+          "quali": null,
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 10,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         }
       ],
-      "dotd": "zane-rossi",
-      "report": "Jake Castellano converted P1 on the grid into victory at Suzuka International Racing Course, finishing +2.546 clear of Zane Rossi. Jonas Ferreira completed the podium, while Jonas Ferreira took the fastest lap.",
+      "dotd": "fenwick",
+      "stream": null
+    },
+    {
+      "round": "r2",
+      "division": "d2",
+      "published": true,
+      "race": [
+        {
+          "position": 1,
+          "driver": "torque-t",
+          "team": "aston-martin",
+          "grid": 2,
+          "quali": "1:31.792",
+          "time": "38:38.651",
+          "gapSeconds": 0,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 2,
+          "driver": "rafa-l",
+          "team": "williams",
+          "grid": 1,
+          "quali": "1:31.615",
+          "time": "+2.320",
+          "gapSeconds": 2.3196181051414033,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 3,
+          "driver": "latebraker",
+          "team": "aston-martin",
+          "grid": 3,
+          "quali": "1:31.966",
+          "time": "+6.474",
+          "gapSeconds": 6.473930392908133,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 4,
+          "driver": "quinn9",
+          "team": "cadillac",
+          "grid": 14,
+          "quali": "1:33.245",
+          "time": "+8.939",
+          "gapSeconds": 8.939377634403325,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 5,
+          "driver": "wetweatherw",
+          "team": "mercedes",
+          "grid": 11,
+          "quali": "1:33.371",
+          "time": "+13.113",
+          "gapSeconds": 13.112975263787392,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 6,
+          "driver": "dirty-air",
+          "team": "ferrari",
+          "grid": 4,
+          "quali": "1:31.951",
+          "time": "+14.102",
+          "gapSeconds": 14.102380553342078,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 7,
+          "driver": "ballast",
+          "team": "ferrari",
+          "grid": 5,
+          "quali": "1:32.025",
+          "time": "+16.930",
+          "gapSeconds": 16.929914131324917,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:32.467"
+        },
+        {
+          "position": 8,
+          "driver": "owenracer",
+          "team": "audi",
+          "grid": 7,
+          "quali": "1:32.688",
+          "time": "+18.681",
+          "gapSeconds": 18.68084156303568,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 9,
+          "driver": "nix-rossi",
+          "team": "mclaren",
+          "grid": 10,
+          "quali": "1:33.325",
+          "time": "+22.368",
+          "gapSeconds": 22.368346881669208,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 12,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 10,
+          "driver": "hexley",
+          "team": "williams",
+          "grid": 9,
+          "quali": "1:33.822",
+          "time": "+26.339",
+          "gapSeconds": 26.33860546303781,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 0,
+          "penalties": [
+            {
+              "seconds": 3,
+              "reason": "Ignoring blue flags"
+            }
+          ],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 11,
+          "driver": "ferris",
+          "team": "cadillac",
+          "grid": 6,
+          "quali": "1:32.203",
+          "time": "+32.509",
+          "gapSeconds": 32.50879003711852,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 12,
+          "driver": "oxide",
+          "team": "mclaren",
+          "grid": 13,
+          "quali": "1:33.412",
+          "time": "+40.601",
+          "gapSeconds": 40.6006180034221,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 13,
+          "driver": "rudi-tempo",
+          "team": "audi",
+          "grid": 12,
+          "quali": "1:33.075",
+          "time": "+47.539",
+          "gapSeconds": 47.53937468252185,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 14,
+          "driver": "titan",
+          "team": "mercedes",
+          "grid": 8,
+          "quali": "1:32.573",
+          "time": "+55.403",
+          "gapSeconds": 55.402927223723935,
+          "status": "Finished",
+          "laps": 25,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        }
+      ],
+      "dotd": "latebraker",
+      "stream": null
+    },
+    {
+      "round": "r3",
+      "division": "d1",
+      "published": true,
+      "race": [
+        {
+          "position": 1,
+          "driver": "polepat",
+          "team": "mclaren",
+          "grid": 1,
+          "quali": "1:18.621",
+          "time": "43:54.886",
+          "gapSeconds": 0,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 2,
+          "driver": "zoom",
+          "team": "haas",
+          "grid": 15,
+          "quali": "1:20.867",
+          "time": "+2.215",
+          "gapSeconds": 2.215420020107662,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 12,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 3,
+          "driver": "brakes",
+          "team": "cadillac",
+          "grid": 17,
+          "quali": "1:21.798",
+          "time": "+5.616",
+          "gapSeconds": 5.61634021523493,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 4,
+          "driver": "quali-q",
+          "team": "alpine",
+          "grid": 3,
+          "quali": "1:19.106",
+          "time": "+8.192",
+          "gapSeconds": 8.19184807254953,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 12,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 5,
+          "driver": "skidrow",
+          "team": "alpine",
+          "grid": 6,
+          "quali": "1:19.881",
+          "time": "+11.500",
+          "gapSeconds": 11.500396109311549,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 6,
+          "driver": "chicanecal",
+          "team": "aston-martin",
+          "grid": 14,
+          "quali": "1:21.606",
+          "time": "+14.334",
+          "gapSeconds": 14.333589084692015,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 7,
+          "driver": "vortex-kai",
+          "team": "mercedes",
+          "grid": 9,
+          "quali": "1:19.471",
+          "time": "+17.335",
+          "gapSeconds": 17.33531421216747,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 8,
+          "driver": "bruno-m",
+          "team": "williams",
+          "grid": 5,
+          "quali": "1:19.489",
+          "time": "+23.680",
+          "gapSeconds": 23.68032664371463,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:19.324"
+        },
+        {
+          "position": 9,
+          "driver": "hairpin",
+          "team": "red-bull",
+          "grid": 12,
+          "quali": "1:20.712",
+          "time": "+31.073",
+          "gapSeconds": 31.07337017783285,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 10,
+          "driver": "velo",
+          "team": "mclaren",
+          "grid": 13,
+          "quali": "1:21.122",
+          "time": "+32.580",
+          "gapSeconds": 32.58002356007821,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 11,
+          "driver": "jetstream",
+          "team": "cadillac",
+          "grid": 8,
+          "quali": "1:20.390",
+          "time": "+36.162",
+          "gapSeconds": 36.162424644609175,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 12,
+          "driver": "mika-v",
+          "team": "ferrari",
+          "grid": 11,
+          "quali": "1:20.523",
+          "time": "+37.842",
+          "gapSeconds": 37.8419147232416,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 13,
+          "driver": "fabio-r",
+          "team": "haas",
+          "grid": 4,
+          "quali": "1:18.976",
+          "time": "+46.134",
+          "gapSeconds": 46.13374119344297,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 14,
+          "driver": "slipstream-j",
+          "team": "williams",
+          "grid": 10,
+          "quali": "1:20.855",
+          "time": "+54.200",
+          "gapSeconds": 54.20041381625205,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 15,
+          "driver": "blaze47",
+          "team": "racing-bulls",
+          "grid": 7,
+          "quali": "1:19.314",
+          "time": "+59.404",
+          "gapSeconds": 59.40417680914079,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 12,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 16,
+          "driver": "fenwick",
+          "team": "ferrari",
+          "grid": 19,
+          "quali": "1:20.821",
+          "time": "+64.891",
+          "gapSeconds": 64.89115511194522,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 17,
+          "driver": "clutch-c",
+          "team": "audi",
+          "grid": 20,
+          "quali": "1:23.690",
+          "time": "+66.619",
+          "gapSeconds": 66.61912422384825,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 18,
+          "driver": "silverline",
+          "team": "mercedes",
+          "grid": 16,
+          "quali": "1:21.471",
+          "time": "+67.286",
+          "gapSeconds": 67.2856601805244,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 19,
+          "driver": "stint",
+          "team": "red-bull",
+          "grid": 18,
+          "quali": "1:23.202",
+          "time": "+69.216",
+          "gapSeconds": 69.21577257464921,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 20,
+          "driver": "halftank",
+          "team": "aston-martin",
+          "grid": 22,
+          "quali": "1:24.128",
+          "time": "+75.088",
+          "gapSeconds": 75.08845224871818,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 9,
+          "penalties": [
+            {
+              "seconds": 10,
+              "reason": "Dangerous driving"
+            }
+          ],
+          "fastestLap": false,
+          "reserve": true
+        },
+        {
+          "position": 21,
+          "driver": "dusty",
+          "team": "racing-bulls",
+          "grid": 2,
+          "quali": "1:18.849",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 26,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 22,
+          "driver": "s4mmy",
+          "team": "audi",
+          "grid": 21,
+          "quali": "1:23.156",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 17,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": true
+        }
+      ],
+      "dotd": "chicanecal",
+      "stream": null
+    },
+    {
+      "round": "r3",
+      "division": "d2",
+      "published": true,
+      "race": [
+        {
+          "position": 1,
+          "driver": "rafa-l",
+          "team": "williams",
+          "grid": 1,
+          "quali": "1:18.464",
+          "time": "43:54.570",
+          "gapSeconds": 0,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 2,
+          "driver": "ferris",
+          "team": "cadillac",
+          "grid": 4,
+          "quali": "1:18.901",
+          "time": "+1.601",
+          "gapSeconds": 1.6014696680500697,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": false,
+          "fastestLapTime": "1:18.883"
+        },
+        {
+          "position": 3,
+          "driver": "oxide",
+          "team": "mclaren",
+          "grid": 2,
+          "quali": "1:18.627",
+          "time": "+4.364",
+          "gapSeconds": 4.3644452415592525,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 4,
+          "driver": "wetweatherw",
+          "team": "mercedes",
+          "grid": 5,
+          "quali": "1:18.985",
+          "time": "+8.424",
+          "gapSeconds": 8.423592267605539,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 5,
+          "driver": "latebraker",
+          "team": "aston-martin",
+          "grid": 8,
+          "quali": "1:19.788",
+          "time": "+12.297",
+          "gapSeconds": 12.29749533286929,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 6,
+          "driver": "owenracer",
+          "team": "audi",
+          "grid": 13,
+          "quali": "1:20.808",
+          "time": "+16.272",
+          "gapSeconds": 16.271929833653445,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 7,
+          "driver": "quinn9",
+          "team": "cadillac",
+          "grid": 3,
+          "quali": "1:19.010",
+          "time": "+24.042",
+          "gapSeconds": 24.041946512596688,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 8,
+          "driver": "dirty-air",
+          "team": "ferrari",
+          "grid": 9,
+          "quali": "1:20.590",
+          "time": "+31.238",
+          "gapSeconds": 31.238189333914363,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 9,
+          "driver": "rudi-tempo",
+          "team": "audi",
+          "grid": 11,
+          "quali": "1:20.825",
+          "time": "+38.282",
+          "gapSeconds": 38.28248930872143,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 10,
+          "driver": "torque-t",
+          "team": "aston-martin",
+          "grid": 10,
+          "quali": "1:20.994",
+          "time": "+38.799",
+          "gapSeconds": 38.79908129821165,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 6,
+          "penalties": [
+            {
+              "seconds": 3,
+              "reason": "Weaving on the straight"
+            }
+          ],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 11,
+          "driver": "ballast",
+          "team": "ferrari",
+          "grid": 7,
+          "quali": "1:19.205",
+          "time": "+45.213",
+          "gapSeconds": 45.21314081463722,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 9,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 12,
+          "driver": "hexley",
+          "team": "williams",
+          "grid": 12,
+          "quali": "1:20.635",
+          "time": "+50.398",
+          "gapSeconds": 50.39814115909181,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 13,
+          "driver": "leomonza",
+          "team": "mercedes",
+          "grid": 14,
+          "quali": "1:21.766",
+          "time": "+57.823",
+          "gapSeconds": 57.822506243797555,
+          "status": "Finished",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": true
+        },
+        {
+          "position": 14,
+          "driver": "nix-rossi",
+          "team": "mclaren",
+          "grid": 6,
+          "quali": "1:19.067",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 10,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
+        }
+      ],
+      "dotd": "dirty-air",
       "stream": null
     },
     {
       "round": "r4",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:32.542"
-        },
-        {
-          "position": 2,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "time": "1:32.764"
-        },
-        {
-          "position": 3,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:33.039"
-        },
-        {
-          "position": 4,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:33.284"
-        },
-        {
-          "position": 5,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:33.734"
-        },
-        {
-          "position": 6,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:33.347"
-        },
-        {
-          "position": 7,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "time": "1:34.306"
-        },
-        {
-          "position": 8,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:33.942"
-        },
-        {
-          "position": 9,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "time": "1:33.548"
-        },
-        {
-          "position": 10,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "time": "1:34.421"
-        },
-        {
-          "position": 11,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:34.811"
-        },
-        {
-          "position": 12,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:34.509"
-        },
-        {
-          "position": 13,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:34.753"
-        },
-        {
-          "position": 14,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:36.012"
-        },
-        {
-          "position": 15,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:36.452"
-        },
-        {
-          "position": 16,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:36.222"
-        },
-        {
-          "position": 17,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:37.187"
-        },
-        {
-          "position": 18,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:37.876"
-        },
-        {
-          "position": 19,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:35.828"
-        },
-        {
-          "position": 20,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:36.929"
-        }
-      ],
-      "sprint": null,
+      "division": "d1",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 1,
-          "laps": 27,
+          "driver": "dusty",
+          "team": "racing-bulls",
+          "grid": 6,
+          "quali": "1:08.922",
+          "time": "41:06.337",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "42:12.879",
+          "laps": 36,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "kai-dubois",
+          "driver": "quali-q",
           "team": "alpine",
-          "grid": 2,
-          "laps": 27,
+          "grid": 3,
+          "quali": "1:07.914",
+          "time": "+0.538",
+          "gapSeconds": 0.5382916530667955,
           "status": "Finished",
-          "time": "+2.631",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 3,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 5,
-          "laps": 27,
+          "driver": "jetstream",
+          "team": "cadillac",
+          "grid": 20,
+          "quali": "1:11.300",
+          "time": "+3.777",
+          "gapSeconds": 3.776958411013252,
           "status": "Finished",
-          "time": "+4.760",
+          "laps": 36,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 8,
-          "laps": 27,
+          "driver": "skidrow",
+          "team": "alpine",
+          "grid": 4,
+          "quali": "1:08.408",
+          "time": "+7.626",
+          "gapSeconds": 7.625918016360206,
           "status": "Finished",
-          "time": "+5.630",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "grid": 9,
-          "laps": 27,
+          "driver": "blaze47",
+          "team": "racing-bulls",
+          "grid": 7,
+          "quali": "1:08.792",
+          "time": "+11.467",
+          "gapSeconds": 11.46661938323029,
           "status": "Finished",
-          "time": "+7.625",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 6,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "grid": 6,
-          "laps": 27,
+          "driver": "zoom",
+          "team": "haas",
+          "grid": 1,
+          "quali": "1:07.690",
+          "time": "+15.591",
+          "gapSeconds": 15.591378127577027,
           "status": "Finished",
-          "time": "+12.947",
+          "laps": 36,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 7,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 27,
+          "driver": "slipstream-j",
+          "team": "williams",
+          "grid": 8,
+          "quali": "1:09.061",
+          "time": "+21.975",
+          "gapSeconds": 21.975280814694585,
           "status": "Finished",
-          "time": "+19.159",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 8,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 7,
-          "laps": 27,
+          "driver": "bruno-m",
+          "team": "williams",
+          "grid": 9,
+          "quali": "1:09.945",
+          "time": "+29.318",
+          "gapSeconds": 29.317820735315003,
           "status": "Finished",
-          "time": "+24.502",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:32.819"
+          "reserve": false,
+          "fastestLapTime": "1:07.984"
         },
         {
           "position": 9,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 15,
-          "laps": 27,
+          "driver": "brakes",
+          "team": "cadillac",
+          "grid": 13,
+          "quali": "1:09.688",
+          "time": "+37.347",
+          "gapSeconds": 37.346833632531144,
           "status": "Finished",
-          "time": "+28.289",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 4,
-          "laps": 27,
+          "driver": "polepat",
+          "team": "mclaren",
+          "grid": 2,
+          "quali": "1:07.837",
+          "time": "+44.082",
+          "gapSeconds": 44.08222990767545,
           "status": "Finished",
-          "time": "+34.367",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 11,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 3,
-          "laps": 27,
+          "driver": "undercut-u",
+          "team": "aston-martin",
+          "grid": 10,
+          "quali": "1:09.615",
+          "time": "+50.359",
+          "gapSeconds": 50.35866966545972,
           "status": "Finished",
-          "time": "+35.222",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 11,
-          "laps": 27,
+          "driver": "fenwick",
+          "team": "ferrari",
+          "grid": 16,
+          "quali": "1:09.868",
+          "time": "+54.790",
+          "gapSeconds": 54.79037833540714,
           "status": "Finished",
-          "time": "+40.328",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 13,
-          "driver": "ryan-marin",
-          "team": "haas",
+          "driver": "hairpin",
+          "team": "red-bull",
           "grid": 17,
-          "laps": 27,
+          "quali": "1:10.984",
+          "time": "+61.302",
+          "gapSeconds": 61.30171097563473,
           "status": "Finished",
-          "time": "+45.005",
+          "laps": 36,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 14,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "grid": 12,
-          "laps": 27,
+          "driver": "velo",
+          "team": "mclaren",
+          "grid": 21,
+          "quali": "1:12.808",
+          "time": "+67.613",
+          "gapSeconds": 67.61301227102895,
           "status": "Finished",
-          "time": "+50.924",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 15,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 20,
-          "laps": 27,
+          "driver": "stint",
+          "team": "red-bull",
+          "grid": 11,
+          "quali": "1:09.789",
+          "time": "+1 lap",
+          "gapSeconds": 75.88745043311312,
           "status": "Finished",
-          "time": "+53.656",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 16,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "grid": 10,
-          "laps": 27,
+          "driver": "mika-v",
+          "team": "ferrari",
+          "grid": 14,
+          "quali": "1:10.220",
+          "time": "+1 lap",
+          "gapSeconds": 76.76375099657734,
           "status": "Finished",
-          "time": "+56.892",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 17,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "grid": 13,
-          "laps": 27,
+          "driver": "silverline",
+          "team": "mercedes",
+          "grid": 19,
+          "quali": "1:11.446",
+          "time": "+1 lap",
+          "gapSeconds": 80.50700650332669,
           "status": "Finished",
-          "time": "+63.087",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 18,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 19,
-          "laps": 27,
+          "driver": "vortex-kai",
+          "team": "mercedes",
+          "grid": 15,
+          "quali": "1:11.493",
+          "time": "+1 lap",
+          "gapSeconds": 85.29703597109548,
           "status": "Finished",
-          "time": "+68.701",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 19,
-          "driver": "alex-kral",
-          "team": "sauber",
+          "driver": "lucky-l",
+          "team": "audi",
           "grid": 18,
-          "laps": 27,
+          "quali": "1:10.030",
+          "time": "+1 lap",
+          "gapSeconds": 90.8807447464432,
           "status": "Finished",
-          "time": "+70.722",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [
+            {
+              "seconds": 3,
+              "reason": "Weaving on the straight"
+            }
+          ],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 20,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 14,
-          "laps": 20,
-          "status": "DSQ",
-          "time": "DSQ",
+          "driver": "clutch-c",
+          "team": "audi",
+          "grid": 12,
+          "quali": "1:10.561",
+          "time": "+1 lap",
+          "gapSeconds": 97.4335327654926,
+          "status": "Finished",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
+        },
+        {
+          "position": 21,
+          "driver": "chicanecal",
+          "team": "aston-martin",
+          "grid": 22,
+          "quali": "1:11.647",
+          "time": "+1 lap",
+          "gapSeconds": 104.65557898980418,
+          "status": "Finished",
+          "laps": 35,
+          "trackLimits": 0,
+          "penalties": [
+            {
+              "seconds": 3,
+              "reason": "Weaving on the straight"
+            }
+          ],
+          "fastestLap": false,
+          "reserve": false
+        },
+        {
+          "position": 22,
+          "driver": "fabio-r",
+          "team": "haas",
+          "grid": 5,
+          "quali": "1:08.206",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 6,
+          "trackLimits": 0,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         }
       ],
-      "dotd": "kai-dubois",
-      "report": "Lucas Reyes converted P1 on the grid into victory at Suzuka International Racing Course, finishing +2.631 clear of Kai Dubois. Lucas Fischer completed the podium, while Lucas Petrov took the fastest lap.",
+      "dotd": "brakes",
       "stream": null
     },
     {
       "round": "r4",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:32.303"
-        },
-        {
-          "position": 2,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:32.545"
-        },
-        {
-          "position": 3,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:32.616"
-        },
-        {
-          "position": 4,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:33.134"
-        },
-        {
-          "position": 5,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:32.963"
-        },
-        {
-          "position": 6,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:32.990"
-        },
-        {
-          "position": 7,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:33.924"
-        },
-        {
-          "position": 8,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "time": "1:33.989"
-        },
-        {
-          "position": 9,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:34.304"
-        },
-        {
-          "position": 10,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:34.312"
-        },
-        {
-          "position": 11,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:35.125"
-        },
-        {
-          "position": 12,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:34.517"
-        },
-        {
-          "position": 13,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:35.109"
-        },
-        {
-          "position": 14,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "time": "1:33.877"
-        },
-        {
-          "position": 15,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:35.419"
-        },
-        {
-          "position": 16,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:35.124"
-        },
-        {
-          "position": 17,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:36.779"
-        },
-        {
-          "position": 18,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:36.128"
-        },
-        {
-          "position": 19,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:35.250"
-        },
-        {
-          "position": 20,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:36.053"
-        }
-      ],
-      "sprint": null,
+      "division": "d2",
+      "published": true,
       "race": [
         {
           "position": 1,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 7,
-          "laps": 27,
+          "driver": "torque-t",
+          "team": "aston-martin",
+          "grid": 5,
+          "quali": "1:08.744",
+          "time": "41:16.573",
+          "gapSeconds": 0,
           "status": "Finished",
-          "time": "42:14.113",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:33.066"
+          "laps": 36,
+          "trackLimits": 6,
+          "penalties": [],
+          "fastestLap": false,
+          "reserve": false
         },
         {
           "position": 2,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "grid": 4,
-          "laps": 27,
+          "driver": "hexley",
+          "team": "williams",
+          "grid": 3,
+          "quali": "1:08.144",
+          "time": "+1.532",
+          "gapSeconds": 1.531538995294591,
           "status": "Finished",
-          "time": "+0.760",
+          "laps": 36,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 3,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "grid": 1,
-          "laps": 27,
+          "driver": "rudi-tempo",
+          "team": "audi",
+          "grid": 7,
+          "quali": "1:09.154",
+          "time": "+5.401",
+          "gapSeconds": 5.401129400442603,
           "status": "Finished",
-          "time": "+2.158",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 4,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 5,
-          "laps": 27,
+          "driver": "quinn9",
+          "team": "cadillac",
+          "grid": 6,
+          "quali": "1:08.584",
+          "time": "+7.364",
+          "gapSeconds": 7.363837488932299,
           "status": "Finished",
-          "time": "+5.007",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 5,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 2,
-          "laps": 27,
+          "driver": "ferris",
+          "team": "cadillac",
+          "grid": 1,
+          "quali": "1:07.680",
+          "time": "+11.361",
+          "gapSeconds": 11.361110765750194,
           "status": "Finished",
-          "time": "+7.764",
+          "laps": 36,
+          "trackLimits": 0,
+          "penalties": [
+            {
+              "seconds": 5,
+              "reason": "Causing a collision"
+            }
+          ],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 6,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 11,
-          "laps": 27,
+          "driver": "twostop",
+          "team": "mclaren",
+          "grid": 14,
+          "quali": "1:09.576",
+          "time": "+15.657",
+          "gapSeconds": 15.656977841774399,
           "status": "Finished",
-          "time": "+9.643",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "laps": 36,
+          "trackLimits": 3,
+          "penalties": [],
+          "fastestLap": true,
+          "reserve": true,
+          "fastestLapTime": "1:07.711"
         },
         {
           "position": 7,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 10,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+15.616",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "max-carter",
-          "team": "alpine",
-          "grid": 3,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+19.345",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
+          "driver": "dirty-air",
+          "team": "ferrari",
           "grid": 8,
-          "laps": 27,
+          "quali": "1:09.457",
+          "time": "+22.887",
+          "gapSeconds": 22.88696010908709,
           "status": "Finished",
-          "time": "+25.520",
+          "laps": 36,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
-          "position": 10,
-          "driver": "owen-weber",
-          "team": "haas",
-          "grid": 18,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+26.477",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 12,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+29.457",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "diego-lund",
-          "team": "redbull",
+          "position": 8,
+          "driver": "oxide",
+          "team": "mclaren",
           "grid": 9,
-          "laps": 27,
+          "quali": "1:08.895",
+          "time": "+29.891",
+          "gapSeconds": 29.890842230770726,
           "status": "Finished",
-          "time": "+31.508",
+          "laps": 36,
+          "trackLimits": 3,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "grid": 6,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+36.590",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 13,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+42.379",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 19,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+46.477",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 16,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+50.686",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "grid": 20,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+56.669",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 17,
-          "laps": 27,
-          "status": "Finished",
-          "time": "+59.808",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 15,
-          "laps": 18,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 14,
-          "laps": 11,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "axel-haddad",
-      "report": "Cole Moreau converted P7 on the grid into victory at Suzuka International Racing Course, finishing +0.760 clear of Rafael Sinclair. Santi Whitfield completed the podium, while Cole Moreau took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r5",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:30.179"
-        },
-        {
-          "position": 2,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:30.346"
-        },
-        {
-          "position": 3,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:30.671"
-        },
-        {
-          "position": 4,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:30.649"
-        },
-        {
-          "position": 5,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:31.050"
-        },
-        {
-          "position": 6,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:31.041"
-        },
-        {
-          "position": 7,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:31.166"
-        },
-        {
-          "position": 8,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:31.327"
+          "reserve": false
         },
         {
           "position": 9,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:31.164"
-        },
-        {
-          "position": 10,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:31.735"
-        },
-        {
-          "position": 11,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:31.753"
-        },
-        {
-          "position": 12,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "time": "1:33.245"
-        },
-        {
-          "position": 13,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:32.196"
-        },
-        {
-          "position": 14,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:33.569"
-        },
-        {
-          "position": 15,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:34.278"
-        },
-        {
-          "position": 16,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:35.061"
-        },
-        {
-          "position": 17,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:34.514"
-        },
-        {
-          "position": 18,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:33.938"
-        },
-        {
-          "position": 19,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:34.615"
-        },
-        {
-          "position": 20,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:35.211"
-        }
-      ],
-      "sprint": [
-        {
-          "position": 1,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "12:10.400"
-        },
-        {
-          "position": 2,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+1.696"
-        },
-        {
-          "position": 3,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+3.108"
-        },
-        {
-          "position": 4,
-          "driver": "luca-voss",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+4.437"
-        },
-        {
-          "position": 5,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+5.385"
-        },
-        {
-          "position": 6,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+7.276"
-        },
-        {
-          "position": 7,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+8.563"
-        },
-        {
-          "position": 8,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+10.631"
-        },
-        {
-          "position": 9,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+11.226"
-        },
-        {
-          "position": 10,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+11.830"
-        },
-        {
-          "position": 11,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+12.633"
-        },
-        {
-          "position": 12,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+13.530"
-        },
-        {
-          "position": 13,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+15.383"
-        },
-        {
-          "position": 14,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+16.634"
-        },
-        {
-          "position": 15,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+18.582"
-        },
-        {
-          "position": 16,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+20.162"
-        },
-        {
-          "position": 17,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+20.570"
-        },
-        {
-          "position": 18,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+22.703"
-        },
-        {
-          "position": 19,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+23.840"
-        },
-        {
-          "position": 20,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+25.681"
-        }
-      ],
-      "race": [
-        {
-          "position": 1,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "44:29.624",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "grid": 1,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+3.049",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+5.553",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 3,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+8.427",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+11.138",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+15.369",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 5,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+20.382",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.389"
-        },
-        {
-          "position": 8,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+25.388",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "jake-castellano",
-          "team": "haas",
-          "grid": 12,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+31.463",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+35.979",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 13,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+40.680",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+41.601",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+45.160",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+48.981",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+52.478",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+55.482",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+56.598",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+60.631",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "grid": 17,
-          "laps": 15,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "noah-baros",
-          "team": "mclaren",
+          "driver": "owenracer",
+          "team": "audi",
           "grid": 11,
-          "laps": 1,
-          "status": "DNF",
-          "time": "DNF",
+          "quali": "1:09.348",
+          "time": "+35.444",
+          "gapSeconds": 35.444171028205446,
+          "status": "Finished",
+          "laps": 36,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "hugo-lund",
-      "report": "Arlo Moreau converted P10 on the grid into victory at Miami International Autodrome, finishing +3.049 clear of Hugo Lund. Luca Voss completed the podium, while Noah Ekström took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r5",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:30.162"
-        },
-        {
-          "position": 2,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:30.376"
-        },
-        {
-          "position": 3,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:30.730"
-        },
-        {
-          "position": 4,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "time": "1:30.773"
-        },
-        {
-          "position": 5,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:30.755"
-        },
-        {
-          "position": 6,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "time": "1:31.545"
-        },
-        {
-          "position": 7,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:31.766"
-        },
-        {
-          "position": 8,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:31.860"
-        },
-        {
-          "position": 9,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:32.207"
+          "reserve": false
         },
         {
           "position": 10,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:32.144"
-        },
-        {
-          "position": 11,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:31.950"
-        },
-        {
-          "position": 12,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:32.372"
-        },
-        {
-          "position": 13,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:33.483"
-        },
-        {
-          "position": 14,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:32.850"
-        },
-        {
-          "position": 15,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "time": "1:31.987"
-        },
-        {
-          "position": 16,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:34.078"
-        },
-        {
-          "position": 17,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:35.307"
-        },
-        {
-          "position": 18,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:34.151"
-        },
-        {
-          "position": 19,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:33.169"
-        },
-        {
-          "position": 20,
-          "driver": "ivan-thornton",
+          "driver": "titan",
           "team": "mercedes",
-          "time": "1:35.964"
-        }
-      ],
-      "sprint": [
-        {
-          "position": 1,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "12:10.400"
-        },
-        {
-          "position": 2,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+2.192"
-        },
-        {
-          "position": 3,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+4.301"
-        },
-        {
-          "position": 4,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+6.292"
-        },
-        {
-          "position": 5,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+7.479"
-        },
-        {
-          "position": 6,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+9.138"
-        },
-        {
-          "position": 7,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+10.479"
-        },
-        {
-          "position": 8,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+11.860"
-        },
-        {
-          "position": 9,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+13.973"
-        },
-        {
-          "position": 10,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+15.261"
-        },
-        {
-          "position": 11,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+15.704"
-        },
-        {
-          "position": 12,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+16.649"
-        },
-        {
-          "position": 13,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+17.606"
-        },
-        {
-          "position": 14,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+19.611"
-        },
-        {
-          "position": 15,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+20.532"
-        },
-        {
-          "position": 16,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+22.515"
-        },
-        {
-          "position": 17,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+24.015"
-        },
-        {
-          "position": 18,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+25.591"
-        },
-        {
-          "position": 19,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+27.135"
-        },
-        {
-          "position": 20,
-          "driver": "ivan-thornton",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+28.418"
-        }
-      ],
-      "race": [
-        {
-          "position": 1,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 1,
-          "laps": 29,
-          "status": "Finished",
-          "time": "44:23.925",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 3,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+1.587",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.058"
-        },
-        {
-          "position": 3,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 5,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+2.327",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "kai-dubois",
-          "team": "alpine",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+4.945",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+7.879",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+11.912",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 2,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+15.708",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+21.119",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+26.036",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 8,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+29.985",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+32.595",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+38.200",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
           "grid": 13,
-          "laps": 29,
+          "quali": "1:09.262",
+          "time": "+40.095",
+          "gapSeconds": 40.09464344400291,
           "status": "Finished",
-          "time": "+38.889",
+          "laps": 36,
+          "trackLimits": 12,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
-          "position": 14,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+40.058",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
+          "position": 11,
+          "driver": "latebraker",
+          "team": "aston-martin",
           "grid": 12,
-          "laps": 29,
+          "quali": "1:08.799",
+          "time": "+43.982",
+          "gapSeconds": 43.98174780142542,
           "status": "Finished",
-          "time": "+40.718",
+          "laps": 36,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+46.287",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+48.841",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 17,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+50.440",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "ivan-thornton",
-          "team": "mercedes",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+54.482",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 7,
-          "laps": 4,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "ryan-zimmer",
-      "report": "Ezra Jensen converted P1 on the grid into victory at Miami International Autodrome, finishing +1.587 clear of Ryan Zimmer. Axel Dubois completed the podium, while Ryan Zimmer took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r5",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:30.682"
-        },
-        {
-          "position": 2,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:30.977"
-        },
-        {
-          "position": 3,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:31.278"
-        },
-        {
-          "position": 4,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:31.229"
-        },
-        {
-          "position": 5,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:31.790"
-        },
-        {
-          "position": 6,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:31.720"
-        },
-        {
-          "position": 7,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "time": "1:31.644"
-        },
-        {
-          "position": 8,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:31.611"
-        },
-        {
-          "position": 9,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:32.202"
-        },
-        {
-          "position": 10,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:32.929"
-        },
-        {
-          "position": 11,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:32.687"
+          "reserve": false
         },
         {
           "position": 12,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:33.013"
-        },
-        {
-          "position": 13,
-          "driver": "milo-castellano",
+          "driver": "rafa-l",
           "team": "williams",
-          "time": "1:34.095"
-        },
-        {
-          "position": 14,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:33.487"
-        },
-        {
-          "position": 15,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:32.715"
-        },
-        {
-          "position": 16,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:35.552"
-        },
-        {
-          "position": 17,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:35.190"
-        },
-        {
-          "position": 18,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:34.245"
-        },
-        {
-          "position": 19,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:36.324"
-        },
-        {
-          "position": 20,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:36.748"
-        }
-      ],
-      "sprint": [
-        {
-          "position": 1,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "12:10.400"
-        },
-        {
-          "position": 2,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+2.109"
-        },
-        {
-          "position": 3,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+3.969"
-        },
-        {
-          "position": 4,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+5.371"
-        },
-        {
-          "position": 5,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+7.557"
-        },
-        {
-          "position": 6,
-          "driver": "owen-weber",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+8.159"
-        },
-        {
-          "position": 7,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+9.986"
-        },
-        {
-          "position": 8,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+10.629"
-        },
-        {
-          "position": 9,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+12.204"
-        },
-        {
-          "position": 10,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+14.225"
-        },
-        {
-          "position": 11,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+15.563"
-        },
-        {
-          "position": 12,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+17.103"
-        },
-        {
-          "position": 13,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+18.078"
-        },
-        {
-          "position": 14,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+20.089"
-        },
-        {
-          "position": 15,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+21.574"
-        },
-        {
-          "position": 16,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+22.247"
-        },
-        {
-          "position": 17,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+24.279"
-        },
-        {
-          "position": 18,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+24.947"
-        },
-        {
-          "position": 19,
-          "driver": "max-carter",
-          "team": "alpine",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+26.654"
-        },
-        {
-          "position": 20,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "laps": 8,
-          "status": "Finished",
-          "time": "+27.194"
-        }
-      ],
-      "race": [
-        {
-          "position": 1,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "grid": 10,
-          "laps": 29,
-          "status": "Finished",
-          "time": "44:28.612",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:31.552"
-        },
-        {
-          "position": 2,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "grid": 1,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+3.248",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 14,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+5.833",
-          "fastestLap": false,
-          "penaltySeconds": 10
-        },
-        {
-          "position": 4,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "grid": 5,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+7.604",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 3,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+8.929",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "owen-weber",
-          "team": "haas",
           "grid": 4,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+13.127",
+          "quali": "1:08.338",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 33,
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 6,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+16.857",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "grid": 11,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+20.667",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 9,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+26.714",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 12,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+31.723",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 13,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+37.420",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+41.904",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         },
         {
           "position": 13,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 18,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+46.928",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 15,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+49.792",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 17,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+51.835",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "tariq-brandt",
-          "team": "astonmartin",
-          "grid": 7,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+56.680",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 20,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+62.322",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "max-carter",
-          "team": "alpine",
-          "grid": 19,
-          "laps": 29,
-          "status": "Finished",
-          "time": "+66.310",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 2,
+          "driver": "halftank",
+          "team": "mercedes",
+          "grid": 10,
+          "quali": "1:10.022",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
           "laps": 26,
-          "status": "DNF",
-          "time": "DNF",
+          "trackLimits": 0,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "grid": 8,
-          "laps": 15,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "diego-lund",
-      "report": "Diego Lund converted P10 on the grid into victory at Miami International Autodrome, finishing +3.248 clear of Santi Whitfield. Axel Haddad completed the podium, while Diego Lund took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r6",
-      "tier": "t1",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "time": "1:17.826"
-        },
-        {
-          "position": 2,
-          "driver": "luca-voss",
-          "team": "haas",
-          "time": "1:17.996"
-        },
-        {
-          "position": 3,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "time": "1:18.147"
-        },
-        {
-          "position": 4,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "time": "1:18.675"
-        },
-        {
-          "position": 5,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "time": "1:18.967"
-        },
-        {
-          "position": 6,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "time": "1:18.826"
-        },
-        {
-          "position": 7,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "time": "1:19.153"
-        },
-        {
-          "position": 8,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "time": "1:19.601"
-        },
-        {
-          "position": 9,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "time": "1:20.113"
-        },
-        {
-          "position": 10,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "time": "1:19.072"
-        },
-        {
-          "position": 11,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "time": "1:19.720"
-        },
-        {
-          "position": 12,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "time": "1:20.613"
-        },
-        {
-          "position": 13,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "time": "1:19.696"
+          "reserve": true
         },
         {
           "position": 14,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "time": "1:21.078"
-        },
-        {
-          "position": 15,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "time": "1:21.949"
-        },
-        {
-          "position": 16,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "time": "1:20.297"
-        },
-        {
-          "position": 17,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "time": "1:21.723"
-        },
-        {
-          "position": 18,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "time": "1:23.083"
-        },
-        {
-          "position": 19,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "time": "1:20.939"
-        },
-        {
-          "position": 20,
-          "driver": "rui-byrne",
-          "team": "haas",
-          "time": "1:23.464"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "noah-ekstr-m",
-          "team": "ferrari",
-          "grid": 1,
-          "laps": 32,
-          "status": "Finished",
-          "time": "42:12.868",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:18.887"
-        },
-        {
-          "position": 2,
-          "driver": "luca-voss",
-          "team": "haas",
-          "grid": 2,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+2.714",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "dylan-petrov",
-          "team": "alpine",
-          "grid": 3,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+3.870",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "zane-voss",
-          "team": "racingbulls",
-          "grid": 17,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+5.540",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "hugo-lund",
-          "team": "sauber",
-          "grid": 4,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+7.908",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "arlo-moreau",
-          "team": "astonmartin",
-          "grid": 6,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+11.600",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "ivan-pryce",
-          "team": "astonmartin",
-          "grid": 11,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+13.867",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "zane-rossi",
-          "team": "redbull",
-          "grid": 16,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+19.635",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "kai-kowalski",
-          "team": "mercedes",
-          "grid": 10,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+25.418",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "dani-bennett",
-          "team": "redbull",
-          "grid": 7,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+29.390",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "jonas-ferreira",
-          "team": "racingbulls",
-          "grid": 5,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+33.526",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "rafael-novak",
-          "team": "williams",
-          "grid": 12,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+35.314",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "nico-sinclair",
-          "team": "sauber",
-          "grid": 8,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+41.006",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "arlo-weber",
-          "team": "williams",
-          "grid": 9,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+46.331",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "elias-ekstr-m",
-          "team": "mercedes",
-          "grid": 14,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+49.611",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "zane-okafor",
-          "team": "alpine",
-          "grid": 19,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+52.371",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "axel-sato",
-          "team": "mclaren",
-          "grid": 18,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+57.377",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "noah-baros",
-          "team": "mclaren",
-          "grid": 15,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+60.959",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "rui-byrne",
-          "team": "haas",
-          "grid": 20,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+64.849",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "kai-fischer",
-          "team": "ferrari",
-          "grid": 13,
-          "laps": 26,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "ivan-pryce",
-      "report": "Noah Ekström converted P1 on the grid into victory at Autodromo Enzo e Dino Ferrari, finishing +2.714 clear of Luca Voss. Dylan Petrov completed the podium, while Noah Ekström took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r6",
-      "tier": "t2",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "time": "1:18.046"
-        },
-        {
-          "position": 2,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "time": "1:18.205"
-        },
-        {
-          "position": 3,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "time": "1:18.576"
-        },
-        {
-          "position": 4,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "time": "1:18.828"
-        },
-        {
-          "position": 5,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "time": "1:18.646"
-        },
-        {
-          "position": 6,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "time": "1:19.166"
-        },
-        {
-          "position": 7,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "time": "1:19.649"
-        },
-        {
-          "position": 8,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "time": "1:19.833"
-        },
-        {
-          "position": 9,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "time": "1:19.386"
-        },
-        {
-          "position": 10,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "time": "1:19.856"
-        },
-        {
-          "position": 11,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "time": "1:19.847"
-        },
-        {
-          "position": 12,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "time": "1:20.298"
-        },
-        {
-          "position": 13,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "time": "1:21.374"
-        },
-        {
-          "position": 14,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "time": "1:20.874"
-        },
-        {
-          "position": 15,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "time": "1:20.368"
-        },
-        {
-          "position": 16,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "time": "1:22.171"
-        },
-        {
-          "position": 17,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "time": "1:21.875"
-        },
-        {
-          "position": 18,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "time": "1:20.583"
-        },
-        {
-          "position": 19,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "time": "1:21.287"
-        },
-        {
-          "position": 20,
-          "driver": "mateo-ferreira",
-          "team": "alpine",
-          "time": "1:23.467"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "lucas-reyes",
-          "team": "racingbulls",
-          "grid": 3,
-          "laps": 32,
-          "status": "Finished",
-          "time": "42:09.191",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 2,
-          "driver": "ryan-zimmer",
-          "team": "mclaren",
-          "grid": 6,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+1.012",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:18.839"
-        },
-        {
-          "position": 3,
-          "driver": "theo-kral",
-          "team": "astonmartin",
-          "grid": 10,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+2.574",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "ezra-jensen",
-          "team": "mercedes",
-          "grid": 2,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+3.558",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "liam-doyle",
-          "team": "williams",
-          "grid": 4,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+5.120",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "kenji-andersson",
-          "team": "racingbulls",
-          "grid": 13,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+7.981",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "louis-castellano",
-          "team": "alpine",
-          "grid": 14,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+9.118",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "jonas-fletcher",
-          "team": "redbull",
-          "grid": 1,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+12.913",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "rhys-quinn",
-          "team": "mercedes",
-          "grid": 5,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+18.982",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "lucas-fischer",
-          "team": "mclaren",
-          "grid": 8,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+24.934",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "arlo-zimmer",
-          "team": "astonmartin",
-          "grid": 9,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+26.295",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "axel-dubois",
-          "team": "williams",
-          "grid": 16,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+30.420",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 13,
-          "driver": "cole-thornton",
-          "team": "ferrari",
-          "grid": 18,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+35.002",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "lucas-petrov",
-          "team": "haas",
-          "grid": 11,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+38.000",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "aiden-ochoa",
-          "team": "redbull",
-          "grid": 17,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+44.052",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "kenji-vance",
-          "team": "sauber",
-          "grid": 15,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+49.318",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "alex-kral",
-          "team": "sauber",
-          "grid": 19,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+55.155",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "ryan-marin",
-          "team": "haas",
-          "grid": 7,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+60.720",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "mateo-ferreira",
-          "team": "alpine",
-          "grid": 20,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+66.296",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "owen-ekstr-m",
-          "team": "ferrari",
-          "grid": 12,
-          "laps": 14,
-          "status": "DNF",
-          "time": "DNF",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        }
-      ],
-      "dotd": "ryan-zimmer",
-      "report": "Lucas Reyes converted P3 on the grid into victory at Autodromo Enzo e Dino Ferrari, finishing +1.012 clear of Ryan Zimmer. Theo Kral completed the podium, while Ryan Zimmer took the fastest lap.",
-      "stream": null
-    },
-    {
-      "round": "r6",
-      "tier": "t3",
-      "qualifying": [
-        {
-          "position": 1,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "time": "1:18.076"
-        },
-        {
-          "position": 2,
-          "driver": "santi-whitfield",
-          "team": "ferrari",
-          "time": "1:18.343"
-        },
-        {
-          "position": 3,
-          "driver": "max-carter",
-          "team": "alpine",
-          "time": "1:18.365"
-        },
-        {
-          "position": 4,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "time": "1:18.884"
-        },
-        {
-          "position": 5,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "time": "1:18.824"
-        },
-        {
-          "position": 6,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "time": "1:18.970"
-        },
-        {
-          "position": 7,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "time": "1:19.225"
-        },
-        {
-          "position": 8,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "time": "1:19.112"
-        },
-        {
-          "position": 9,
-          "driver": "owen-weber",
-          "team": "haas",
-          "time": "1:19.093"
-        },
-        {
-          "position": 10,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "time": "1:19.577"
-        },
-        {
-          "position": 11,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "time": "1:19.622"
-        },
-        {
-          "position": 12,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "time": "1:19.927"
-        },
-        {
-          "position": 13,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "time": "1:20.097"
-        },
-        {
-          "position": 14,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "time": "1:19.924"
-        },
-        {
-          "position": 15,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "time": "1:20.350"
-        },
-        {
-          "position": 16,
-          "driver": "ryan-baros",
-          "team": "astonmartin",
-          "time": "1:20.871"
-        },
-        {
-          "position": 17,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "time": "1:22.013"
-        },
-        {
-          "position": 18,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "time": "1:22.114"
-        },
-        {
-          "position": 19,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "time": "1:20.681"
-        },
-        {
-          "position": 20,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "time": "1:22.597"
-        }
-      ],
-      "sprint": null,
-      "race": [
-        {
-          "position": 1,
-          "driver": "rafael-sinclair",
-          "team": "mclaren",
-          "grid": 12,
-          "laps": 32,
-          "status": "Finished",
-          "time": "42:05.585",
-          "fastestLap": true,
-          "penaltySeconds": 0,
-          "fastestLapTime": "1:18.662"
-        },
-        {
-          "position": 2,
-          "driver": "max-carter",
-          "team": "alpine",
-          "grid": 3,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+2.602",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 3,
-          "driver": "santi-whitfield",
+          "driver": "ballast",
           "team": "ferrari",
           "grid": 2,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+5.662",
+          "quali": "1:07.784",
+          "time": null,
+          "gapSeconds": null,
+          "status": "DNF",
+          "laps": 12,
+          "trackLimits": 6,
+          "penalties": [],
           "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 4,
-          "driver": "finn-pryce",
-          "team": "ferrari",
-          "grid": 4,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+6.866",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 5,
-          "driver": "owen-weber",
-          "team": "haas",
-          "grid": 9,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+8.311",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 6,
-          "driver": "cole-moreau",
-          "team": "sauber",
-          "grid": 7,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+11.775",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 7,
-          "driver": "milo-castellano",
-          "team": "williams",
-          "grid": 13,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+17.905",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 8,
-          "driver": "diego-lund",
-          "team": "redbull",
-          "grid": 8,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+22.642",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 9,
-          "driver": "yusuf-vance",
-          "team": "alpine",
-          "grid": 15,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+27.098",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 10,
-          "driver": "hugo-ochoa",
-          "team": "racingbulls",
-          "grid": 14,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+29.065",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 11,
-          "driver": "diego-laurent",
-          "team": "williams",
-          "grid": 11,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+32.223",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 12,
-          "driver": "axel-haddad",
-          "team": "redbull",
-          "grid": 1,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+34.589",
-          "fastestLap": false,
-          "penaltySeconds": 5
-        },
-        {
-          "position": 13,
-          "driver": "owen-mercer",
-          "team": "racingbulls",
-          "grid": 20,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+35.755",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 14,
-          "driver": "ryan-baros",
-          "team": "astonmartin",
-          "grid": 16,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+38.610",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 15,
-          "driver": "hiro-novak",
-          "team": "mercedes",
-          "grid": 10,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+44.069",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 16,
-          "driver": "hugo-jensen",
-          "team": "sauber",
-          "grid": 6,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+47.813",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 17,
-          "driver": "kenji-fletcher",
-          "team": "mclaren",
-          "grid": 17,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+50.783",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 18,
-          "driver": "yusuf-pryce",
-          "team": "mercedes",
-          "grid": 5,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+54.505",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 19,
-          "driver": "nico-hughes",
-          "team": "haas",
-          "grid": 19,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+58.777",
-          "fastestLap": false,
-          "penaltySeconds": 0
-        },
-        {
-          "position": 20,
-          "driver": "cole-jensen",
-          "team": "astonmartin",
-          "grid": 18,
-          "laps": 32,
-          "status": "Finished",
-          "time": "+63.867",
-          "fastestLap": false,
-          "penaltySeconds": 0
+          "reserve": false
         }
       ],
-      "dotd": "yusuf-vance",
-      "report": "Rafael Sinclair converted P12 on the grid into victory at Autodromo Enzo e Dino Ferrari, finishing +2.602 clear of Max Carter. Santi Whitfield completed the podium, while Rafael Sinclair took the fastest lap.",
+      "dotd": "hexley",
       "stream": null
     }
   ],
   "penalties": [
     {
       "id": "p1",
-      "round": "r1",
-      "tier": "t1",
-      "driver": "kai-fischer",
-      "against": null,
-      "lap": 17,
-      "incident": "Corner cutting to gain an advantage",
-      "decision": "5s time penalty",
-      "points": 1,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "round": "r2",
+      "division": "d1",
+      "driver": "slipstream-j",
+      "against": "blaze47",
+      "lap": 18,
+      "incident": "Weaving on the straight",
+      "decision": "3s time penalty",
+      "licencePoints": 1,
+      "status": "Decided"
     },
     {
       "id": "p2",
-      "round": "r1",
-      "tier": "t2",
-      "driver": "liam-doyle",
-      "against": null,
-      "lap": 5,
-      "incident": "Unsafe rejoin",
-      "decision": "Lap time deleted",
-      "points": 1,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "round": "r2",
+      "division": "d2",
+      "driver": "hexley",
+      "against": "rudi-tempo",
+      "lap": 22,
+      "incident": "Ignoring blue flags",
+      "decision": "3s time penalty",
+      "licencePoints": 1,
+      "status": "Decided"
     },
     {
       "id": "p3",
-      "round": "r1",
-      "tier": "t2",
-      "driver": "lucas-petrov",
-      "against": null,
-      "lap": 6,
-      "incident": "Causing a collision",
+      "round": "r3",
+      "division": "d1",
+      "driver": "halftank",
+      "against": "polepat",
+      "lap": 8,
+      "incident": "Dangerous driving",
       "decision": "10s time penalty",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "licencePoints": 3,
+      "status": "Decided"
     },
     {
       "id": "p4",
-      "round": "r1",
-      "tier": "t3",
-      "driver": "yusuf-pryce",
-      "against": null,
-      "lap": 22,
-      "incident": "Unsafe rejoin",
-      "decision": "Reprimand",
-      "points": 0,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "round": "r3",
+      "division": "d2",
+      "driver": "torque-t",
+      "against": "rafa-l",
+      "lap": 1,
+      "incident": "Weaving on the straight",
+      "decision": "3s time penalty",
+      "licencePoints": 1,
+      "status": "Decided"
     },
     {
       "id": "p5",
-      "round": "r1",
-      "tier": "t3",
-      "driver": "hugo-ochoa",
-      "against": "owen-weber",
-      "lap": 5,
-      "incident": "Dangerous driving",
-      "decision": "10s time penalty",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "round": "r4",
+      "division": "d1",
+      "driver": "lucky-l",
+      "against": "undercut-u",
+      "lap": 21,
+      "incident": "Weaving on the straight",
+      "decision": "3s time penalty",
+      "licencePoints": 1,
+      "status": "Decided"
     },
     {
       "id": "p6",
-      "round": "r1",
-      "tier": "t3",
-      "driver": "max-carter",
-      "against": "diego-laurent",
-      "lap": 17,
-      "incident": "Unsafe rejoin",
-      "decision": "Warning",
-      "points": 0,
-      "status": "Decided",
-      "steward": "Stewards Panel"
+      "round": "r4",
+      "division": "d1",
+      "driver": "chicanecal",
+      "against": "bruno-m",
+      "lap": 36,
+      "incident": "Weaving on the straight",
+      "decision": "3s time penalty",
+      "licencePoints": 1,
+      "status": "Decided"
     },
     {
       "id": "p7",
-      "round": "r2",
-      "tier": "t1",
-      "driver": "axel-sato",
-      "against": "dylan-petrov",
-      "lap": 17,
-      "incident": "Causing a collision",
-      "decision": "10s time penalty",
-      "points": 2,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p8",
-      "round": "r2",
-      "tier": "t2",
-      "driver": "lucas-fischer",
-      "against": "jonas-fletcher",
-      "lap": 10,
-      "incident": "Causing a collision",
-      "decision": "5-place grid drop (next round)",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p9",
-      "round": "r2",
-      "tier": "t2",
-      "driver": "owen-ekstr-m",
-      "against": null,
-      "lap": 2,
-      "incident": "Impeding in qualifying",
-      "decision": "Warning",
-      "points": 0,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p10",
-      "round": "r2",
-      "tier": "t2",
-      "driver": "theo-kral",
-      "against": "cole-thornton",
-      "lap": 22,
-      "incident": "Causing a collision",
-      "decision": "5s time penalty",
-      "points": 2,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p11",
-      "round": "r2",
-      "tier": "t3",
-      "driver": "cole-moreau",
-      "against": "axel-haddad",
-      "lap": 21,
-      "incident": "Weaving on the straight",
-      "decision": "Reprimand",
-      "points": 0,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p12",
-      "round": "r3",
-      "tier": "t3",
-      "driver": "yusuf-pryce",
-      "against": null,
-      "lap": 1,
-      "incident": "Impeding in qualifying",
-      "decision": "Reprimand",
-      "points": 0,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p13",
       "round": "r4",
-      "tier": "t3",
-      "driver": "tariq-brandt",
-      "against": "yusuf-pryce",
-      "lap": 4,
-      "incident": "Corner cutting to gain an advantage",
-      "decision": "Lap time deleted",
-      "points": 1,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p14",
-      "round": "r5",
-      "tier": "t1",
-      "driver": "noah-baros",
-      "against": "arlo-moreau",
-      "lap": 7,
-      "incident": "Causing a collision",
-      "decision": "10s time penalty",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p15",
-      "round": "r5",
-      "tier": "t1",
-      "driver": "dani-bennett",
-      "against": "zane-okafor",
-      "lap": 5,
-      "incident": "Weaving on the straight",
-      "decision": "Lap time deleted",
-      "points": 1,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p16",
-      "round": "r5",
-      "tier": "t2",
-      "driver": "ezra-jensen",
-      "against": "ryan-marin",
-      "lap": 4,
-      "incident": "Impeding in qualifying",
-      "decision": "Lap time deleted",
-      "points": 1,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p17",
-      "round": "r5",
-      "tier": "t3",
-      "driver": "yusuf-vance",
-      "against": "santi-whitfield",
-      "lap": 19,
-      "incident": "Dangerous driving",
-      "decision": "5-place grid drop (next round)",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p18",
-      "round": "r5",
-      "tier": "t3",
-      "driver": "axel-haddad",
-      "against": "hugo-jensen",
-      "lap": 23,
-      "incident": "Dangerous driving",
-      "decision": "10s time penalty",
-      "points": 3,
-      "status": "Decided",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p19",
-      "round": "r6",
-      "tier": "t2",
-      "driver": "louis-castellano",
-      "against": null,
-      "lap": 9,
-      "incident": "Overtaking under the safety car",
-      "decision": "3-place grid drop (next round)",
-      "points": 2,
-      "status": "Under review",
-      "steward": "Stewards Panel"
-    },
-    {
-      "id": "p20",
-      "round": "r6",
-      "tier": "t3",
-      "driver": "axel-haddad",
-      "against": "cole-jensen",
+      "division": "d2",
+      "driver": "ferris",
+      "against": "titan",
       "lap": 32,
-      "incident": "Corner cutting to gain an advantage",
+      "incident": "Causing a collision",
       "decision": "5s time penalty",
-      "points": 1,
-      "status": "Under review",
-      "steward": "Stewards Panel"
+      "licencePoints": 2,
+      "status": "Decided"
     }
-  ]
+  ],
+  "transactions": [
+    {
+      "team": "audi",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "twostop",
+      "round": "pre",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "red-bull",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "carbon",
+      "round": "pre",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "audi",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "leomonza",
+      "round": "r1",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "aston-martin",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "halftank",
+      "round": "r3",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "audi",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "s4mmy",
+      "round": "r3",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "mercedes",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "leomonza",
+      "round": "r3",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "mclaren",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "twostop",
+      "round": "r4",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "mercedes",
+      "type": "reserve",
+      "amount": 2,
+      "driver": "halftank",
+      "round": "r4",
+      "note": "One-race reserve contract"
+    },
+    {
+      "team": "racing-bulls",
+      "type": "waiver",
+      "amount": 2,
+      "driver": "marlowegt",
+      "round": "r2",
+      "note": "Driver waived"
+    },
+    {
+      "team": "mclaren",
+      "type": "waiver",
+      "amount": 2,
+      "driver": "overtake-o",
+      "round": "r2",
+      "note": "Driver waived"
+    }
+  ],
+  "highlights": []
 });

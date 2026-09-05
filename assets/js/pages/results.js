@@ -1,78 +1,35 @@
-/* Results page */
+/* Official classification */
 TRL.page("results", function () {
-  const { $, $$, esc, link } = TRL;
-  const E = TRL.E();
-  const s = TRL.season();
-  TRL.setTitle("Results");
-  TRL.seasonSelect($("#season-select"));
-  let tid = null, rid = TRL.qs("round"), tab = "race";
-  const roundSel = $("#round-select");
-
-  function refreshRounds() {
-    const sheets = E.tierSheets(s, tid);
-    roundSel.innerHTML = sheets.length ? sheets.map((sh) => { const r = E.round(s, sh.round); return `<option value="${esc(r.id)}">R${r.round} · ${esc(r.name)}</option>`; }).join("") : '<option value="">No results yet</option>';
-    if (!sheets.some((sh) => sh.round === rid)) rid = sheets.length ? sheets[sheets.length - 1].round : null;
-    roundSel.value = rid || "";
-  }
-  function timeCell(row, i) { if (row.status !== "Finished") return `<span class="text-dim">${esc(row.status)}</span>`; return esc(row.time || ""); }
-  function render() {
-    const t = E.tier(s, tid);
-    const sh = rid ? E.sheet(s, rid, tid) : null;
-    const r = rid ? E.round(s, rid) : null;
-    if (!sh || !r) { $("#round-head").innerHTML = ""; $("#result").innerHTML = `<div class="empty">No results have been posted for ${esc(t ? t.name : "this tier")} yet.</div>`; return; }
-    TRL.setParam("round", rid); TRL.setParam("tier", tid);
-    TRL.setTitle(`R${r.round} ${r.name} · ${t.name}`);
-    const sheets = E.tierSheets(s, tid); const idx = sheets.findIndex((x) => x.round === rid);
-    const prev = idx > 0 ? sheets[idx - 1].round : null, next = idx < sheets.length - 1 ? sheets[idx + 1].round : null;
-    const st = E.computeStandings(s, tid);
-    const resOf = (driverId) => { const e = st.drivers.find((d) => d.driverId === driverId); return e ? e.results[rid] || {} : {}; };
-    const race = sh.race || [], quali = sh.qualifying || [], sprint = sh.sprint || null;
-    const fl = race.find((x) => x.fastestLap);
-    const pole = quali.find((x) => x.position === 1);
-
-    $("#round-head").innerHTML = `
-      <div class="row row--between">
-        <div>
-          <div class="kicker">${esc(t.name)} · Round ${r.round} of ${s.rounds.length}</div>
-          <h2 style="margin:6px 0 6px">${TRL.flag(r.country)} ${esc(r.name)}</h2>
-          <div class="race-meta"><span><b>${esc(r.circuit)}</b>, ${esc(r.location)}</span><span>${r.laps} laps · ${esc(r.format || "")}</span><span>${esc(TRL.fmtDateTime(E.sessionDate(s, r, tid)))}</span>${r.sprint ? '<span class="badge badge--purple">Sprint weekend</span>' : ""}</div>
-        </div>
-        <div class="row">${prev ? `<button class="btn btn--ghost btn--sm" data-go="${esc(prev)}">← Previous</button>` : ""}${next ? `<button class="btn btn--ghost btn--sm" data-go="${esc(next)}">Next →</button>` : ""}</div>
-      </div>`;
-
-    const podium = `<div class="podium">${race.slice(0, 3).map((row) => `<div class="podium__step">${TRL.posBadge(row.position)}<div class="podium__name">${TRL.driverName(s, row.driver, { flag: false })}</div><div class="podium__team">${esc((E.team(s, row.team) || {}).name || "")}</div></div>`).join("")}</div>`;
-    const facts = `<dl class="dl mt-3">${pole ? `<dt>Pole</dt><dd>${TRL.driverName(s, pole.driver)} <span class="mono text-muted">${esc(pole.time || "")}</span></dd>` : ""}${fl ? `<dt>Fastest lap</dt><dd>${TRL.driverName(s, fl.driver)} <span class="mono text-muted">${esc(fl.fastestLapTime || "")}</span></dd>` : ""}${sh.dotd ? `<dt>Driver of the day</dt><dd>${TRL.driverName(s, sh.dotd)}</dd>` : ""}<dt>Classified</dt><dd>${race.filter((x) => x.status === "Finished").length} of ${race.length}</dd></dl>`;
-    const tabs = [["race", "Race"], ["qualifying", "Qualifying"]].concat(sprint ? [["sprint", "Sprint"]] : []);
-    if (!tabs.some((x) => x[0] === tab)) tab = "race";
-
-    let table = "";
-    if (tab === "race") {
-      table = `<table class="table"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="c">Grid</th><th class="c">+/−</th><th class="c">Laps</th><th>Time / Gap</th><th class="c">Pen</th><th class="pts">Pts</th></tr></thead><tbody>${race.map((row) => { const res = resOf(row.driver); const delta = row.grid && row.status === "Finished" ? row.grid - row.position : null; return `<tr><td>${TRL.posBadge(row.position, row.status)}</td><td>${TRL.driverName(s, row.driver, { number: true, reserve: true })}${row.fastestLap ? '<span class="fl-dot" title="Fastest lap">FL</span>' : ""}${sh.dotd === row.driver ? ' <span class="badge badge--gold" title="Driver of the day" style="padding:1px 6px">DOTD</span>' : ""}</td><td>${TRL.teamName(s, row.team)}</td><td class="c">${row.grid || "—"}</td><td class="c">${delta == null ? "—" : delta > 0 ? `<span class="delta delta--up">▲${delta}</span>` : delta < 0 ? `<span class="delta delta--down">▼${-delta}</span>` : '<span class="delta delta--same">–</span>'}</td><td class="c">${row.laps}</td><td class="mono">${timeCell(row)}</td><td class="c">${row.penaltySeconds ? `<span class="badge badge--accent">+${row.penaltySeconds}s</span>` : ""}</td><td class="pts">${res.racePoints != null ? res.racePoints : 0}</td></tr>`; }).join("")}</tbody></table>`;
-    } else if (tab === "qualifying") {
-      const toSec = (t) => { const m = /^(\d+):(\d+\.\d+)$/.exec(t || ""); return m ? Number(m[1]) * 60 + Number(m[2]) : null; };
-      const p = pole ? toSec(pole.time) : null;
-      table = `<table class="table"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Lap time</th><th>Gap</th></tr></thead><tbody>${quali.map((row) => { const sec = toSec(row.time); return `<tr><td>${TRL.posBadge(row.position)}</td><td>${TRL.driverName(s, row.driver, { number: true, reserve: true })}</td><td>${TRL.teamName(s, row.team)}</td><td class="mono">${esc(row.time || "—")}</td><td class="mono text-muted">${p != null && sec != null && row.position > 1 ? "+" + (sec - p).toFixed(3) : ""}</td></tr>`; }).join("")}</tbody></table>`;
-    } else if (tab === "sprint") {
-      const ps = E.pointsSystem(s);
-      table = `<table class="table"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="c">Laps</th><th>Time / Gap</th><th class="pts">Pts</th></tr></thead><tbody>${sprint.map((row) => `<tr><td>${TRL.posBadge(row.position, row.status)}</td><td>${TRL.driverName(s, row.driver, { number: true, reserve: true })}</td><td>${TRL.teamName(s, row.team)}</td><td class="c">${row.laps}</td><td class="mono">${timeCell(row)}</td><td class="pts">${row.status === "Finished" ? (ps.sprint[row.position - 1] || 0) : 0}</td></tr>`).join("")}</tbody></table>`;
-    }
-    const pens = E.penalties(s, { tier: tid, round: rid });
-    $("#result").innerHTML = `
-      <div class="sidebar-layout">
-        <div>
-          <div class="tabs" id="session-tabs">${tabs.map(([k, l]) => `<button class="tab" role="tab" aria-selected="${tab === k}" data-tab="${k}">${l}</button>`).join("")}</div>
-          <div class="table-wrap">${table}</div>
-          ${sh.report ? `<div class="card mt-3"><div class="card__title">Race report</div><p class="text-muted">${esc(sh.report)}</p></div>` : ""}
-        </div>
-        <div class="stack">
-          <div class="card"><div class="card__title">Podium</div>${podium}${facts}</div>
-          <div class="card"><div class="card__title">Stewards' decisions <a href="${esc(link("penalties.html", { tier: tid, round: rid }))}">All</a></div>${pens.length ? pens.map((p) => `<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem"><b>${TRL.driverName(s, p.driver, { flag: false })}</b> · lap ${p.lap}<div class="text-muted">${esc(p.incident)} — ${esc(p.decision)}${p.points ? ` (+${p.points} pts)` : ""}</div></div>`).join("") : '<p class="text-muted">No penalties.</p>'}</div>
-          ${sh.stream ? `<a class="btn btn--ghost btn--block" href="${esc(sh.stream)}" target="_blank" rel="noopener">${TRL.icon("youtube")} Watch the replay</a>` : `<div class="placeholder" style="aspect-ratio:16/9;border-radius:var(--radius)">Replay embed placeholder</div>`}
-        </div>
-      </div>`;
-    $$("#session-tabs .tab").forEach((b) => b.addEventListener("click", () => { tab = b.dataset.tab; render(); }));
-    $$("#round-head [data-go]").forEach((b) => b.addEventListener("click", () => { rid = b.dataset.go; roundSel.value = rid; render(); }));
-  }
-  roundSel.addEventListener("change", () => { rid = roundSel.value; render(); });
-  TRL.tierTabs($("#tier-tabs"), s, (id) => { tid = id; refreshRounds(); render(); });
+  const { $, $$, esc, href } = TRL; const E = TRL.E(); const s = TRL.season();
+  const root = $("#results");
+  const divs = E.divisions(s);
+  let roundId = TRL.qs("round"), divId = TRL.qs("div") || (divs[0] && divs[0].id);
+  const published = E.rounds(s).filter((r) => divs.some((dv) => E.sheet(s, r.id, dv.id)));
+  if (!roundId || !published.some((r) => r.id === roundId)) roundId = published.length ? published[published.length - 1].id : null;
+  if (!roundId) { root.innerHTML = '<div class="state-page"><p class="kicker">Results</p><h1>Nothing published yet</h1><p class="lede" style="margin:0 auto">Results appear here once Race Control publishes a round.</p></div>'; return; }
+  if (!E.sheet(s, roundId, divId)) divId = (divs.find((dv) => E.sheet(s, roundId, dv.id)) || divs[0]).id;
+  TRL.setParam("round", roundId); TRL.setParam("div", divId);
+  const r = E.round(s, roundId), sh = E.sheet(s, roundId, divId), dv = E.division(s, divId);
+  TRL.setTitle(`${r.name} results`);
+  const race = sh.race || [];
+  const ps = (row) => E.rowPoints(s, sh, row);
+  const idx = published.findIndex((x) => x.id === roundId); const prev = published[idx - 1], next = published[idx + 1];
+  const podium = race.slice(0, 3).map((row) => { const d = E.driver(s, row.driver); const t = row.team ? E.team(s, row.team) : null; const cls = row.position === 1 ? "gold" : row.position === 2 ? "silver" : "bronze"; return `<article class="podium-card ${cls}" ${TRL.teamStyle(t)}>${t ? `<div class="podium-watermark">${TRL.ctorMark(t, "lg")}</div>` : ""}${TRL.medal(row.position)}<span class="place">${row.position === 1 ? "Winner" : "P" + row.position}</span>${TRL.avatar(d, "lg", t)}<div class="who">${TRL.ctorMark(t, "sm")}<a href="${TRL.driverUrl(row.driver)}">${esc(d ? d.name : row.driver)}</a>${d && d.cc ? TRL.flag(d.cc, d.nation, "sm") : ""}</div><span class="team-name">${esc(t ? t.name : "Free agent")}</span><div class="time">${esc(row.time || "—")}</div></article>`; }).join("");
+  const gridCell = (row) => { if (!row.grid) return "—"; const delta = row.status === "Finished" ? row.grid - row.position : null; return `${row.grid}${delta ? ` <span class="grid-delta ${delta > 0 ? "up" : "down"}">(${delta > 0 ? "+" : ""}${delta})</span>` : ""}`; };
+  const penCell = (row) => (row.trackLimits ? `<span class="pen-chip ${row.trackLimits >= 9 ? "hard" : "warn"}">${row.trackLimits}s</span>` : '<span class="dim">—</span>');
+  const fiaCell = (row) => ((row.penalties || []).length ? row.penalties.map((p) => `<span class="pen-chip hard" title="${esc(p.reason || "")}">${p.seconds}s</span>`).join(" ") : '<span class="dim">—</span>');
+  const nameCell = (row) => { const d = E.driver(s, row.driver); const t = row.team ? E.team(s, row.team) : null; return `<span style="display:inline-flex;align-items:center;gap:8px">${TRL.ctorMark(t, "sm")}<a href="${TRL.driverUrl(row.driver)}"><b>${esc(d ? d.name : row.driver)}</b></a>${TRL.reserveMark(row)}${d && d.cc ? TRL.flag(d.cc, d.nation, "sm") : ""}</span>`; };
+  const isPole = (row) => row.grid === 1 && row.quali;
+  const rows = race.map((row) => { const p = ps(row); const retired = row.status !== "Finished"; return `<tr class="${retired ? "row-retired" : TRL.rowTone(row.position)}"><td>${TRL.medal(row.position)}</td><td>${nameCell(row)}</td><td class="c">${gridCell(row)}</td><td class="c ${isPole(row) ? "time-pole" : ""}">${esc(row.quali || "—")}</td><td class="c">${retired ? esc(row.status) : esc(row.time || "—")}</td><td class="c">${retired ? "—" : row.position === 1 ? "Leader" : esc(row.time || "—")}</td><td class="c">${penCell(row)}</td><td class="c">${fiaCell(row)}</td><td class="pts-cell">${p.total}${TRL.bonusChips(p.bonuses)}</td></tr>`; }).join("");
+  const cards = race.map((row) => { const p = ps(row); const retired = row.status !== "Finished"; return `<div class="result-card ${retired ? "is-retired" : ""}"><div class="result-card-top">${TRL.medal(row.position)}<span class="name">${nameCell(row)}</span><span class="pts">${p.total}</span></div><div class="result-card-stats"><div><span>Grid</span>${gridCell(row)}</div><div><span>Quali</span>${esc(row.quali || "—")}</div><div><span>Time</span>${retired ? esc(row.status) : esc(row.time || "—")}</div><div><span>Pen</span>${penCell(row)} ${fiaCell(row)}</div></div>${TRL.bonusChips(p.bonuses)}</div>`; }).join("");
+  const dotd = sh.dotd ? E.driver(s, sh.dotd) : null;
+  root.innerHTML = `
+    <section class="page-head"><p class="kicker">${esc(s.name)} - ${r.preseason ? "Preseason" : "Round " + r.round}</p><h1 class="page-head-flag"><span>${esc(r.name)}</span>${TRL.flag(r.cc, r.location, "lg")}</h1><p class="lede">${esc(r.circuit)}, ${esc(r.location)}. ${r.laps} laps.</p></section>
+    <div class="results-meta">${TRL.divBadge(dv)}<span class="pill pill-green">Published</span>${divs.length > 1 ? `<div class="desk-tabs" style="margin:0">${divs.filter((x) => E.sheet(s, roundId, x.id)).map((x) => `<button type="button" data-div="${esc(x.id)}" aria-selected="${x.id === divId}">${esc(x.short)}</button>`).join("")}</div>` : ""}<span class="grow"></span>${prev ? `<a class="btn btn-compact" href="?round=${esc(prev.id)}&div=${esc(divId)}">← ${prev.preseason ? "Pre" : "R" + prev.round}</a>` : ""}${next ? `<a class="btn btn-compact" href="?round=${esc(next.id)}&div=${esc(divId)}">${next.preseason ? "Pre" : "R" + next.round} →</a>` : ""}<a class="btn btn-primary btn-compact" href="analysis.html?round=${esc(roundId)}&div=${esc(divId)}">Race analysis</a></div>
+    <div class="podium-grid">${podium}</div>
+    <div class="results-head"><div><p class="kicker">Official classification</p><h2>Race results</h2></div>${dotd ? `<div class="dotd-box"><p class="kicker">Driver of the day</p><span class="who">${TRL.ctorMark(dotd.team ? E.team(s, dotd.team) : null, "sm")}<a href="${TRL.driverUrl(dotd.id)}">${esc(dotd.name)}</a></span></div>` : ""}</div>
+    <div class="table-panel results-table-wrap"><div class="table-scroll"><table class="data-table results-table"><thead><tr><th>Pos</th><th>Driver</th><th class="c">Grid</th><th class="c">Qualifying</th><th class="c">Time</th><th class="c">Gap</th><th class="c">Track limits</th><th class="c">Stewards</th><th class="r">Pts</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+    <div class="result-cards">${cards}</div>
+    ${r.preseason ? '<p class="muted small mt-2">Preseason showcase: no championship points are awarded. Bonus markers are shown for reference.</p>' : ""}`;
+  $$("[data-div]", root).forEach((b) => b.addEventListener("click", () => { location.search = `?round=${encodeURIComponent(roundId)}&div=${encodeURIComponent(b.dataset.div)}`; }));
 });

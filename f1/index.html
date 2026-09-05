@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>F1 Championship | TRL Driver Hub</title>
+  <meta name="description" content="Next race, title fight, driver directory and constructors for the TRL F1 league.">
+  <meta name="theme-color" content="#08090b">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;900&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>window.TRL_ROOT = "../";</script>
+</head>
+<body data-page="f1home" data-section="f1">
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="hero-copy">
+          <p class="kicker" id="hero-kicker"></p>
+          <h1 id="hero-title"></h1>
+          <p class="lede" id="hero-lede"></p>
+          <div class="actions"><a class="btn btn-primary" href="signup.html">Join as a driver <span>→</span></a><a class="btn" href="drivers.html">Meet the drivers</a><a class="btn" href="schedule.html">Race calendar</a><a class="btn" href="standings.html">Standings</a></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="hero-mark"><img src="../assets/img/logo.svg" alt=""></div></div>
+      </div>
+      <div class="season-strip" id="season-strip"></div>
+    </section>
+  </div>
+  <section class="block"><div class="wrap"><div class="block-head"><div><p class="kicker">Up next</p><h2>Next race</h2></div><a class="block-link" href="schedule.html">Full schedule →</a></div><div class="race-list" id="next-race"></div></div></section>
+  <section class="block block-alt"><div class="wrap"><div class="block-head"><div><p class="kicker">Championship</p><h2>Title fight</h2></div><a class="block-link" href="standings.html">All standings →</a></div><div class="leader-grid" id="title-fight"></div></div></section>
+  <section class="block"><div class="wrap"><div class="block-head"><div><p class="kicker">The grid</p><h2>Meet the drivers</h2></div><a class="block-link" href="drivers.html">All drivers →</a></div><div class="driver-grid" id="driver-preview"></div></div></section>
+  <section class="block block-alt"><div class="wrap"><div class="block-head"><div><p class="kicker">The grid</p><h2>Constructors</h2></div><a class="block-link" href="teams.html">Teams &amp; contracts →</a></div><div class="ctor-strip" id="ctor-strip"></div></div></section>
+</main>
+<script src="../data/config.js"></script>
+<script src="../data/seasons/2026.js"></script>
+<script src="../data/endurance.js"></script>
+<script src="../assets/js/engine.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/pages/f1home.js"></script>
+</body>
+</html>

@@ -2,117 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TRL Driver Hub · Competitive F1 league</title>
-  <meta name="description" content="Standings, results, calendar and driver profiles for the TRL F1 league.">
-  <meta name="theme-color" content="#0a0b0f">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TRL Driver Hub</title>
+  <meta name="description" content="Sim racing community for Formula 1 championship competition and endurance racing.">
+  <meta name="theme-color" content="#08090b">
+  <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;900&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>window.TRL_ROOT = "";</script>
 </head>
-<body data-page="home">
+<body data-page="hub" data-section="hub">
 <main id="main">
-  <section class="hero">
-    <div class="container hero__inner">
-      <div>
-        <div class="kicker hero__kicker" id="hero-kicker">Season</div>
-        <h1 id="hero-title">Where the grid <em>comes to race.</em></h1>
-        <p class="hero__lead" id="hero-desc"></p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="register.html">Join the grid</a>
-          <a class="btn btn--ghost" href="standings.html">View standings</a>
-          <a class="btn btn--discord" data-discord-link href="#" target="_blank" rel="noopener">Discord</a>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="hero-copy">
+          <p class="kicker" id="hero-kicker"></p>
+          <h1 id="hero-title"></h1>
+          <p class="lede" id="hero-desc"></p>
+          <div class="actions"><a class="btn btn-primary" href="f1/index.html">Enter F1 Championship <span>→</span></a><a class="btn" href="endurance/index.html" id="hero-endurance">Explore Endurance</a></div>
         </div>
-        <div class="hero__stats" id="hero-stats"></div>
+        <div class="hero-art" aria-hidden="true"><div class="hero-mark"><img src="assets/img/logo.svg" alt=""></div></div>
       </div>
-      <div class="hero__art" id="hero-art"></div>
+      <div class="season-strip" id="season-strip"></div>
+    </section>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head"><div><p class="kicker">Flagship venture</p><h2>F1 Championship</h2></div><a class="block-link" href="f1/index.html" id="open-f1">Open F1 →</a></div>
+      <article class="feature-card">
+        <div class="feature-copy"><p class="kicker" id="f1-code"></p><h3 id="feature-title"></h3><p id="feature-text"></p><div class="actions"><a class="btn btn-primary" href="f1/index.html">Go to F1 home</a><a class="btn" href="f1/schedule.html">Race calendar</a><a class="btn" href="f1/standings.html">Standings</a></div></div>
+        <div class="feature-aside" id="feature-aside"></div>
+      </article>
     </div>
   </section>
-
-  <section class="section section--tight">
-    <div class="container">
-      <div class="card card--accent next-race" id="next-race"></div>
+  <section class="block block-alt" id="endurance-block">
+    <div class="wrap">
+      <div class="block-head"><div><p class="kicker">Also racing</p><h2>Endurance Racing</h2></div><a class="block-link" href="endurance/index.html">Endurance hub →</a></div>
+      <div class="grid-2" id="venture-grid"></div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <div><h2>Latest results</h2><p class="section__sub">The most recent podium in every tier.</p></div>
-        <a class="btn btn--ghost btn--sm" id="all-results" href="results.html">All results</a>
-      </div>
-      <div class="grid grid--3" id="latest-results"></div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section__head">
-        <div><h2>Championship standings</h2><p class="section__sub">Live tables, updated after every round.</p></div>
-        <a class="btn btn--ghost btn--sm" id="full-standings" href="standings.html">Full standings</a>
-      </div>
-      <div class="tabs" id="home-tiers"></div>
-      <div class="grid grid--2" id="home-standings"></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <div><h2>Upcoming rounds</h2><p class="section__sub">Race times are shown in your local timezone.</p></div>
-        <a class="btn btn--ghost btn--sm" id="full-calendar" href="calendar.html">Full calendar</a>
-      </div>
-      <div class="round-list" id="upcoming"></div>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="watch">
-    <div class="container">
-      <div class="section__head">
-        <div><h2>Watch live</h2><p class="section__sub">Every race night broadcast with commentary.</p></div>
-      </div>
-      <div class="two-col">
-        <div class="stream" id="stream"></div>
-        <div id="watch-info"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <div><h2>News</h2><p class="section__sub">Race reports, announcements and features.</p></div>
-        <a class="btn btn--ghost btn--sm" href="news.html">All news</a>
-      </div>
-      <div class="grid grid--3" id="home-news"></div>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="container">
-      <div class="section__head"><h2>Partners</h2></div>
-      <div class="partners" id="partners"></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="cta-band reveal">
-        <div><h2>Ready to race?</h2><p>Seats and reserve places are open in every tier. Registration takes two minutes.</p></div>
-        <div class="row"><a class="btn btn--primary" href="register.html">Register now</a><a class="btn btn--ghost" data-discord-link href="#" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.5);color:#fff">Join Discord</a></div>
-      </div>
+  <section class="block">
+    <div class="wrap cta-block">
+      <p class="kicker">Driver entry</p>
+      <h2>Race with <span id="cta-name">us</span></h2>
+      <p id="cta-text">Add yourself to the F1 and Endurance driver lists on the site with Discord. If you aren’t in the league server yet, we’ll open the invite after you register. You can qualify for both.</p>
+      <div class="actions"><a class="btn btn-primary" href="f1/signup.html">Join F1</a><a class="btn" href="endurance/signup.html" id="cta-endurance">Join Endurance</a><a class="btn" id="cta-discord" href="#" target="_blank" rel="noreferrer">Discord</a></div>
     </div>
   </section>
 </main>
 <script src="data/config.js"></script>
-<script src="data/seasons/2025.js"></script>
 <script src="data/seasons/2026.js"></script>
-<script src="data/news.js"></script>
-<script src="data/gallery.js"></script>
+<script src="data/endurance.js"></script>
 <script src="assets/js/engine.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/pages/home.js"></script>
+<script src="assets/js/pages/hub.js"></script>
 </body>
 </html>

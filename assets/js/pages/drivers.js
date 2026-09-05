@@ -1,37 +1,13 @@
-/* Drivers grid */
+/* Driver directory */
 TRL.page("drivers", function () {
-  const { $, esc, link, img } = TRL;
-  const E = TRL.E();
-  const s = TRL.season();
-  TRL.setTitle("Drivers");
-  TRL.seasonSelect($("#season-select"));
-  let tid = "", q = "", team = "", role = "";
-  $("#team-filter").innerHTML = '<option value="">All teams</option>' + (s.teams || []).map((t) => `<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("");
-  const standings = {}; E.tiers(s).forEach((t) => { standings[t.id] = E.computeStandings(s, t.id); });
-  const tierOrder = (id) => ((E.tier(s, id) || {}).order || 99);
-  const entryOf = (d) => { const st = standings[d.tier]; return st ? st.drivers.find((x) => x.driverId === d.id) : null; };
-
-  function card(d) {
-    const t = E.team(s, d.team), tier = E.tier(s, d.tier), e = entryOf(d);
-    const color = t ? t.color : "#6b7290";
-    return `<a class="driver-card" href="${esc(link("driver.html", { id: d.id }))}">
-      <div class="driver-card__photo placeholder">${img(d.photo, "Driver photo", { w: 400, h: 400, accent: color, alt: d.name })}</div>
-      <div class="driver-card__bar" style="background:${esc(color)}"></div>
-      <div class="driver-card__body">
-        <div class="driver-card__name">${TRL.flag(d.nationality)} ${esc(d.name)}</div>
-        <div class="driver-card__num">${esc(d.number)}</div>
-        <div class="driver-card__team">${t ? esc(t.name) : "Reserve driver"}</div>
-        <div class="driver-card__meta">${TRL.tierPill(tier)}${d.role === "reserve" ? '<span class="badge">Reserve</span>' : e ? `<span class="badge">P${e.position} · ${e.points} pts</span>` : ""}<span class="badge">${esc(d.platform || "")}</span></div>
-      </div></a>`;
-  }
-  function render() {
-    const list = (s.drivers || []).filter((d) => (!tid || d.tier === tid) && (!team || d.team === team) && (!role || d.role === role) && (!q || `${d.name} ${d.tag} ${d.number}`.toLowerCase().includes(q)));
-    list.sort((a, b) => tierOrder(a.tier) - tierOrder(b.tier) || ((a.role === "reserve") - (b.role === "reserve")) || (((entryOf(a) || {}).position || 999) - ((entryOf(b) || {}).position || 999)));
-    $("#count").textContent = `${list.length} driver${list.length === 1 ? "" : "s"}`;
-    $("#grid").innerHTML = list.length ? list.map(card).join("") : '<div class="empty" style="grid-column:1/-1">No drivers match those filters.</div>';
-  }
-  $("#team-filter").addEventListener("change", (e) => { team = e.target.value; render(); });
-  $("#role-filter").addEventListener("change", (e) => { role = e.target.value; render(); });
-  $("#search").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); render(); });
-  TRL.tierTabs($("#tier-tabs"), s, (id) => { tid = id; render(); }, { allOption: true });
+  const { $, esc } = TRL; const E = TRL.E(); const s = TRL.season();
+  TRL.setTitle("Meet the drivers");
+  TRL.pageHead($("#head"), s.name, "Meet the drivers", "Rostered drivers by constructor, then free agents — open a profile for the full sheet.");
+  const groups = E.divisions(s).map((dv) => {
+    const ro = E.rosters(s, dv.id);
+    if (!ro.byTeam.length) return "";
+    return `<section class="standings-block"><div class="block-head"><div>${TRL.divBadge(dv)}<h2 style="margin-top:8px">${esc(dv.name)}</h2></div><span class="section-count">${ro.byTeam.length} constructors</span></div><div class="grid-2">${ro.byTeam.map((g) => `<div class="ctor-group" ${TRL.teamStyle(g.team)}><div class="ctor-group-head">${TRL.ctorMark(g.team, "md")}<div><p class="kicker" style="color:var(--team)">Constructor</p><h3>${esc(g.team.name)}</h3></div><span class="count">${g.drivers.length} driver${g.drivers.length === 1 ? "" : "s"}</span></div><div class="driver-grid two">${g.drivers.map((d) => TRL.driverTile(s, d)).join("")}</div></div>`).join("")}</div></section>`;
+  }).join("");
+  const fa = E.freeAgents(s);
+  $("#blocks").innerHTML = groups + (fa.length ? `<section class="standings-block"><div class="block-head"><div><p class="kicker">Unsigned</p><h2>Free agents</h2></div><span class="section-count">${fa.length} drivers</span></div><div class="driver-grid">${fa.map((d) => TRL.driverTile(s, d, { stats: false })).join("")}</div></section>` : "");
 });

@@ -1,104 +1,100 @@
 /* =============================================================
-   TRL Driver Hub — League configuration
-   Everything brand/league specific lives here. Edit freely.
+   TRL Driver Hub — league configuration
+   Brand, ventures, Discord, forms, points, salary cap, licences.
    ============================================================= */
 window.TRL_CONFIG = {
-  league: {
+  brand: {
     name: "TRL",
+    line1: "TRL",
+    line2: "Driver Hub",
     fullName: "TRL Driver Hub",
-    tagline: "Where the grid comes to race.",
-    description:
-      "TRL is a competitive, clean-racing F1 league running multiple tiers every week. Fair stewarding, full broadcasts, real championships.",
-    established: 2024,
-    game: "F1 25",
-    platforms: ["PC", "PlayStation", "Xbox"],
-    email: "admin@example.com",
-    discordInvite: "https://discord.gg/your-invite-code",
-    socials: {
-      discord: "https://discord.gg/your-invite-code",
-      twitch: "https://twitch.tv/your-channel",
-      youtube: "https://youtube.com/@your-channel",
-      twitter: "https://x.com/your-handle",
-      instagram: "https://instagram.com/your-handle",
-      tiktok: "https://tiktok.com/@your-handle"
-    },
-    // Twitch channel used for the live embed. Leave empty to hide the stream block.
-    twitchChannel: "your-channel"
+    tagline: "Competition. Precision. Community.",
+    version: "v1.0.0",
+    heroLine1: "ONE LEAGUE.",
+    heroLine2: "EVERY GRID.",
+    description: "TRL runs competitive sim racing across Formula 1 and endurance. The F1 championship is the flagship league — live standings, schedule, and race control live here.",
+    metaDescription: "Sim racing community for Formula 1 championship competition and endurance racing.",
+    year: 2026
   },
 
-  // Where the sign-up and incident forms send their data.
-  // - discordWebhook: a Discord channel webhook URL (recommended, no backend needed)
-  // - formEndpoint:   any endpoint that accepts a JSON POST (Formspree, Netlify, your own API)
-  // If both are empty, the forms fall back to a pre-filled mailto: link.
-  forms: {
-    registration: { discordWebhook: "", formEndpoint: "" },
-    incident: { discordWebhook: "", formEndpoint: "" }
+  devBanner: {
+    enabled: true,
+    text: "TRL Driver Hub is currently in active development. Join our Discord server for the most up to date information.",
+    linkText: "Join Discord ↗"
   },
+
+  discord: {
+    invite: "https://discord.gg/your-invite-code",
+    // Optional: fill these in to enable "Sign in with Discord" (OAuth2 implicit grant, no backend needed).
+    // Create an application at https://discord.com/developers, add the login page URL as a redirect, and paste the client id.
+    clientId: "",
+    guildId: "",
+    roles: { teamPrincipal: "Team Principal", raceControl: "Race Control", steward: "Steward" }
+  },
+
+  f1: {
+    code: "TRLF1",
+    name: "TRL F1 Championship",
+    shortName: "F1 Championship",
+    raceNight: "Sunday nights",
+    raceTime: "8:30 PM ET",
+    heroLine1: "BUILT FOR THE",
+    heroLine2: "LIMIT.",
+    lede: "Lights out Sunday nights at 8:30 p.m. Eastern. Track standings, schedule, and constructor caps for the TRL Formula 1 league.",
+    featureTitle: "Full league operations for TRL Formula 1",
+    featureText: "salary-cap team management, race results, and Discord-linked race control. This is the primary product on the site.",
+    rulebookSource: ""
+  },
+
+  endurance: {
+    enabled: true,
+    code: "Endurance",
+    lede: "Club cars in iRacing and Le Mans Ultimate. 6H, 12H, 24H, and 1000km team races are the headline events. Mark interest, then the race desk covers cars, fuel, stints, and prep.",
+    platforms: [
+      { id: "iracing", name: "iRacing", title: "Endurance on the service", text: "Long-form TRL endurance events, team coordination, and community race nights on iRacing.", panelText: "Team driver-swap endurance — longer races, stint changes, pit strategy, and Discord-led coordination." },
+      { id: "lmu", name: "Le Mans Ultimate", title: "Prototype & GT endurance", text: "TRL endurance competition in LMU — multi-class racing built for stamina and clean racecraft.", panelText: "Prototype and GT endurance with TRL. Multi-class racecraft lives here while the F1 championship stays the flagship." }
+    ]
+  },
+
+  // Where forms send their data. Discord channel webhooks work without a backend.
+  // Leave both empty to fall back to a pre-filled email.
+  forms: {
+    email: "admin@example.com",
+    f1Signup: { discordWebhook: "", formEndpoint: "" },
+    enduranceSignup: { discordWebhook: "", formEndpoint: "" },
+    interest: { discordWebhook: "", formEndpoint: "" },
+    office: { discordWebhook: "", formEndpoint: "" }
+  },
+
+  weather: { enabled: true, refreshMinutes: 20 },
 
   pointsSystems: {
-    f1: {
-      label: "Standard F1",
-      race: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1],
-      sprint: [8, 7, 6, 5, 4, 3, 2, 1],
-      fastestLap: 1,
-      fastestLapTop10Only: true,
-      pole: 0
-    },
-    extended: {
-      label: "Extended (top 15)",
-      race: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1, 0, 0, 0, 0, 0],
-      sprint: [8, 7, 6, 5, 4, 3, 2, 1],
-      fastestLap: 1,
-      fastestLapTop10Only: true,
-      pole: 1
+    trl: {
+      label: "TRL F1",
+      race: [25, 23, 21, 19, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 5, 3, 1],
+      bonuses: { pole: 1, fastestLap: 1, dotd: 1, mostGained: 1 },
+      reservesScoreConstructors: false
     }
   },
 
-  // Licence / penalty points
-  penaltyPoints: {
-    raceBanAt: 12,
-    warningAt: 8,
-    expiryRounds: 12
+  cap: {
+    limit: 60,               // $M per constructor per season
+    seatsPerTeam: 4,         // contract positions (2 per division)
+    fullTimePerDivision: 2,
+    reserveFee: 2,           // one-race reserve contract, $M
+    waiverFee: 2,            // $M applied to the cap when a driver is waived
+    performancePerPosition: 2, // $M per position finished above contract position
+    performanceDivision: "d1",  // performance adjustments apply to contracts in this division only
+    // Driver value by contract position (P1..P22), $M
+    salaryTable: [30, 27, 25, 23, 21, 19, 18, 17, 16, 15, 14, 13.5, 12, 11.5, 10, 9.5, 8, 7.5, 6, 5.5, 4, 3],
+    // Constructors' points deducted at season end for exceeding the cap
+    overCapBrackets: [
+      { upTo: 5, points: 5 },
+      { upTo: 10, points: 15 },
+      { upTo: 20, points: 30 },
+      { upTo: Infinity, points: 50 }
+    ]
   },
 
-  staff: [
-    { name: "League Director", role: "Founder & Director", handle: "director" },
-    { name: "Head Steward", role: "Chief Steward", handle: "steward" },
-    { name: "Broadcast Lead", role: "Commentary & Streams", handle: "broadcast" },
-    { name: "Community Manager", role: "Discord & Onboarding", handle: "community" }
-  ],
-
-  partners: [
-    { name: "Partner One", url: "#" },
-    { name: "Partner Two", url: "#" },
-    { name: "Partner Three", url: "#" },
-    { name: "Partner Four", url: "#" }
-  ],
-
-  faq: [
-    {
-      q: "How do I join the league?",
-      a: "Fill in the registration form on the Register page and join our Discord. An admin will confirm your placement (tier and team) and you will get access to the drivers' channels."
-    },
-    {
-      q: "Which platform and game do you race on?",
-      a: "We run on F1 25 with cross-play enabled, so PC, PlayStation and Xbox drivers all race together in the same lobbies."
-    },
-    {
-      q: "Do I need a wheel?",
-      a: "No. Pad and wheel drivers are both welcome and race together. Clean, consistent driving matters far more than the input device."
-    },
-    {
-      q: "What happens if I miss a race?",
-      a: "Let the admins know in Discord at least 24 hours in advance so a reserve can be lined up. Repeated no-shows without notice may lead to your seat being reassigned."
-    },
-    {
-      q: "How does promotion and relegation work?",
-      a: "At the end of each season the top drivers of each tier are offered promotion and the bottom drivers move down, subject to attendance and driving standards."
-    },
-    {
-      q: "How do I report an incident?",
-      a: "Use the incident report form on the Penalties page (or the stewards channel on Discord) within 48 hours of the race. Include the lap, the drivers involved and a clip or timestamp."
-    }
-  ]
+  licence: { activeMax: 7, provisionalMax: 11 }
 };
